@@ -1,0 +1,37 @@
+{
+  "name": "@gatsbystorefront/gatsby-starter-storefront-shopify",
+  "private": false,
+  "description": "A simple starter to get up and developing quickly with Gatsby Storefront",
+  "version": "2.1.0",
+  "author": {
+    "name": "Pavel Ivanov",
+    "email": "paveliv@gmail.com",
+    "url": "https://gatsbystorefront.com/"
+  },
+  "dependencies": {
+    "@gatsbystorefront/gatsby-theme-storefront-shopify": "^2.1.6",
+    "dotenv": "^8.2.0",
+    "gatsby": "^2.13.38",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsbystorefront",
+    "gatsby-theme-storefront-shopify",
+    "gatsby-starter"
+  ],
+  "license": "MPL-2.0",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbystorefront/gatsby-starter-storefront-shopify"
+  }
+}
