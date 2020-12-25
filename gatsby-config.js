@@ -1,37 +1,66 @@
 require('dotenv').config({ path: `.env` });
-const flattenMenu = require('@gatsbystorefront/gatsby-theme-storefront-shopify/src/utils/flattenMenu');
 
 module.exports = {
   plugins: [
     {
-      resolve: '@gatsbystorefront/gatsby-theme-storefront-shopify',
+      resolve: 'gatsby-source-shopify',
       options: {
         shopName: process.env.GATSBY_SHOPIFY_SHOP_NAME,
         accessToken: process.env.GATSBY_SHOPIFY_ACCESS_TOKEN,
-        basePath: '/',
-        shopifyLite: true,
-        enableWebp: true,
-        imageQuality: '95',
-        gatsbyImageProps: {
-          loading: 'eager',
-          fadeIn: false,
-          durationFadeIn: 500,
+        includeCollections: ['shop'],
+        apiVersion: '2020-01',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-nprogress',
+      options: {
+        color: '#333',
+        showSpinner: false,
+      },
+    },
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-theme-ui',
+    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'HB Ledco led furniture store',
+        short_name: 'HB Ledco',
+        start_url: '/',
+        background_color: '#fff',
+        theme_color: '#333',
+        display: 'standalone',
+        icon: 'src/images/led.svg',
+        icon_options: {
+          purpose: 'any maskable',
         },
-        manifest: {
-          name: 'HB Ledco led furniture store',
-          short_name: 'HB Ledco',
-          start_url: '/',
-          background_color: '#fff',
-          theme_color: '#333',
-          display: 'standalone',
-          icon: 'src/images/led.svg',
-          icon_options: {
-            purpose: 'any maskable',
+        cache_busting_mode: 'none',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-offline',
+    },
+    'gatsby-plugin-robots-txt',
+    'gatsby-plugin-lint-queries',
+    {
+      resolve: '@gatsby-contrib/gatsby-plugin-elasticlunr-search',
+      options: {
+        // Fields to index
+        fields: ['title', 'tags'],
+        // How to resolve each field`s value for a supported node type
+        resolvers: {
+          // For any node of type MarkdownRemark, list how to resolve the fields` values
+          ShopifyProduct: {
+            title: (node) => node.title,
+            tags: (node) => node.tags,
+            shopifyThemePath: (node) => node.fields.shopifyThemePath,
           },
-          cache_busting_mode: 'none',
         },
       },
     },
+    'gatsby-plugin-loadable-components-ssr',
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
@@ -66,6 +95,8 @@ module.exports = {
       // For available social share buttons see: https://github.com/nygardk/react-share
       shareButtons: ['Facebook', 'Pinterest', 'Twitter', 'Tumblr', 'Whatsapp'],
       googleAnalyticsId: 'UA-141525658-5',
+      reviewsNumberPerPage: 10,
+      productImagesCarouselProps: {},
       //
       // carousel, collection, product
       //
@@ -78,57 +109,18 @@ module.exports = {
               type: 'collection',
               handle: 'tv-cabinet',
               description: 'Tv Cabinet',
+              image: {},
             },
             {
               name: 'Coffee Tables',
               type: 'collection',
               handle: 'coffee-tables',
               description: 'Coffee Table',
+              image: {},
             },
           ],
         },
-        {
-          name: 'Amphitrite',
-          type: 'section',
-          handle: 'amphitrite',
-          textColor: 'white',
-          textBgColor: 'white',
-        },
-        {
-          name: 'Zeus',
-          type: 'product',
-          handle: 'zeus',
-          textColor: 'white',
-          textBgColor: 'white',
-          buttonTextColor: 'white',
-          buttonBgColor: 'black',
-          buttonText: 'Shop now',
-        },
-        {
-          name: 'Orpheus',
-          type: 'product',
-          handle: 'orpheus',
-          textColor: 'white',
-          textBgColor: 'white',
-        },
       ],
-      // Menu types: "header", "collection", "product", "link"
-      menu: flattenMenu({
-        name: 'Menu',
-        type: 'top',
-        children: [
-          {
-            name: 'TV Stands',
-            type: 'collection',
-            handle: 'tv-cabinet',
-          },
-          {
-            name: 'Coffee Tables',
-            type: 'collection',
-            handle: 'coffee-tables',
-          },
-        ],
-      }),
       footerLinks: [
         // {
         //   name: 'About us',
