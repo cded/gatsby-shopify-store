@@ -1,15 +1,14 @@
 require('dotenv').config({ path: `.env` });
-const flattenMenu = require('@gatsbystorefront/gatsby-theme-storefront-shopify/src/utils/flattenMenu');
 
 module.exports = {
   plugins: [
     {
       resolve: '@gatsbystorefront/gatsby-theme-storefront-shopify',
       options: {
-        shopName: process.env.GATSBY_SHOP_NAME,
-        accessToken: process.env.GATSBY_SHOPIFY_ACCESS_TOKEN,
+        shopName: process.env.SHOP_NAME,
+        accessToken: process.env.SHOPIFY_ACCESS_TOKEN,
         basePath: '/',
-        shopifyLite: false,
+        shopifyLite: true,
         enableWebp: true,
         imageQuality: '95',
         gatsbyImageProps: {
@@ -18,13 +17,13 @@ module.exports = {
           durationFadeIn: 500,
         },
         manifest: {
-          name: 'Gatsby Storefront Demo Store',
-          short_name: 'Gatsby Storefront',
+          name: 'HB Ledco led furniture store',
+          short_name: 'HB Ledco',
           start_url: '/',
           background_color: '#fff',
           theme_color: '#333',
           display: 'standalone',
-          icon: 'src/images/shopping_bag.svg',
+          icon: 'src/images/led.svg',
           icon_options: {
             purpose: 'any maskable',
           },
@@ -32,18 +31,26 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Roboto', 'Montserrat'],
+        },
+      },
+    },
   ],
   siteMetadata: {
-    siteUrl: 'https://demo.gatsbystorefront.com',
+    siteUrl: 'https://ledco.com',
     gatsbyStorefrontConfig: {
-      storeName: 'Gatsby Storefront',
-      storeDescription: 'Demo store description',
-      email: 'info@gatsbystorefront.com',
-      company: 'Gatsby Storefront Inc.',
-      location: 'New York, NY',
-      address: '1 Centre St.',
+      storeName: 'Ledco',
+      storeDescription: 'Buy vintage affordable furniture with leds',
+      email: 'info@hbledco.com',
+      company: 'HBLedco Storefront Inc.',
+      location: 'Montreal, QC',
+      address: '400 Ville Marie',
       phone: '+1 (800) 123-1234',
-      workingDays: 'Mon - Fri',
+      workingDays: 'Mon - Sun',
       workingHours: '8AM - 6PM',
       socialNetworks: [
         'https://facebook.com',
@@ -56,15 +63,7 @@ module.exports = {
       // Need to find an alternative package to react-payment-icons-inline.
       payments: ['visa', 'mastercard', 'amex', 'discover', 'shopify', 'paypal'],
       // For available social share buttons see: https://github.com/nygardk/react-share
-      shareButtons: [
-        'Facebook',
-        'Pinterest',
-        'Twitter',
-        'Tumblr',
-        'Whatsapp',
-        'Line',
-        'Viber',
-      ],
+      shareButtons: ['Facebook', 'Pinterest', 'Twitter', 'Tumblr', 'Whatsapp'],
       googleAnalyticsId: 'UA-141525658-5',
       //
       // carousel, collection, product
@@ -74,278 +73,41 @@ module.exports = {
           type: 'carousel',
           children: [
             {
-              name: 'Jewelery',
+              name: 'TV Stands',
               type: 'collection',
-              handle: 'jewelery',
-              textColor: 'black',
+              handle: 'tv-cabinet',
+              textColor: 'white',
               textBgColor: 'white',
             },
             {
-              name: 'Apparel',
+              name: 'Coffee Tables',
               type: 'collection',
-              handle: 'apparel',
+              handle: 'coffee-tables',
               textColor: 'white',
-              textBgColor: 'primary',
-            },
-            {
-              name: 'Silk Summer Top',
-              type: 'product',
-              handle: 'silk-summer-top',
-              textColor: 'white',
-              textBgColor: 'primary',
+              textBgColor: 'white',
             },
           ],
         },
         {
-          name: 'Apparel',
-          type: 'collection',
-          handle: 'apparel',
+          name: 'Amphitrite',
+          type: 'product',
+          handle: 'amphitrite',
           textColor: 'white',
-          textBgColor: 'primary',
+          textBgColor: 'white',
         },
         {
-          name: 'Garden',
-          type: 'collection',
-          handle: 'garden',
+          name: 'Orpheus',
+          type: 'product',
+          handle: 'orpheus',
           textColor: 'white',
-          textBgColor: 'primary',
-        },
-        {
-          name: 'Test',
-          type: 'collection',
-          handle: 'test-collection',
-          textColor: 'black',
           textBgColor: 'white',
-        },
-        {
-          name: 'One product',
-          type: 'product',
-          handle: 'red-sports-tee',
-          textColor: 'black',
-          textBgColor: 'white',
-        },
-        {
-          name: 'Anchor Bracelet Mens',
-          type: 'product',
-          handle: 'leather-anchor',
-          textColor: 'black',
-          textBgColor: 'white',
-        },
-        {
-          name: 'Yellow Sofa',
-          type: 'product',
-          handle: 'yellow-sofa',
-          textColor: 'black',
-          textBgColor: 'white',
-        },
-        {
-          name: '7 Shakra Bracelet',
-          type: 'product',
-          handle: 'chain-bracelet',
-          textColor: 'black',
-          textBgColor: 'white',
-        },
-        {
-          name: 'White Cotton Shirt',
-          type: 'product',
-          handle: 'white-cotton-shirt',
-          textColor: 'white',
-          textBgColor: 'primary',
         },
       ],
-      // Menu types: "header", "collection", "product", "link"
-      menu: flattenMenu({
-        name: 'Menu',
-        type: 'top',
-        children: [
-          {
-            name: "Women's",
-            type: 'header',
-            handle: '',
-            link: '',
-            children: [
-              {
-                name: 'Apparel',
-                type: 'collection',
-                handle: 'apparel',
-              },
-              {
-                name: 'Jewelery',
-                type: 'collection',
-                handle: 'jewelery',
-              },
-              {
-                name: 'One product',
-                type: 'product',
-                handle: 'red-sports-tee',
-              },
-            ],
-          },
-          {
-            name: "Men's",
-            type: 'header',
-            children: [
-              {
-                name: 'Test',
-                type: 'collection',
-                handle: 'test-collection',
-              },
-              {
-                name: 'Garden',
-                type: 'collection',
-                handle: 'garden',
-              },
-              {
-                name: 'Apparel',
-                type: 'collection',
-                handle: 'apparel',
-              },
-              {
-                name: 'External links',
-                type: 'header',
-                children: [
-                  {
-                    name: 'External link 2',
-                    type: 'external',
-                    link: 'https://amazon.com',
-                  },
-                  {
-                    name: 'External link 3',
-                    type: 'external',
-                    link: 'https://amazon.com',
-                  },
-                  {
-                    name: 'External link 2',
-                    type: 'external',
-                    link: 'https://amazon.com',
-                  },
-                  {
-                    name: 'External link 3',
-                    type: 'external',
-                    link: 'https://amazon.com',
-                  },
-                  {
-                    name: 'External link 2',
-                    type: 'external',
-                    link: 'https://amazon.com',
-                  },
-                  {
-                    name: 'External link 3',
-                    type: 'external',
-                    link: 'https://amazon.com',
-                  },
-                  {
-                    name: 'External link 2',
-                    type: 'external',
-                    link: 'https://amazon.com',
-                  },
-                  {
-                    name: 'External link 3',
-                    type: 'external',
-                    link: 'https://amazon.com',
-                  },
-                  {
-                    name: 'External link 2',
-                    type: 'external',
-                    link: 'https://amazon.com',
-                  },
-                  {
-                    name: 'External link 3',
-                    type: 'external',
-                    link: 'https://amazon.com',
-                  },
-                  {
-                    name: 'External link 2',
-                    type: 'external',
-                    link: 'https://amazon.com',
-                  },
-                  {
-                    name: 'External link 3',
-                    type: 'external',
-                    link: 'https://amazon.com',
-                  },
-                  {
-                    name: 'External link 2',
-                    type: 'external',
-                    link: 'https://amazon.com',
-                  },
-                  {
-                    name: 'External link 3',
-                    type: 'external',
-                    link: 'https://amazon.com',
-                  },
-                  {
-                    name: 'External link 2',
-                    type: 'external',
-                    link: 'https://amazon.com',
-                  },
-                  {
-                    name: 'External link 3',
-                    type: 'external',
-                    link: 'https://amazon.com',
-                  },
-                  {
-                    name: 'External link 2',
-                    type: 'external',
-                    link: 'https://amazon.com',
-                  },
-                  {
-                    name: 'External link 3',
-                    type: 'external',
-                    link: 'https://amazon.com',
-                  },
-                  {
-                    name: 'External link 2',
-                    type: 'external',
-                    link: 'https://amazon.com',
-                  },
-                  {
-                    name: 'External link 3',
-                    type: 'external',
-                    link: 'https://amazon.com',
-                  },
-                  {
-                    name: 'External link 2',
-                    type: 'external',
-                    link: 'https://amazon.com',
-                  },
-                  {
-                    name: 'External link 3',
-                    type: 'external',
-                    link: 'https://amazon.com',
-                  },
-                  {
-                    name: 'External link 2',
-                    type: 'external',
-                    link: 'https://amazon.com',
-                  },
-                  {
-                    name: 'External link 3',
-                    type: 'external',
-                    link: 'https://amazon.com',
-                  },
-                  {
-                    name: 'External link 2',
-                    type: 'external',
-                    link: 'https://amazon.com',
-                  },
-                  {
-                    name: 'External link 3',
-                    type: 'external',
-                    link: 'https://amazon.com',
-                  },
-                ],
-              },
-            ],
-          },
-          { name: 'Blog', type: 'blog', handle: 'news' },
-        ],
-      }),
       footerLinks: [
-        {
-          name: 'About us',
-          link: '/pages/about',
-        },
+        // {
+        //   name: 'About us',
+        //   link: '/pages/about',
+        // },
         {
           name: 'Terms of Service',
           link: '/policy/termsOfService',
@@ -358,13 +120,9 @@ module.exports = {
           name: 'Refunds',
           link: '/policy/refundPolicy',
         },
-        {
-          name: 'External',
-          link: 'https://amazon.com',
-        },
       ],
       locales: 'en-US',
-      currency: 'USD',
+      currency: 'CAD',
       productsPerCollectionPage: '9',
       articlesPerBlogPage: '6',
     },

@@ -1,0 +1,26 @@
+.carousel__dot {
+  margin: 10px;
+  padding: 2px;
+  border: 0;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  background: #f8f8f8;
+}
+.carousel__dot--selected {
+  width: 18px;
+  height: 18px;
+  padding-bottom: 5px;
+  border: 1px solid #2476f2;
+  background: #2476f2;
+}
+
+.carousel__back-button:focus,
+.carousel__next-button:focus {
+  outline: none;
+}
+
+.carousel__back-button:hover,
+.carousel__next-button:hover {
+  color: #2476f2;
+}

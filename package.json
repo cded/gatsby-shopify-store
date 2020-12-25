@@ -1,17 +1,18 @@
 {
-  "name": "@gatsbystorefront/gatsby-starter-storefront-shopify",
+  "name": "@cded/ledco",
   "private": false,
-  "description": "A simple starter to get up and developing quickly with Gatsby Storefront",
+  "description": "Ecommerce platform for led furniture",
   "version": "2.1.0",
   "author": {
-    "name": "Pavel Ivanov",
-    "email": "paveliv@gmail.com",
-    "url": "https://gatsbystorefront.com/"
+    "name": "Youssef Akallal",
+    "email": "youssef.akallal@gmail.com",
+    "url": "https://hbledco.com/"
   },
   "dependencies": {
     "@gatsbystorefront/gatsby-theme-storefront-shopify": "^2.1.6",
     "dotenv": "^8.2.0",
     "gatsby": "^2.13.38",
+    "pure-react-carousel": "^1.27.6",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
@@ -27,8 +28,7 @@
     "develop": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "clean": "gatsby clean"
   },
   "repository": {
     "type": "git",
