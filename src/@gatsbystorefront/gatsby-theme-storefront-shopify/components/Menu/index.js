@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { Flex, Box } from 'rebass';
+import { Flex, Box, Text } from 'rebass';
 import GatsbyLink from 'gatsby-link';
 import styled from '@emotion/styled';
 import {
@@ -64,7 +64,7 @@ const StyledClosed = styled(Close)`
   }
 `;
 
-const Menu = () => {
+const Menu = ({ storeName }) => {
   const [showSidebar, setShowsidebar] = useState(false);
   const { menuShowed, setMenuShowed } = useMenuContext();
 
@@ -143,6 +143,19 @@ const Menu = () => {
                     </GatsbyLink>
                   ))}
               </Flex>
+
+              <Text
+                fontSize={4}
+                style={{
+                  position: 'absolute',
+                  bottom: '20px',
+                  right: '20px',
+                }}
+                color="menuText"
+                fontFamily="heading"
+              >
+                H&B {storeName}
+              </Text>
             </Sidebar>
 
             <DisabledArea onClick={toggleSidebar} />

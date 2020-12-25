@@ -29,7 +29,6 @@ const Nav = styled(NavbarBase)`
 `;
 
 const FlagBox = styled(Box)`
-  display: flex;
   align-items: center;
   margin-top: -2.5px;
   div {
@@ -112,7 +111,7 @@ const Navbar = (props) => {
           px={[3, null, 4]}
         >
           <Box width={100}>
-            <Menu />
+            <Menu storeName={storeName} />
           </Box>
 
           <Text
@@ -124,10 +123,10 @@ const Navbar = (props) => {
           >
             <Flex>
               <Text
-                ml={140}
                 color="primary"
                 fontSize={[2, 3]}
-                sx={{ display: ['none', 'block'] }}
+                // sx={{ display: ['none', 'block'] }}
+                sx={{ marginLeft: [0, 140], width: ['160px', 'auto'] }}
                 fontFamily="heading"
               >
                 H&B {storeName.toUpperCase()}
@@ -153,12 +152,12 @@ const Navbar = (props) => {
               </Text>
             </Text>
 
-            <FlagBox ml="auto">
+            <FlagBox ml="auto" sx={{ display: ['none', 'flex'] }}>
               <CanadaFlag width="25px" height="25px" />
               <div>(CAD)</div>
             </FlagBox>
 
-            <Box ml="auto">
+            <Box ml="auto" sx={{ display: ['none', 'block'] }}>
               <Search width="25px" height="25px" color="primary" />
             </Box>
 
@@ -168,7 +167,7 @@ const Navbar = (props) => {
               to="/cart"
               fontSize={4}
               style={{ textDecoration: 'none', position: 'relative' }}
-              ml="auto"
+              sx={{ marginLeft: ['0', 'auto'] }}
             >
               <ShoppingCart width="25px" height="25px" color="primary" />
               {cartItemCount > 0 && (

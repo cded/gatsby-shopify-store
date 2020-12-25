@@ -3,9 +3,8 @@ const colors = {
   darkPrimary: '#311b92',
   darkHighlight: '#dd2c00',
 
-  lightPrimaryBlue: '#71d5fe',
+  lightPrimaryBlue: '#85cffa',
   darkPrimaryBlue: '#2476f2',
-  
 
   text: '#000',
   background: '#f8f8f8',
@@ -24,22 +23,22 @@ const colors = {
   menu: '#333',
   menuItem: '#333',
   menuText: '#e3f9f7',
-}
+};
 
 const heading = {
   color: 'text',
   fontFamily: 'heading',
   lineHeight: 'heading',
   fontWeight: 'heading',
-}
+};
 
-const breakpoints = ['40em', '52em', '64em']
+const breakpoints = ['40em', '52em', '64em'];
 
 export const preset = {
   colors,
   breakpoints,
   mediaQueries: breakpoints.map(
-    bp => `@media only screen and (min-width: ${bp})`
+    (bp) => `@media only screen and (min-width: ${bp})`
   ),
   fonts: {
     body: '"Roboto", system-ui, sans-serif',
@@ -273,6 +272,6 @@ export const preset = {
       maxWidth: '100%',
     },
   },
-}
+};
 
-export default preset
+export default preset;
