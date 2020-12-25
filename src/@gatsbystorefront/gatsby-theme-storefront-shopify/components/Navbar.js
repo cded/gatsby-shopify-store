@@ -78,6 +78,14 @@ const Navbar = (props) => {
         siteMetadata {
           gatsbyStorefrontConfig {
             storeName
+            menu {
+              handle
+              id
+              link
+              name
+              parentId
+              type
+            }
           }
         }
       }

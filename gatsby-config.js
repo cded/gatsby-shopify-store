@@ -1,4 +1,5 @@
 require('dotenv').config({ path: `.env` });
+const flattenMenu = require('@gatsbystorefront/gatsby-theme-storefront-shopify/src/utils/flattenMenu');
 
 module.exports = {
   plugins: [
@@ -103,6 +104,23 @@ module.exports = {
           textBgColor: 'white',
         },
       ],
+      // Menu types: "header", "collection", "product", "link"
+      menu: flattenMenu({
+        name: 'Menu',
+        type: 'top',
+        children: [
+          {
+            name: 'TV Stands',
+            type: 'collection',
+            handle: 'tv-cabinet',
+          },
+          {
+            name: 'Coffee Tables',
+            type: 'collection',
+            handle: 'coffee-tables',
+          },
+        ],
+      }),
       footerLinks: [
         // {
         //   name: 'About us',
