@@ -12,12 +12,12 @@ import {
 import { useMenuContext } from './context';
 import Burger from '../Icons/Burger';
 import Close from '../Icons/Close';
+import CanadaFlag from '../Icons/CanadaFlag';
 
 const Sidebar = styled(Box)`
   position: fixed;
   overflow: auto;
   z-index: 99;
-  top: 0;
   left: 0;
   height: 100%;
 `;
@@ -29,7 +29,7 @@ const DisabledArea = styled(Box)`
   left: 0;
   right: 0;
   bottom: 0;
-  background: #000;
+  // background: #000;
   opacity: 0.4;
   width: 100%;
   height: 100%;
@@ -62,6 +62,11 @@ const StyledClosed = styled(Close)`
   &: hover {
     opacity: 0.4;
   }
+`;
+
+const Separation = styled(Box)`
+  width: 100%;
+  border: 1px solid #e0e0e0;
 `;
 
 const Menu = ({ storeName }) => {
@@ -104,31 +109,32 @@ const Menu = ({ storeName }) => {
 
   return (
     <>
-      <Burger
-        width="20px"
-        height="20px"
-        onClick={toggleSidebar}
-        sx={{ cursor: 'pointer' }}
-      />
+      {!showSidebar ? (
+        <Burger
+          width="20px"
+          height="20px"
+          onClick={toggleSidebar}
+          sx={{ cursor: 'pointer' }}
+        />
+      ) : (
+        <Flex width={1 / 3} justifyContent="flex-end">
+          <StyledClosed
+            width="20px"
+            height="20px"
+            color="#2476f2"
+            sx={{ cursor: 'pointer', marginTop: '-5px' }}
+            onClick={toggleSidebar}
+          />
+        </Flex>
+      )}
       <Box ref={sidebarRef}>
         {showSidebar ? (
           <>
-            <Sidebar width={[1, 1 / 3, 1 / 4, 1 / 5]} sx={{ bg: 'menu' }}>
-              <Flex bg="menuItem" color="menuText" p={[2]} fontSize={[4]}>
-                <MenuItemTitle bg="menuItem" color="menuText" fontSize={[4]}>
-                  Categories
-                </MenuItemTitle>
-                <Flex width={1 / 3} justifyContent="flex-end">
-                  <StyledClosed
-                    width="25px"
-                    height="25px"
-                    color="menuText"
-                    sx={{ cursor: 'pointer' }}
-                    onClick={toggleSidebar}
-                  />
-                </Flex>
-              </Flex>
-
+            <Sidebar
+              width={[1, 1 / 3, 1 / 4, 1 / 5]}
+              sx={{ bg: 'backgroundMain', top: ['35px', '95px'] }}
+            >
+              <Separation mt="10px" mb="10px" />
               <Flex flexDirection="column">
                 {collections &&
                   collections.map((element) => (
@@ -137,21 +143,69 @@ const Menu = ({ storeName }) => {
                       key={element.id}
                       style={{ textDecoration: 'none' }}
                     >
-                      <MenuItem bg="menuItem" color="menuText" fontSize={[4]}>
+                      <MenuItem
+                        bg="backgroundMain"
+                        color="#6d6e70"
+                        fontSize={[2]}
+                        sx={{ textTransform: 'uppercase' }}
+                        mt="10px"
+                        fontFamily="heading"
+                      >
                         {element.title}
                       </MenuItem>
                     </GatsbyLink>
                   ))}
+                <Separation mt="20px" mb="20px" />
+                <GatsbyLink
+                  to={`/products/all`}
+                  style={{ textDecoration: 'none' }}
+                >
+                  <MenuItem
+                    bg="backgroundMain"
+                    color="#6d6e70"
+                    fontSize={[2]}
+                    sx={{ textTransform: 'uppercase' }}
+                    mt="10px"
+                    fontFamily="heading"
+                  >
+                    Catalog
+                  </MenuItem>
+                </GatsbyLink>
+                <GatsbyLink to={`/contact`} style={{ textDecoration: 'none' }}>
+                  <MenuItem
+                    bg="backgroundMain"
+                    color="#6d6e70"
+                    fontSize={[2]}
+                    sx={{ textTransform: 'uppercase' }}
+                    mt="10px"
+                    fontFamily="heading"
+                  >
+                    Contact
+                  </MenuItem>
+                </GatsbyLink>
+                <MenuItem
+                  bg="backgroundMain"
+                  color="#6d6e70"
+                  fontSize={[2]}
+                  sx={{ textTransform: 'uppercase', display: 'flex' }}
+                  mt="10px"
+                  fontFamily="heading"
+                >
+                  <CanadaFlag width="25px" height="25px" />
+                  <Text style={{ marginLeft: '5px' }} fontSize={[2]} mt="1px">
+                    (CAD)
+                  </Text>
+                </MenuItem>
               </Flex>
 
               <Text
                 fontSize={4}
                 style={{
                   position: 'absolute',
-                  bottom: '20px',
+                  bottom: '50px',
                   right: '20px',
                 }}
-                color="menuText"
+                color="#6d6e70"
                 fontFamily="heading"
               >
                 H&B {storeName}

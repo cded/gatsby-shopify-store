@@ -63,7 +63,11 @@ const MainPage = (props) => {
       </Heading>
       <Box width={1} mb={1}>
         <MainPageSection
-          section={{ children: collections.nodes }}
+          section={{
+            children: collections.nodes.filter(
+              (collection) => collection.handle !== 'sale'
+            ),
+          }}
           data={data}
           sectionType="collection"
         />

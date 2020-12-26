@@ -55,6 +55,16 @@ const CartItemCount = styled.span`
   transition: background-color 0.6s;
 `;
 
+const TextCategory = styled(Text)`
+  background-color: ${(props) => props.isSale && '#db9200'};
+  color: ${(props) => props.isSale && '#fff'};
+  &:hover {
+    background-color: ${(props) => props.isSale && '#db9200'};
+    color: ${(props) => props.isSale && '#fff'};
+    opacity: ${(props) => props.isSale && '0.8'};
+  }
+`;
+
 const Navbar = (props) => {
   const [hideNavbarOnScroll, setHideNavbarOnScroll] = useState(true);
 
@@ -77,14 +87,16 @@ const Navbar = (props) => {
         siteMetadata {
           gatsbyStorefrontConfig {
             storeName
-            menu {
-              handle
-              id
-              link
-              name
-              parentId
-              type
-            }
+          }
+        }
+      }
+      collections: allShopifyCollection {
+        nodes {
+          handle
+          title
+          description
+          fields {
+            shopifyThemePath
           }
         }
       }
@@ -94,6 +106,7 @@ const Navbar = (props) => {
   const { ariaShoppingCartLabel, ariaHomaPageLinkLabel } = strings;
 
   const { storeName } = data.site.siteMetadata.gatsbyStorefrontConfig;
+  const collections = data.collections.nodes;
 
   const {
     checkout: { lineItems },
@@ -101,8 +114,14 @@ const Navbar = (props) => {
   const cartItemCount = lineItems?.length;
 
   return (
-    <Nav show={hideNavbarOnScroll}>
-      <Box py={[2, 3]} width={1} as="nav" bg="white">
+    <Nav show>
+      <Box
+        py={[2, 3]}
+        width={1}
+        as="nav"
+        bg="white"
+        sx={!hideNavbarOnScroll && { display: 'none' }}
+      >
         <Flex
           style={{ maxWidth: 1300 }}
           justifyContent="center"
@@ -110,9 +129,23 @@ const Navbar = (props) => {
           mx="auto"
           px={[3, null, 4]}
         >
-          <Box width={100}>
+          <Box width={100} sx={{ display: ['block', 'none'] }}>
             <Menu storeName={storeName} />
           </Box>
+
+          <Text
+            as={GatsbyLink}
+            to="/contact"
+            style={{ textDecoration: 'none', textTransform: 'uppercase' }}
+            mr="10px"
+            color="primary"
+            fontSize="0.875em"
+            fontFamily="heading"
+            fontWeight="600"
+            sx={{ display: ['none', 'block'] }}
+          >
+            Contact Us
+          </Text>
 
           <Text
             as={GatsbyLink}
@@ -125,7 +158,6 @@ const Navbar = (props) => {
               <Text
                 color="primary"
                 fontSize={[2, 3]}
-                // sx={{ display: ['none', 'block'] }}
                 sx={{
                   marginLeft: [0, 140],
                   width: ['160px', 'auto'],
@@ -141,22 +173,24 @@ const Navbar = (props) => {
             </Flex>
           </Text>
 
-          <Flex ml="auto" width={250} style={{ alignItems: 'center' }}>
+          <Flex
+            ml="auto"
+            width={['auto', 250]}
+            style={{ alignItems: 'center' }}
+          >
             <Text
               as={GatsbyLink}
               to="/products/all"
               style={{ textDecoration: 'none' }}
               mr="10px"
               ml="auto"
+              color="primary"
+              fontSize="0.875em"
+              fontFamily="heading"
+              fontWeight="600"
+              sx={{ display: ['none', 'block'] }}
             >
-              <Text
-                color="primary"
-                fontSize="0.875em"
-                fontFamily="heading"
-                fontWeight="600"
-              >
-                CATALOG
-              </Text>
+              CATALOG
             </Text>
 
             <FlagBox ml="auto" sx={{ display: ['none', 'flex'] }}>
@@ -182,6 +216,82 @@ const Navbar = (props) => {
               )}
             </Text>
           </Flex>
+        </Flex>
+      </Box>
+      <Box as="nav" bg="white" sx={{ display: ['none', 'block'] }}>
+        <Flex
+          style={{ maxWidth: 1300 }}
+          justifyContent="center"
+          alignItems="center"
+          mx="auto"
+          px={[3, null, 4]}
+        >
+          {!hideNavbarOnScroll && (
+            <Text
+              color="primary"
+              fontSize={[2, 3]}
+              sx={{
+                marginRight: 'auto',
+                width: ['160px', 'auto'],
+                display: 'flex',
+              }}
+              fontFamily="heading"
+            >
+              <Text fontFamily="heading" mr="5px">
+                H&B{' '}
+              </Text>{' '}
+              {storeName.toUpperCase()}
+            </Text>
+          )}
+          <Box
+            p={hideNavbarOnScroll ? '0' : '12px'}
+            mb={hideNavbarOnScroll && '10px'}
+          >
+            {collections?.length &&
+              collections.map((collection) => (
+                <TextCategory
+                  as={GatsbyLink}
+                  to={collection.fields.shopifyThemePath}
+                  style={{ textDecoration: 'none', position: 'relative' }}
+                  sx={{
+                    textTransform: 'uppercase',
+
+                    ':hover': {
+                      backgroundColor: '#f8f8f8',
+                      color: '#2476f2',
+                    },
+                  }}
+                  mr="10px"
+                  color="#000"
+                  p="8px 12px"
+                  isSale={collection.handle === 'sale'}
+                >
+                  {collection.title}
+                </TextCategory>
+              ))}
+          </Box>
+
+          {!hideNavbarOnScroll && (
+            <Box ml="auto" sx={{ display: 'flex' }}>
+              <Box mr="10px" sx={{ display: ['none', 'block'] }}>
+                <Search width="25px" height="25px" color="primary" />
+              </Box>
+
+              <Text
+                as={GatsbyLink}
+                aria-label={ariaShoppingCartLabel}
+                to="/cart"
+                fontSize={4}
+                style={{ textDecoration: 'none', position: 'relative' }}
+                sx={{ marginLeft: ['0', 'auto'] }}
+              >
+                <ShoppingCart width="25px" height="25px" color="primary" />
+                {cartItemCount > 0 && (
+                  <CartItemCount>{cartItemCount}</CartItemCount>
+                )}
+              </Text>
+            </Box>
+          )}
         </Flex>
       </Box>
     </Nav>

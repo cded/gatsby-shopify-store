@@ -20,11 +20,27 @@ const BgImage = styled.div`
     getSizedImageUrl(src, maxSize + 'x')});
 `;
 
+const NoImage = styled.div`
+  width: 100%;
+  height: 100%;
+  background-position: 50% 0%;
+  background-repeat: no-repeat;
+  background-size: ${(props) => (props.contain ? 'contain' : 'cover')};
+  background-position-x: 50%;
+  background-position-y: 0%;
+`;
+
 const ShopifyBackgroundImage = ({ src, maxSize, children, contain }) => {
   return (
-    <BgImage src={src} maxSize={maxSize} contain={contain}>
-      {children}
-    </BgImage>
+    <>
+      {src ? (
+        <BgImage src={src} maxSize={maxSize} contain={contain}>
+          {children}
+        </BgImage>
+      ) : (
+        <NoImage></NoImage>
+      )}
+    </>
   );
 };
 
