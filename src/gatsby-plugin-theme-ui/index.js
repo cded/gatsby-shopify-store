@@ -7,6 +7,8 @@ const colors = {
   darkPrimaryBlue: '#2476f2',
 
   goldPrimary: '#db9200',
+  red: '#c03002',
+  green: '#59c08c',
 
   text: '#000',
   background: '#f8f8f8',

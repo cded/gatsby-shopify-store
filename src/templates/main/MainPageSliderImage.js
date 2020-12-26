@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 import { Flex, Box, Text, Heading, Button } from 'rebass';
-import { Link as GatsbyLink } from 'gatsby';
+import { Link as GatsbyLink, navigate } from 'gatsby';
 
 const BgImage = styled.div`
   width: 100%;
@@ -73,11 +73,12 @@ const MainPageSliderImage = ({
               sx={
                 block.highlightText
                   ? {
-                      textShadow:
-                        '-1px -1px 0 #db9200, 1px -1px 0 #db9200, -1px 1px 0 #db9200, 1px 1px 0 #db9200',
+                      backdropFilter: 'blur(10px)',
+                      padding: '5px',
                     }
-                  : block.highlightTitle && {
-                      color: '#db9200 !important',
+                  : block.highlightTitle &&
+                    {
+                      // color: '#db9200 !important',
                     }
               }
               color="background"
@@ -90,8 +91,8 @@ const MainPageSliderImage = ({
               sx={{ display: ['none', 'block'] }}
               sx={
                 block.highlightText && {
-                  textShadow:
-                    '-1px -1px 0 #b38709, 1px -1px 0 #b38709, -1px 1px 0 #b38709, 1px 1px 0 #b38709',
+                  backdropFilter: 'blur(10px)',
+                  padding: '5px',
                 }
               }
               color="white"
@@ -115,9 +116,11 @@ const MainPageSliderImage = ({
                 sx={{
                   bg: buttonBgColor,
                   color: buttonTextColor,
+                  textTransform: 'uppercase',
                 }}
                 fontFamily="heading"
                 fontSize={[12, 15, 17]}
+                onClick={() => navigate('products/all')}
               >
                 {block.buttonText}
               </StyledButton>

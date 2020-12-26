@@ -1,7 +1,7 @@
 import React from 'react';
 
-import IndividualProduct from './IndividualProduct';
-// import IndividualProduct from './IndividualProductAnimated';
+// import IndividualProduct from './IndividualProduct';
+import IndividualProductA from './IndividualProductAnimated';
 
 const CatalogProducts = ({ products, limit, skip, cartUrl }) => {
   return (
@@ -10,7 +10,7 @@ const CatalogProducts = ({ products, limit, skip, cartUrl }) => {
         product.cartUrl = cartUrl;
         if (index + 1 > skip && index + 1 <= skip + limit) {
           return (
-            <IndividualProduct key={product.shopifyId} product={product} />
+            <IndividualProductA key={product.shopifyId} product={product} />
           );
         } else {
           return '';

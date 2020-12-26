@@ -28,7 +28,7 @@ const MainPage = (props) => {
         sx={{ textAlign: 'center', marginTop: '30px' }}
         fontSize={[30, 36, 42]}
       >
-        BEST SELLER
+        YOUR CHOICE
       </Heading>
       <Heading
         sx={{ textAlign: 'center', fontWeight: 'normal' }}
@@ -48,6 +48,7 @@ const MainPage = (props) => {
               key={index}
               p={1}
               mb={[3, 0]}
+              ml={['15px', 0]}
               sx={{ flex: '0 0 33.333333%' }}
             >
               <MainPageProductBox product={product} />
@@ -58,7 +59,7 @@ const MainPage = (props) => {
         sx={{ fontWeight: 'normal', marginTop: '30px', marginBottom: '20px' }}
         fontSize={[20, 25, 30]}
       >
-        Categories
+        CATEGORIES
       </Heading>
       <Box width={1} mb={1}>
         <MainPageSection

@@ -48,6 +48,7 @@ const MainPageCollectionBlock = (props) => {
       src={image && image.src}
       maxSize="1300"
       sx={{ border: '1px solid black' }}
+      contain
     >
       <Flex
         m="auto"

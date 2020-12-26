@@ -32,7 +32,7 @@ module.exports = {
         background_color: '#fff',
         theme_color: '#333',
         display: 'standalone',
-        icon: 'src/images/led.svg',
+        icon: 'src/images/favicon.png',
         icon_options: {
           purpose: 'any maskable',
         },

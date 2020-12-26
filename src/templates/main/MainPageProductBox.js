@@ -14,8 +14,13 @@ const MainPageProductBox = (props) => {
           loading="eager"
           alt={product.title}
         />
-        <p className="product-title">{product.title}</p>
-        <p className="product-price">${product.variants[0].price}</p>
+        <div className="product-details">
+          <p className="product-title">{product.title}</p>
+          <p className="product-price">
+            <p style={{ marginBottom: 0 }}>${product.variants[0].price}</p>
+            <p className="product-available">IN STOCK</p>
+          </p>
+        </div>
       </a>
     </div>
   );

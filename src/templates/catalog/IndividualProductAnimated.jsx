@@ -128,8 +128,23 @@ const IndividualProduct = ({ product }) => {
     }
   `;
 
+  const CardStyled = styled(Card)`
+    &:hover {
+      animation-duration: 2s;
+      animation-timing-function: ease;
+      animation-name: hoverProduct;
+      animation-direction: alternate;
+    }
+  `;
+
   return (
-    <Card px={2} py={2} mb={4} width={[1, 1 / 2, 1 / 3]}>
+    <CardStyled
+      px={4}
+      py={2}
+      mb={4}
+      width={[1, 1 / 2, 1 / 3]}
+      bg="backgroundMain"
+    >
       <AddToCardGroupBox>
         <Box>
           <Box
@@ -199,66 +214,92 @@ const IndividualProduct = ({ product }) => {
               )}
             </GatsbyLink>
           </Box>
-          <Box sx={{ position: 'relative' }} mb={1}>
-            {hasOneVariant ? (
-              <AddToCartStyled
-                title={strings.addToCart}
-                shopifyId={variants[0].shopifyId}
-                amount={1}
-                cartUrl={cartUrl}
-                sx={{
-                  color: 'addToCart',
-                  bg: 'white',
-                  fontFamily: 'body',
-                  fontSize: [1, 2, 3],
-                  fontWeight: 'normal',
-                  lineHeight: '1.25',
-                  py: 0,
-                }}
-              />
-            ) : (
-              <AddToCartStyled
-                isSelectOptions="true"
-                title={strings.selectOptions}
-                to={shopifyThemePath}
-                sx={{
-                  color: 'addToCart',
-                  ':hover,:focus,.active': {
-                    color: 'addToCart',
-                    textDecoration: 'none',
-                  },
-                  bg: 'white',
-                  fontFamily: 'body',
-                  fontSize: [1, 2, 3],
-                  fontWeight: 'normal',
-                  lineHeight: '1.25',
-                  py: 0,
-                }}
-              />
-            )}
-
-            <Title
-              as="h3"
-              sx={{
-                fontSize: [1, 2, 3],
-                fontFamily: 'body',
-                fontWeight: 'light',
-                color: 'productCollectionTitle',
-                py: 0,
-              }}
+          <Box
+            sx={{
+              position: 'relative',
+              display: 'flex',
+              justifyContent: 'space-between',
+            }}
+          >
+            <Box
+              sx={{ position: 'relative', width: ['100px', '150px'] }}
+              mb={1}
             >
-              {title}
-            </Title>
+              {hasOneVariant ? (
+                <AddToCartStyled
+                  title={strings.addToCart}
+                  shopifyId={variants[0].shopifyId}
+                  amount={1}
+                  cartUrl={cartUrl}
+                  sx={{
+                    color: 'addToCart',
+                    bg: 'white',
+                    fontFamily: 'body',
+                    fontSize: [1, 2, 3],
+                    fontWeight: 'normal',
+                    lineHeight: '1.25',
+                    py: 0,
+                  }}
+                />
+              ) : (
+                <AddToCartStyled
+                  isSelectOptions="true"
+                  title={strings.selectOptions}
+                  to={shopifyThemePath}
+                  sx={{
+                    color: 'addToCart',
+                    ':hover,:focus,.active': {
+                      color: 'addToCart',
+                      textDecoration: 'none',
+                    },
+                    bg: 'white',
+                    fontFamily: 'body',
+                    fontSize: [1, 2, 3],
+                    fontWeight: 'normal',
+                    lineHeight: '1.25',
+                    py: 0,
+                  }}
+                />
+              )}
+
+              <Title
+                as="h3"
+                sx={{
+                  fontSize: [1, 2, 3],
+                  fontFamily: 'body',
+                  fontWeight: 'light',
+                  color: 'productCollectionTitle',
+                  py: 0,
+                }}
+              >
+                {title.toUpperCase()}
+              </Title>
+            </Box>
+            <Box>
+              <Text
+                sx={{
+                  color: 'black',
+                  fontSize: [1, '18px'],
+                  fontWeight: 'bold',
+                }}
+                color="red"
+              >
+                {minDisplayPrice} {hasPriceRange && `- ${maxDisplayPrice}`}{' '}
+                {/* {hasOneVariant && compareAtPrice > minPrice && (
+                <CompareAtPrice>{compareAtPriceFmormatted}</CompareAtPrice>
+              )} */}
+              </Text>
+              <Text
+                sx={{ fontSize: [1], fontWeight: 'bold', textAlign: 'right' }}
+                color="green"
+              >
+                IN STOCK
+              </Text>
+            </Box>
           </Box>
-          <Text sx={{ color: 'black', fontSize: [1], fontWeight: 'bold' }}>
-            {minDisplayPrice} {hasPriceRange && `- ${maxDisplayPrice}`}{' '}
-            {hasOneVariant && compareAtPrice > minPrice && (
-              <CompareAtPrice>{compareAtPriceFmormatted}</CompareAtPrice>
-            )}
-          </Text>
         </Box>
       </AddToCardGroupBox>
-    </Card>
+    </CardStyled>
   );
 };
 

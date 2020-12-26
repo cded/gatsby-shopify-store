@@ -144,7 +144,7 @@ const Navbar = (props) => {
           <Flex ml="auto" width={250} style={{ alignItems: 'center' }}>
             <Text
               as={GatsbyLink}
-              to="/collections"
+              to="/products/all"
               style={{ textDecoration: 'none' }}
               mr="10px"
               ml="auto"
