@@ -46,7 +46,7 @@ const CartItemCount = styled.span`
   width: 19px;
   height: 19px;
   border-radius: 50%;
-  background-color: #c03;
+  background-color: #2476f2;
   color: #fff;
   font-size: 0.7rem;
   text-align: center;
@@ -126,10 +126,17 @@ const Navbar = (props) => {
                 color="primary"
                 fontSize={[2, 3]}
                 // sx={{ display: ['none', 'block'] }}
-                sx={{ marginLeft: [0, 140], width: ['160px', 'auto'] }}
+                sx={{
+                  marginLeft: [0, 140],
+                  width: ['160px', 'auto'],
+                  display: 'flex',
+                }}
                 fontFamily="heading"
               >
-                H&B {storeName.toUpperCase()}
+                <Text fontFamily="heading" mr="5px">
+                  H&B{' '}
+                </Text>{' '}
+                {storeName.toUpperCase()}
               </Text>
             </Flex>
           </Text>

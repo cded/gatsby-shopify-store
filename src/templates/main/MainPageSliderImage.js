@@ -12,12 +12,20 @@ const BgImage = styled.div`
   background-size: cover;
   background-position-x: 50%;
   background-position-y: 0%;
+  background-position-y: ${(props) => props.positionY};
 
   @media (-webkit-min-device-pixel-ratio: 1.3), (min-resolution: 120dpi) {
     background-image: url(${(props) => props.img});
   }
 
   background-image: url(${(props) => props.img});
+`;
+
+const StyledButton = styled(Button)`
+  &:hover {
+    background: #2476f2;
+    color: #fff;
+  }
 `;
 
 const MainPageSliderImage = ({
@@ -29,7 +37,7 @@ const MainPageSliderImage = ({
   buttonBgColor = 'white',
 }) => {
   return (
-    <BgImage img={image}>
+    <BgImage img={image} positionY={block.positionY}>
       <Flex
         m="auto"
         p="1"
@@ -40,7 +48,13 @@ const MainPageSliderImage = ({
           height: '100%',
         }}
       >
-        <Box m="auto" textAlign="center">
+        <Box
+          ml="auto"
+          mr="auto"
+          mt={block.textPosition || '50px'}
+          mb={block.textPosition || '0'}
+          textAlign="center"
+        >
           <GatsbyLink
             // to={shopifyThemePath}
             sx={{
@@ -56,7 +70,16 @@ const MainPageSliderImage = ({
             <Heading
               as="h2"
               fontSize={[30, 36, 42]}
-              // sx={{ textTransform: 'uppercase' }}
+              sx={
+                block.highlightText
+                  ? {
+                      textShadow:
+                        '-1px -1px 0 #db9200, 1px -1px 0 #db9200, -1px 1px 0 #db9200, 1px 1px 0 #db9200',
+                    }
+                  : block.highlightTitle && {
+                      color: '#db9200 !important',
+                    }
+              }
               color="background"
             >
               {block.name}
@@ -65,6 +88,12 @@ const MainPageSliderImage = ({
               fontSize={[1, 2, 3]}
               mt="3"
               sx={{ display: ['none', 'block'] }}
+              sx={
+                block.highlightText && {
+                  textShadow:
+                    '-1px -1px 0 #b38709, 1px -1px 0 #b38709, -1px 1px 0 #b38709, 1px 1px 0 #b38709',
+                }
+              }
               color="white"
             >
               {block.description}
@@ -81,15 +110,17 @@ const MainPageSliderImage = ({
               {block.subDescription}
             </Heading>
             {block.buttonText && (
-              <Button
+              <StyledButton
                 variant="shopNow"
                 sx={{
                   bg: buttonBgColor,
                   color: buttonTextColor,
                 }}
+                fontFamily="heading"
+                fontSize={[12, 15, 17]}
               >
                 {block.buttonText}
-              </Button>
+              </StyledButton>
             )}
           </GatsbyLink>
         </Box>

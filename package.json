@@ -24,6 +24,7 @@
     "body-scroll-lock": "^3.0.3",
     "elasticlunr": "^0.9.5",
     "gatsby": "^2.13.38",
+    "gatsby-image": "^2.8.0",
     "gatsby-plugin-lint-queries": "^0.0.3",
     "gatsby-plugin-loadable-components-ssr": "^2.1.0",
     "gatsby-plugin-manifest": "^2.2.29",

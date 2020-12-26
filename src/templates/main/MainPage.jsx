@@ -1,100 +1,72 @@
 import React from 'react';
-import { Box } from 'rebass';
-import { useStaticQuery, graphql } from 'gatsby';
+import { Box, Heading } from 'rebass';
 
 import MainPageCarousel from './MainPageCarousel';
 import MainPageSection from './MainPageSection';
-import MainPageFeaturedCollectionBlock from './MainPageFeaturedCollectionBlock';
+import MainPageProductBox from './MainPageProductBox';
 
 const MainPage = (props) => {
-  const dataQuery = useStaticQuery(graphql`
-    query MainPageStaticQuery {
-      site {
-        siteMetadata {
-          gatsbyStorefrontConfig {
-            mainPage {
-              handle
-              type
-              name
-              description
-              limit
-              isExpanded
-              textBgColor
-              textColor
-              buttonText
-              buttonTextColor
-              buttonBgColor
-              children {
-                handle
-                type
-                name
-                description
-                limit
-                isExpanded
-                textBgColor
-                textColor
-                buttonText
-                buttonTextColor
-                buttonBgColor
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  const { mainPage } = dataQuery.site.siteMetadata.gatsbyStorefrontConfig;
-
   const { data } = props;
+
+  const { products: featuredProducts, bestsellers, collections } = data;
 
   const { cartUrl } = props.pageContext;
 
   return (
     <Box px={2} pt={3} mx="auto" style={{ maxWidth: 1300 }}>
-      {mainPage.map((block, index) => {
-        if (block.type === 'carousel') {
-          return (
-            <Box width={1} mb={1} key={index}>
-              <MainPageCarousel carousel={block} data={data} />
-            </Box>
-          );
-        } else if (block.type === 'section') {
-          return (
-            <Box width={1} mb={1} key={index}>
-              <MainPageSection section={block} data={data} />
-            </Box>
-          );
-        } else if (
-          block.type === 'product' ||
-          (block.type === 'collection' && block.isExpanded === false)
-        ) {
-          return (
-            <Box width={1} mb={1} key={index}>
-              <MainPageSection section={{ children: [block] }} data={data} />
-            </Box>
-          );
-        } else if (block.type === 'collection' && block.isExpanded == true) {
-          let products = [];
-          props.data.feautiredCollections.nodes.forEach((node) => {
-            if (node.handle === block.handle) {
-              products = [...products, ...node.products];
-            }
-          });
-          return (
-            <MainPageFeaturedCollectionBlock
-              block={block}
-              products={products}
-              cartUrl={cartUrl}
+      <Box width={1} mb={1}>
+        <MainPageCarousel />
+      </Box>
+      <Box width={1} mb={1}>
+        <MainPageSection
+          section={{ children: featuredProducts.nodes }}
+          data={data}
+          sectionType="product"
+        />
+      </Box>
+      <Heading
+        sx={{ textAlign: 'center', marginTop: '30px' }}
+        fontSize={[30, 36, 42]}
+      >
+        BEST SELLER
+      </Heading>
+      <Heading
+        sx={{ textAlign: 'center', fontWeight: 'normal' }}
+        fontSize={[14, 16, 20]}
+      >
+        TOP PRODUCTS OF THIS WEEK
+      </Heading>
+      <Box
+        width={1}
+        mb={1}
+        sx={{ display: ['block', 'flex'], flexWrap: 'wrap', margin: '0 -15px' }}
+      >
+        {bestsellers?.nodes?.length &&
+          bestsellers.nodes.map((product, index) => (
+            <Box
+              width={[1, 1 / 3]}
               key={index}
-            />
-          );
-        } else if (block.type === 'header') {
-          return '';
-        } else {
-          return '';
-        }
-      })}
+              p={1}
+              mb={[3, 0]}
+              sx={{ flex: '0 0 33.333333%' }}
+            >
+              <MainPageProductBox product={product} />
+            </Box>
+          ))}
+      </Box>
+      <Heading
+        sx={{ fontWeight: 'normal', marginTop: '30px', marginBottom: '20px' }}
+        fontSize={[20, 25, 30]}
+      >
+        Categories
+      </Heading>
+      <Box width={1} mb={1}>
+        <MainPageSection
+          section={{ children: collections.nodes }}
+          data={data}
+          sectionType="collection"
+        />
+      </Box>
     </Box>
   );
 };

@@ -19,9 +19,9 @@ import ChevronRight from '../../components/Icons/ChevronRight';
 import strings from './strings.json';
 import MainPageSliderImage from './MainPageSliderImage';
 
-import img from '../../images/image7.jpg';
-import img1 from '../../images/image1.jpg';
-import img2 from '../../images/image2.jpg';
+import img from '../../images/image7.png';
+import img1 from '../../images/image1.png';
+import img2 from '../../images/image2.png';
 
 const { ariaNextButtonLabel, ariaBackButtonLabel } = strings;
 
@@ -56,13 +56,18 @@ const MainPageCarousel = (props) => {
     {
       name: 'H&B',
       image: img,
-      description: 'Present',
+      description: 'Presents',
       subDescription: 'LEDCO',
+      positionY: '15%',
+      highlightTitle: true,
     },
     {
-      name: 'Make your home alive!',
+      name: 'Make your Home Bright',
       image: img1,
-      description: 'with led furniture',
+      description: 'With LEDCO Furniture',
+      positionY: '90%',
+      textPosition: 'auto',
+      highlightText: true,
     },
     {
       name: 'Discover our selection of products',

@@ -26,11 +26,8 @@ export default (props) => {
 };
 
 export const mainPageQuery = graphql`
-  query MainPageQuery(
-    $handles: [String]
-    $featuredCollectionsHandles: [String]
-  ) {
-    collections: allShopifyCollection(filter: { handle: { in: $handles } }) {
+  query MainPageQuery {
+    collections: allShopifyCollection {
       nodes {
         handle
         title
@@ -54,8 +51,8 @@ export const mainPageQuery = graphql`
       }
     }
 
-    feautiredCollections: allShopifyCollection(
-      filter: { handle: { in: $featuredCollectionsHandles } }
+    featuredCollections: allShopifyCollection(
+      filter: { handle: { in: "featured" } }
     ) {
       nodes {
         title
@@ -104,11 +101,14 @@ export const mainPageQuery = graphql`
       }
     }
 
-    products: allShopifyProduct(filter: { handle: { in: $handles } }) {
+    products: allShopifyProduct(filter: { tags: { in: "featured" } }) {
       nodes {
         title
         description
         handle
+        variants {
+          price
+        }
         fields {
           shopifyThemePath
           firstImage {
@@ -121,6 +121,41 @@ export const mainPageQuery = graphql`
                   width
                   height
                   aspectRatio
+                }
+              }
+            }
+          }
+          descriptionSections {
+            id
+          }
+          shortDescription
+        }
+      }
+    }
+
+    bestsellers: allShopifyProduct(filter: { tags: { in: "bestseller" } }) {
+      nodes {
+        title
+        description
+        handle
+        variants {
+          price
+        }
+        fields {
+          shopifyThemePath
+          firstImage {
+            altText
+            originalSrc
+            localFile {
+              childImageSharp {
+                resize(base64: true) {
+                  src
+                  width
+                  height
+                  aspectRatio
+                }
+                fluid(maxWidth: 910) {
+                  ...GatsbyImageSharpFluid_withWebp_noBase64
                 }
               }
             }
