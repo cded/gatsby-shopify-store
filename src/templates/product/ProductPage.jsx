@@ -20,6 +20,7 @@ import ProductVariantPrice from './ProductVariantPrice';
 import ProductVariantSku from './ProductVariantSku';
 import ProductDescription from './ProductDescription';
 import ProductReviews from './ProductReviews';
+import QuantityButton from './QuantityButton';
 
 // react-payment-icons-inline heavily increases webpack bundle size. Need to find alternative solution. Will disable it for now.
 // const Payments = loadable(() => import('../../components/Payments'));
@@ -77,14 +78,6 @@ function ProductPage({ data, pageContext, location }) {
     reviewsNumberPerPage,
   } = data.store.siteMetadata.gatsbyStorefrontConfig;
 
-  function increaseAmount() {
-    setCurrentAmount((a) => a + 1);
-  }
-
-  function decreaseAmount() {
-    setCurrentAmount((a) => (a <= 1 ? 1 : a - 1));
-  }
-
   return (
     <>
       <Helmet>
@@ -100,7 +93,15 @@ function ProductPage({ data, pageContext, location }) {
           }
         />
       </Helmet>
-
+      {/* Breadcrumbs block 2 for desktop */}
+      <Box sx={{ display: ['none', 'none', 'block'] }} pt={1}>
+        <Breadcrumbs
+          productTitle={title}
+          collectionTitle={collectionTitle}
+          collectionPath={collectionPath}
+          separator=">"
+        />
+      </Box>
       <CarouselProvider
         naturalSlideWidth={
           productImagesCarouselProps.naturalSlideWidth
@@ -158,7 +159,7 @@ function ProductPage({ data, pageContext, location }) {
                 productTitle={title}
                 collectionTitle={collectionTitle}
                 collectionPath={collectionPath}
-                separator="/"
+                separator=">"
               />
             </Box>
 
@@ -176,44 +177,40 @@ function ProductPage({ data, pageContext, location }) {
             data-product-info
             order={3}
           >
-            {/* Breadcrumbs block 2 for desktop */}
-            <Box sx={{ display: ['none', 'none', 'block'] }} pt={1}>
-              <Breadcrumbs
-                productTitle={title}
-                collectionTitle={collectionTitle}
-                collectionPath={collectionPath}
-                separator="/"
-              />
-            </Box>
-
             <CurrentVariantContextProvider>
-              <Box>
-                <Text as="h1" mb={3} data-title-box>
-                  {title}
+              <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Text
+                  as="h1"
+                  data-title-box
+                  sx={{ fontWeight: 400 }}
+                  fontSize={[25, 30]}
+                  color="#313200"
+                >
+                  {title.toUpperCase()}
                 </Text>
                 <ProductVariantPrice
                   initialDisplayPrice={variants[0].price}
-                  mb={3}
+                  mb={2}
                 />
-                {shortDescription ? (
-                  <DescriptionBox
-                    source={shortDescription}
-                    escapeHtml={false}
-                    mb={3}
-                  />
-                ) : (
-                  ''
-                )}
               </Box>
 
-              <ProductVariantSelector
-                variants={variants}
-                options={options}
-                pageContext={pageContext}
+              <Box
+                sx={{ display: 'flex', justifyContent: 'space-between' }}
+                mt={3}
                 mb={4}
-              />
+              >
+                {options?.length && (
+                  <Box sx={{ flex: 'none', width: '50%' }} mb="10px">
+                    <ProductVariantSelector
+                      variants={variants}
+                      options={options}
+                      pageContext={pageContext}
+                      mb={2}
+                    />
+                  </Box>
+                )}
 
-              <Flex alignItems="center" mb={4}>
+                {/* <Flex alignItems="center" mb={4}>
                 <Box mr={2}>
                   <Text>{productQuantityLabel}</Text>
                 </Box>
@@ -224,10 +221,18 @@ function ProductPage({ data, pageContext, location }) {
                     currentAmount={currentAmount}
                   />
                 </Box>
-              </Flex>
+              </Flex> */}
+
+                <Box sx={{ flex: 'none' }} mb="10px">
+                  <QuantityButton
+                    quantity={currentAmount}
+                    setQuantity={setCurrentAmount}
+                  />
+                </Box>
+              </Box>
 
               <Flex mb={4}>
-                <Box>
+                <Box sx={{ width: '100%' }}>
                   <ProductVariantAddToCart
                     amount={currentAmount}
                     cartUrl={cartUrl}
@@ -235,19 +240,37 @@ function ProductPage({ data, pageContext, location }) {
                 </Box>
               </Flex>
 
-              <Flex mb={4}>
+              {/* <Flex mb={4}>
                 <Box>
                   <Text>{paymentsLabel}</Text>
-                  {/* <Payments payments={payments} /> */}
                 </Box>
-              </Flex>
+              </Flex> */}
 
               <Divider bg="grey" mb={4} />
 
-              <ProductVariantSku />
+              {shortDescription ? (
+                <Box>
+                  <DescriptionBox
+                    source={shortDescription}
+                    escapeHtml={false}
+                    mb={3}
+                  />
+                  <ProductVariantSku />
+                </Box>
+              ) : (
+                (withoutShortDescription || description) && (
+                  <Box>
+                    <ProductDescription
+                      description={withoutShortDescription || description}
+                      sections={sections}
+                    />
+                    <ProductVariantSku />
+                  </Box>
+                )
+              )}
             </CurrentVariantContextProvider>
 
-            {vendor ? (
+            {/* {vendor ? (
               <Flex mb={4}>
                 <Box mr={2}>
                   <Text>{vendorLabel}</Text>
@@ -256,7 +279,7 @@ function ProductPage({ data, pageContext, location }) {
               </Flex>
             ) : (
               ''
-            )}
+            )} */}
 
             {productType ? (
               <Flex mb={4}>
@@ -270,9 +293,9 @@ function ProductPage({ data, pageContext, location }) {
             )}
 
             <Flex mb={4} alignItems="center">
-              <Box mr={2}>
+              {/* <Box mr={2}>
                 <Text>{shareButtonsLabel}</Text>
-              </Box>
+              </Box> */}
               <Box>
                 <ShareButtons buttons={shareButtons} location={location.href} />
               </Box>
@@ -287,11 +310,11 @@ function ProductPage({ data, pageContext, location }) {
           fontFamily="body"
         >
           <Box width={1}>
-            <Divider bg="grey" mb={4} />
-            <ProductDescription
+            <Divider bg="grey" mb={6} />
+            {/* <ProductDescription
               description={withoutShortDescription || description}
               sections={sections}
-            />
+            /> */}
           </Box>
         </Flex>
 

@@ -59,7 +59,7 @@ const ProductGalleryCarousel = ({ images, title }) => {
                 zIndex: 2,
                 border: 0,
                 bg: 'transparent',
-                color: 'primary',
+                color: '#fff',
                 ':disabled': {
                   opacity: 0.3,
                 },
@@ -77,7 +77,7 @@ const ProductGalleryCarousel = ({ images, title }) => {
                 zIndex: 2,
                 border: 0,
                 bg: 'transparent',
-                color: 'primary',
+                color: '#fff',
                 ':disabled': {
                   opacity: 0.3,
                 },

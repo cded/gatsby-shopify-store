@@ -9,7 +9,7 @@ const Divider = (props) => (
       borderTop: '1px solid',
       height: '1px',
       borderLeft: 'none',
-      borderTopColor: 'divider',
+      borderTopColor: '#f5f5f5',
     }}
   />
 );

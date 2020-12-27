@@ -35,7 +35,7 @@ function CatalogPage(props) {
           textAlign={['center', 'right']}
           width={['100%', 'auto']}
           pt={1}
-          fontSize={[1, 2, 3]}
+          fontSize={[1]}
         >
           <CollectionStats
             limit={limit}

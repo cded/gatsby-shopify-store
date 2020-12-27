@@ -4,6 +4,7 @@ import { Label, Select } from '@rebass/forms';
 import equals from 'ramda/src/equals';
 
 import { useCurrentVariantContext } from './CurrentVariantContext';
+import ProductColorSelector from './ProductColorSelector';
 
 const ProductVariantSelector = (props) => {
   const { variants, options } = props;
@@ -71,33 +72,49 @@ const ProductVariantSelector = (props) => {
       {showVariants ? (
         <Flex {...props}>
           {options.map((option, index) => {
-            return (
-              /* 
-              Width is set to 1/3
-              - it looks better  
-              - currently 3 is a max number of product options 
-              */
-              <Box width={1 / 3} mx={1} key={`box-${option.name}-${index}`}>
-                <Label htmlFor={option.name}>{option.name}</Label>
-                <Select
+            if (option.name === 'Color') {
+              return (
+                <ProductColorSelector
+                  key={`box-${option.name}-${index}`}
+                  option={option}
                   onChange={(event) => {
                     handleOptionsSelect(option.name, event.target.value);
                   }}
-                  id={option.name}
-                  name={option.name}
-                  key={`select-${option.name}-${index}`}
-                >
-                  {option.values.map((value, index) => (
-                    <option
-                      key={`option-${option.name}-${index}`}
-                      value={value}
-                    >
-                      {value}
-                    </option>
-                  ))}
-                </Select>
-              </Box>
-            );
+                  handleColorChange={(value) => {
+                    handleOptionsSelect(option.name, value);
+                  }}
+                  selectedColor={userSelectedOptions['Color']}
+                />
+              );
+            } else {
+              return (
+                /* 
+                Width is set to 1/3
+                - it looks better  
+                - currently 3 is a max number of product options 
+                */
+                <Box width={1 / 3} mx={1} key={`box-${option.name}-${index}`}>
+                  <Label htmlFor={option.name}>{option.name}</Label>
+                  <Select
+                    onChange={(event) => {
+                      handleOptionsSelect(option.name, event.target.value);
+                    }}
+                    id={option.name}
+                    name={option.name}
+                    key={`select-${option.name}-${index}`}
+                  >
+                    {option.values.map((value, index) => (
+                      <option
+                        key={`option-${option.name}-${index}`}
+                        value={value}
+                      >
+                        {value}
+                      </option>
+                    ))}
+                  </Select>
+                </Box>
+              );
+            }
           })}
         </Flex>
       ) : (

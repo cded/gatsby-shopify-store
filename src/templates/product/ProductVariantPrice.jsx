@@ -35,9 +35,7 @@ const ProductVariantPrice = ({ initialDisplayPrice = 0, mb = 0 }) => {
         : setDisplayPrice(formatPrice(initialDisplayPrice, locales, currency));
 
       currentVariant.compareAtPrice
-        ? setCompareAtPrice(
-            formatPrice(currentVariant.compareAtPrice, locales, currency)
-          )
+        ? setCompareAtPrice(currentVariant.compareAtPrice)
         : setCompareAtPrice(false);
     }
   }, [currency, currentVariant, initialDisplayPrice, locales]);
@@ -45,7 +43,7 @@ const ProductVariantPrice = ({ initialDisplayPrice = 0, mb = 0 }) => {
   return (
     <React.Fragment>
       <Flex>
-        {compareAtPrice ? (
+        {/* {compareAtPrice ? (
           <Box mr={2}>
             <Text fontSize={[1, 2]}>
               {productCompareAtPriceLabel}{' '}
@@ -54,14 +52,23 @@ const ProductVariantPrice = ({ initialDisplayPrice = 0, mb = 0 }) => {
           </Box>
         ) : (
           ''
-        )}
+        )} */}
       </Flex>
       <Flex mb={mb}>
         <Box>
-          {productPriceLabel}{' '}
-          <Text as="span" color="primary" fontSize={[3, 4]}>
-            {displayPrice}
-          </Text>
+          {/* {productPriceLabel}{' '} */}
+          {initialDisplayPrice && (
+            <Text as="span" color="primary" fontSize={[3, 4]} color="red">
+              ${parseInt(initialDisplayPrice).toString()}
+            </Text>
+          )}
+          {compareAtPrice && (
+            <Box sx={{ textAlign: 'right' }}>
+              <Text fontSize={[1, 2]} sx={{ textAlign: 'right' }}>
+                <Text as="strike">${parseInt(compareAtPrice).toString()}</Text>
+              </Text>
+            </Box>
+          )}
         </Box>
       </Flex>
     </React.Fragment>
