@@ -76,7 +76,7 @@ module.exports = {
       storeName: 'Ledco',
       storeDescription: 'Buy vintage affordable furniture with leds',
       email: 'info@hbledco.com',
-      company: 'HBLedco Storefront Inc.',
+      company: 'H&B Ledco Inc.',
       location: 'Montreal, QC',
       address: '400 Ville Marie',
       phone: '+1 (800) 123-1234',

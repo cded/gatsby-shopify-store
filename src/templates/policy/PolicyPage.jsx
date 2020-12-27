@@ -1,8 +1,14 @@
 import React from 'react';
 import { Flex, Box, Heading } from 'rebass';
 import { Helmet } from 'react-helmet';
+import styled from '@emotion/styled';
 
-const PolicyPage = props => {
+const Separation = styled(Box)`
+  width: 60%;
+  border: 1px solid #e0e0e0;
+`;
+
+const PolicyPage = (props) => {
   const { title, body } = props.data.policies.nodes[0];
   const { storeName } = props.data.store.siteMetadata.gatsbyStorefrontConfig;
   return (
@@ -10,10 +16,22 @@ const PolicyPage = props => {
       <Helmet title={title} titleTemplate={`%s — ${storeName}`} defer={false}>
         <meta name="description" content={title} />
       </Helmet>
-      <Heading as="h1" fontSize={[30, 36, 42]} my={3}>
-        {title}
-      </Heading>
-      <Box dangerouslySetInnerHTML={{ __html: body }}></Box>
+      <Box
+        p={['0', '50px']}
+        pt={['50px', '50px']}
+        sx={{ minHeight: ['70vh', 0] }}
+      >
+        <Heading
+          m="auto"
+          sx={{ textAlign: 'center', textTransform: 'uppercase' }}
+        >
+          {title}
+        </Heading>
+        <Separation mx="auto" mt="20px" mb="20px" />
+        <Box pl="10%" pr="10%">
+          <Box dangerouslySetInnerHTML={{ __html: body }}></Box>
+        </Box>
+      </Box>
     </Flex>
   );
 };

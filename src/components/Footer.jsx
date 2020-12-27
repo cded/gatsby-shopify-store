@@ -2,10 +2,16 @@
 /* eslint no-unused-vars: 0 */
 import React from 'react';
 import { jsx, useThemeUI } from 'theme-ui';
-import { Flex, Box, Text, Link } from 'rebass';
+import { Flex, Box, Text, Link, Heading } from 'rebass';
 import { useStaticQuery, graphql } from 'gatsby';
 import GatsbyLink from 'gatsby-link';
 import loadable from '@loadable/component';
+import styled from '@emotion/styled';
+
+import VisaImg from '../images/1.png';
+import MasterCardImg from '../images/2.png';
+import AmexImg from '../images/3.png';
+import MapMontreal from '../images/mapMontreal.png';
 // import { SocialIcon } from 'react-social-icons';
 
 const SocialIcon = loadable(() => import('./SocialIcon'));
@@ -22,6 +28,29 @@ const validURL = (str) => {
   ); // fragment locator
   return !!pattern.test(str);
 };
+
+const CardImage = styled.img`
+  width: 42px;
+  height: 28px;
+  margin-right: 10px;
+`;
+
+const ImageCropper = styled.div`
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  margin: auto;
+`;
+
+const MapImage = styled.img`
+  display: inline;
+  margin: 0 auto;
+  margin-left: -25%; //centers the image
+  height: 100%;
+  width: auto;
+`;
 
 function Footer() {
   const data = useStaticQuery(graphql`
@@ -76,35 +105,85 @@ function Footer() {
       >
         <Flex alignItems="center" mb={[2, 3, 4]} flexWrap="wrap">
           <Flex
-            width={[1, 1, 3 / 4]}
+            width={[1, 1, 4 / 5]}
             justifyContent={['center', 'space-between']}
             flexWrap="wrap"
+            mx="auto"
             mb={3}
           >
-            {footerLinks
-              ? footerLinks.map((link, index) => {
-                  // If link is valid url use <a>
-                  // else use gatsby-link
-                  if (validURL(link.link)) {
-                    return (
-                      <Text key={index} mr={[3, 0]} my={[2, 0]}>
-                        <Link href={link.link}>{link.name}</Link>
-                      </Text>
-                    );
-                  } else {
-                    return (
-                      <Text key={index} mr={[3, 0]} my={[2, 0]}>
-                        <GatsbyLink to={link.link} sx={theme.variants.link}>
-                          {link.name}
-                        </GatsbyLink>
-                      </Text>
-                    );
-                  }
-                })
-              : ''}
+            {/* <Box>
+              <Text fontSize={[1, 2]} fontFamily="heading">
+                © {year} {company || ''}
+              </Text>
+            </Box> */}
+
+            <Box mr={[1, 0]}>
+              {/* <Heading mb={1}>ABOUT</Heading> */}
+
+              <ImageCropper>
+                <MapImage src={MapMontreal} alt="map of montreal" />
+              </ImageCropper>
+              <Text my={[2, 1]}>Made in Montreal, Quebec</Text>
+            </Box>
+
+            <Box my={[2, 0]}>
+              <Heading mb={1}>CONTACT</Heading>
+              <Text mr={[3, 0]} my={[2, 0]}>
+                <Link href="/contact">Contact Us</Link>
+              </Text>
+              <Text mr={[3, 0]} mt={[2, 0]} mb={3}>
+                <Link href="/faq">FAQ</Link>
+              </Text>
+              {/* <Text mr={[3, 0]} my={[2, 0]}>
+                By phone:
+              </Text> */}
+
+              <Text mr={[3, 0]} my={[2, 0]}>
+                By Email: {email}
+              </Text>
+              <Text mr={[3, 0]} my={[2, 0]}>
+                Call Us: {phone}
+              </Text>
+            </Box>
+
+            <Box my={[2, 0]}>
+              <Heading mb={1}>LEGAL</Heading>
+              {footerLinks
+                ? footerLinks.map((link, index) => {
+                    // If link is valid url use <a>
+                    // else use gatsby-link
+                    if (validURL(link.link)) {
+                      return (
+                        <Text key={index} mr={[3, 0]} my={[2, 0]}>
+                          <Link href={link.link}>{link.name}</Link>
+                        </Text>
+                      );
+                    } else {
+                      return (
+                        <Text key={index} mr={[3, 0]} my={[2, 0]}>
+                          <GatsbyLink to={link.link} sx={theme.variants.link}>
+                            {link.name}
+                          </GatsbyLink>
+                        </Text>
+                      );
+                    }
+                  })
+                : ''}
+            </Box>
+
+            <Box>
+              <Text fontSize={[1, 2]} fontFamily="heading" mb={[0, 2]}>
+                © {year} {company || ''}
+              </Text>
+              <Box style={{ textAlign: 'right', display: 'flex' }}>
+                <CardImage src={VisaImg} alt="visa credit card" />
+                <CardImage src={MasterCardImg} alt="mastercard credit card" />
+                <CardImage src={AmexImg} alt="american express credit card" />
+              </Box>
+            </Box>
           </Flex>
 
-          <Flex
+          {/* <Flex
             width={[1, 1, 1 / 4]}
             justifyContent={['center', 'center', 'flex-end']}
             mr="auto"
@@ -132,19 +211,7 @@ function Footer() {
                   );
                 })
               : ''}
-          </Flex>
-        </Flex>
-
-        <Flex>
-          <Box>
-            <Text fontSize={[1, 2]}>
-              © {year} {company || ''}
-              {address || location ? ' | ' : ''} {address} {location}
-              {phone || workingDays || workingHours ? ' | ' : ''}
-              {phone} {workingDays} {workingHours}
-              {email ? ' | ' : ''} {email}
-            </Text>
-          </Box>
+          </Flex> */}
         </Flex>
       </Box>
     </Box>
