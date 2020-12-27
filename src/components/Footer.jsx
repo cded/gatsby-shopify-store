@@ -11,7 +11,7 @@ import styled from '@emotion/styled';
 import VisaImg from '../images/1.png';
 import MasterCardImg from '../images/2.png';
 import AmexImg from '../images/3.png';
-import MapMontreal from '../images/mapmontreal.png';
+import MapMontreal from '../images/mapMontreal.png';
 // import { SocialIcon } from 'react-social-icons';
 
 const SocialIcon = loadable(() => import('./SocialIcon'));
