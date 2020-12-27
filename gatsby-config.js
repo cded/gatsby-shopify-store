@@ -94,7 +94,7 @@ module.exports = {
       payments: ['visa', 'mastercard', 'amex', 'discover', 'shopify', 'paypal'],
       // For available social share buttons see: https://github.com/nygardk/react-share
       shareButtons: ['Facebook', 'Pinterest', 'Twitter', 'Tumblr', 'Whatsapp'],
-      googleAnalyticsId: 'UA-141525658-5',
+      googleAnalyticsId: process.env.GA_TRACKING_ID,
       reviewsNumberPerPage: 10,
       productImagesCarouselProps: {},
       //
