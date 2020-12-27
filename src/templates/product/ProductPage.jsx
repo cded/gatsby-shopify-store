@@ -167,6 +167,8 @@ function ProductPage({ data, pageContext, location }) {
               images={images}
               title={title}
               maxContainerHeight={productImagesCarouselProps.naturalSlideHeight}
+              initialDisplayPrice={variants[0].price}
+              comparePrice={variants[0].compareAtPrice}
             />
           </Box>
 

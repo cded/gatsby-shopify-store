@@ -9,7 +9,7 @@ const Badge = (props) => {
     width = size,
     height = size,
     textColor = 'white',
-    bgColor = 'badge',
+    bgColor = 'goldPrimary',
     mx,
     my,
   } = props;
