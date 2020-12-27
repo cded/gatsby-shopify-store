@@ -11,7 +11,7 @@ import styled from '@emotion/styled';
 import VisaImg from '../images/1.png';
 import MasterCardImg from '../images/2.png';
 import AmexImg from '../images/3.png';
-import MapMontreal from '../images/mapMontreal.png';
+import MapMontreal from '../images/mapmontreal.png';
 // import { SocialIcon } from 'react-social-icons';
 
 const SocialIcon = loadable(() => import('./SocialIcon'));
@@ -117,17 +117,21 @@ function Footer() {
               </Text>
             </Box> */}
 
-            <Box mr={[1, 0]}>
+            <Box mr={[1, 0]} width={['100%', 'auto']}>
               {/* <Heading mb={1}>ABOUT</Heading> */}
 
               <ImageCropper>
                 <MapImage src={MapMontreal} alt="map of montreal" />
               </ImageCropper>
-              <Text my={[2, 1]}>Made in Montreal, Quebec</Text>
+              <Text mt={[2]} sx={{ textAlign: 'center' }} fontSize={[1, 2]}>
+                Made in Montreal, Quebec
+              </Text>
             </Box>
 
-            <Box my={[2, 0]}>
-              <Heading mb={1}>CONTACT</Heading>
+            <Box my={[2, 0]} fontSize={['12px', 'inherit']}>
+              <Heading mb={1} fontSize={['18px', '24px']}>
+                CONTACT
+              </Heading>
               <Text mr={[3, 0]} my={[2, 0]}>
                 <Link href="/contact">Contact Us</Link>
               </Text>
@@ -146,8 +150,10 @@ function Footer() {
               </Text>
             </Box>
 
-            <Box my={[2, 0]}>
-              <Heading mb={1}>LEGAL</Heading>
+            <Box my={[2, 0]} fontSize={['12px', 'inherit']} ml={['20px', 0]}>
+              <Heading mb={1} fontSize={['18px', '24px']}>
+                LEGAL
+              </Heading>
               {footerLinks
                 ? footerLinks.map((link, index) => {
                     // If link is valid url use <a>
