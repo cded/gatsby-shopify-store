@@ -74,7 +74,7 @@ const LayoutComponents = ({ children }) => {
           as="main"
           flex="1"
           width={1}
-          style={{ maxWidth: 1300, height: '100%' }}
+          style={{ maxWidth: 1300, height: '100%', minHeight: '74vh' }}
           mx="auto"
           mt={['35px', '95px']}
         >

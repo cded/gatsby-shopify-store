@@ -8,9 +8,9 @@ import GatsbyLink from 'gatsby-link';
 import loadable from '@loadable/component';
 import styled from '@emotion/styled';
 
-import VisaImg from '../images/1.png';
-import MasterCardImg from '../images/2.png';
-import AmexImg from '../images/3.png';
+import VisaImg from '../images/visa_electron.png';
+import MasterCardImg from '../images/mastercard2.png';
+import AmexImg from '../images/american_express.png';
 import MapMontreal from '../images/mapMontreal.png';
 // import { SocialIcon } from 'react-social-icons';
 
@@ -31,7 +31,7 @@ const validURL = (str) => {
 
 const CardImage = styled.img`
   width: 42px;
-  height: 28px;
+  height: 42px;
   margin-right: 10px;
 `;
 
@@ -103,7 +103,7 @@ function Footer() {
         px={2}
         pt={3}
       >
-        <Flex alignItems="center" mb={[2, 3, 4]} flexWrap="wrap">
+        <Flex alignItems="center" flexWrap="wrap">
           <Flex
             width={[1, 1, 4 / 5]}
             justifyContent={['center', 'space-between']}
@@ -117,7 +117,11 @@ function Footer() {
               </Text>
             </Box> */}
 
-            <Box mr={[1, 0]} width={['100%', 'auto']}>
+            <Box
+              mr={[1, 0]}
+              width={['100%', 'auto']}
+              sx={{ display: ['none', 'block'] }}
+            >
               {/* <Heading mb={1}>ABOUT</Heading> */}
 
               <ImageCropper>
@@ -178,6 +182,14 @@ function Footer() {
             </Box>
 
             <Box>
+              <Text
+                mt={[2]}
+                sx={{ textAlign: 'center', display: ['block', 'none'] }}
+                fontSize={[1, 2]}
+                mb="10px"
+              >
+                Made in Montreal, Quebec
+              </Text>
               <Text fontSize={[1, 2]} fontFamily="heading" mb={[0, 2]}>
                 © {year} {company || ''}
               </Text>
