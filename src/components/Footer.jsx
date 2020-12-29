@@ -8,9 +8,9 @@ import GatsbyLink from 'gatsby-link';
 import loadable from '@loadable/component';
 import styled from '@emotion/styled';
 
-import VisaImg from '../images/visa_electron.png';
-import MasterCardImg from '../images/mastercard2.png';
-import AmexImg from '../images/american_express.png';
+import VisaImg from '../images/visa.svg';
+import MasterCardImg from '../images/mastercard.svg';
+import AmexImg from '../images/amex.svg';
 import MapMontreal from '../images/mapMontreal.png';
 // import { SocialIcon } from 'react-social-icons';
 
@@ -136,12 +136,16 @@ function Footer() {
               <Heading mb={1} fontSize={['18px', '24px']}>
                 CONTACT
               </Heading>
+              <Text mr={[3, 0]} mt={[2, 0]}>
+                <Link href="/about">About Us</Link>
+              </Text>
               <Text mr={[3, 0]} my={[2, 0]}>
                 <Link href="/contact">Contact Us</Link>
               </Text>
               <Text mr={[3, 0]} mt={[2, 0]} mb={3}>
                 <Link href="/faq">FAQ</Link>
               </Text>
+
               {/* <Text mr={[3, 0]} my={[2, 0]}>
                 By phone:
               </Text> */}

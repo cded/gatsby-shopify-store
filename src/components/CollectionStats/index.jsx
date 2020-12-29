@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-const CollectionStats = props => {
+const CollectionStats = (props) => {
   const { skip, limit, productsNum } = props;
 
   let from;
@@ -11,7 +11,7 @@ const CollectionStats = props => {
 
   return (
     <Fragment>
-      Showing {from} - {to} of {productsNum} result
+      Showing {from} - {to} of {productsNum} results
     </Fragment>
   );
 };

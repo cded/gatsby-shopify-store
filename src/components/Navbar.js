@@ -41,16 +41,16 @@ const FlagBox = styled(Box)`
 
 const CartItemCount = styled.span`
   position: absolute;
-  top: -10px;
+  top: -7px;
   right: -6px;
-  width: 19px;
-  height: 19px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   background-color: #2476f2;
   color: #fff;
-  font-size: 0.7rem;
+  font-size: 10px;
   text-align: center;
-  line-height: 19px;
+  line-height: 15px;
   letter-spacing: normal;
   transition: background-color 0.6s;
 `;
@@ -149,6 +149,20 @@ const Navbar = (props) => {
 
           <Text
             as={GatsbyLink}
+            to="/about"
+            style={{ textDecoration: 'none', textTransform: 'uppercase' }}
+            ml="10px"
+            color="primary"
+            fontSize="0.875em"
+            fontFamily="heading"
+            fontWeight="600"
+            sx={{ display: ['none', 'block'] }}
+          >
+            About Us
+          </Text>
+
+          <Text
+            as={GatsbyLink}
             to="/"
             aria-label={ariaHomaPageLinkLabel}
             style={{ textDecoration: 'none' }}
@@ -159,7 +173,7 @@ const Navbar = (props) => {
                 color="primary"
                 fontSize={[2, 3]}
                 sx={{
-                  marginLeft: [0, 140],
+                  marginLeft: [0, 60],
                   width: ['160px', 'auto'],
                   display: 'flex',
                 }}

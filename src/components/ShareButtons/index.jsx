@@ -10,6 +10,10 @@ const ShareButtons = ({ buttons, location }) => {
         let buttonName = button + 'ShareButton';
         let buttonIcon = button + 'Icon';
         let ShareButton = styled(ReactShare[buttonName])`
+          width: 30px;
+          svg {
+            width: 30px;
+          }
           &:hover {
             cursor: pointer;
             opacity: 0.8;

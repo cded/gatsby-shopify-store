@@ -9,7 +9,7 @@ function Home() {
     <Layout>
       <Helmet title="Not found" defer={false} />
       <Flex mt={6} px={[3, null, 4]} justifyContent="center">
-        <Box>
+        <Box sx={{ maxWidth: '1300px', margin: 'auto' }}>
           <Text
             as="h1"
             fontSize={4}

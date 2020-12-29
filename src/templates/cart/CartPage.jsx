@@ -59,7 +59,7 @@ function CartPage() {
   const buttonEnabled = checkout.loaded && checkout.lineItems.length > 0;
 
   return (
-    <React.Fragment>
+    <Box sx={{ maxWidth: '1300px', margin: 'auto' }}>
       <Flex my={[3, 4]}>
         <Box p={[1, 3]}>
           <Heading fontSize={[3, 4, 5]}>{cartHeader}</Heading>
@@ -107,7 +107,7 @@ function CartPage() {
           <Flex>
             <Box mt={2} width={1}>
               {checkout.loaded &&
-                checkout.lineItems.map(lineItem => (
+                checkout.lineItems.map((lineItem) => (
                   <React.Fragment>
                     <LineItem
                       key={lineItem.id}
@@ -145,7 +145,7 @@ function CartPage() {
           </Flex>
         </Box>
       </Flex>
-    </React.Fragment>
+    </Box>
   );
 }
 

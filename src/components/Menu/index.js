@@ -180,7 +180,19 @@ const Menu = ({ storeName }) => {
                     mt="10px"
                     fontFamily="heading"
                   >
-                    Contact
+                    Contact Us
+                  </MenuItem>
+                </GatsbyLink>
+                <GatsbyLink to={`/about`} style={{ textDecoration: 'none' }}>
+                  <MenuItem
+                    bg="backgroundMain"
+                    color="#6d6e70"
+                    fontSize={[2]}
+                    sx={{ textTransform: 'uppercase' }}
+                    mt="10px"
+                    fontFamily="heading"
+                  >
+                    About Us
                   </MenuItem>
                 </GatsbyLink>
                 <MenuItem

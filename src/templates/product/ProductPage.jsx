@@ -79,7 +79,7 @@ function ProductPage({ data, pageContext, location }) {
   } = data.store.siteMetadata.gatsbyStorefrontConfig;
 
   return (
-    <>
+    <Box style={{ maxWidth: '1300px', margin: 'auto' }}>
       <Helmet>
         {/* Google's meta description length is up to 920 pixels, which might
           allow for up to 158 characters. On mobile devices, the max limit is
@@ -330,7 +330,7 @@ function ProductPage({ data, pageContext, location }) {
           ''
         )}
       </CarouselProvider>
-    </>
+    </Box>
   );
 }
 

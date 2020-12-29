@@ -34,7 +34,7 @@ export default (props) => {
       <Box
         p={['0', '50px']}
         pt={['50px', '50px']}
-        sx={{ minHeight: ['70vh', 0] }}
+        sx={{ minHeight: ['70vh', 0], maxWidth: '1300px', margin: 'auto' }}
       >
         <Heading
           m="auto"

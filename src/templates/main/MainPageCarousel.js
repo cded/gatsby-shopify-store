@@ -53,38 +53,43 @@ const MainPageCarousel = (props) => {
   }
 
   const newCarousel = [
-    {
-      name: 'H&B',
-      image: img,
-      description: 'Presents',
-      subDescription: 'LEDCO',
-      positionY: '15%',
-      highlightTitle: true,
-    },
+    // {
+    //   name: 'H&B',
+    //   image: img,
+    //   description: 'Presents',
+    //   subDescription: 'LEDCO',
+    //   positionY: '15%',
+    //   highlightTitle: true,
+    //   buttonText: 'Shop now',
+    //   buttonMT: '50%',
+    // },
     {
       name: 'Make your Home Bright',
       image: img1,
       description: 'With LEDCO Furniture',
-      positionY: '90%',
-      textPosition: 'auto',
+      positionY: '120%',
+      // textPosition: 'auto',
       highlightText: true,
+      buttonText: 'Shop now',
     },
     {
       name: 'Discover our selection of products',
       image: img2,
       buttonText: 'Shop now',
+      positionY: '80%',
     },
   ];
 
   return (
     <Box
-      mx={2}
-      px={1}
+      // mx={2}
+      // px={1}
       sx={{
         position: 'relative',
         textAlign: 'center',
-        display: ['none', 'block'],
-        maxWidth: 1300,
+
+        // display: ['none', 'block'],
+        // maxWidth: 1300,
       }}
     >
       <CarouselProvider
@@ -95,7 +100,7 @@ const MainPageCarousel = (props) => {
         interval={10000}
         infinite
       >
-        <Slider>
+        <Slider sx={{ maxHeight: '80vh' }}>
           {newCarousel.map((slide, index) => (
             <Slide key={index} index={index}>
               <MainPageSliderImage

@@ -26,7 +26,11 @@ function CatalogPage(props) {
         alignItems="flex-end"
       >
         <Text textAlign="left">
-          <Heading as="h1" fontSize={[20, 25, 30]}>
+          <Heading
+            as="h1"
+            fontSize={[20, 25, 30]}
+            sx={{ textTransform: 'uppercase' }}
+          >
             {title}
           </Heading>
           <Text fontSize={[2, 3]}>{description}</Text>

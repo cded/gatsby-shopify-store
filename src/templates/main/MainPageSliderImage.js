@@ -51,9 +51,8 @@ const MainPageSliderImage = ({
         <Box
           ml="auto"
           mr="auto"
-          mt={block.textPosition || '50px'}
-          mb={block.textPosition || '0'}
           textAlign="center"
+          sx={{ display: 'flex', alignItems: 'center', marginTop: '-20%' }}
         >
           <GatsbyLink
             // to={shopifyThemePath}
@@ -67,64 +66,56 @@ const MainPageSliderImage = ({
               },
             }}
           >
-            <Heading
-              as="h2"
-              fontSize={[30, 36, 42]}
-              sx={
-                block.highlightText
-                  ? {
-                      backdropFilter: 'blur(10px)',
-                      padding: '5px',
-                    }
-                  : block.highlightTitle &&
-                    {
-                      // color: '#db9200 !important',
-                    }
-              }
-              color="background"
-            >
-              {block.name}
-            </Heading>
-            <Text
-              fontSize={[1, 2, 3]}
-              mt="3"
-              sx={{ display: ['none', 'block'] }}
-              sx={
-                block.highlightText && {
-                  backdropFilter: 'blur(10px)',
-                  padding: '5px',
-                }
-              }
-              color="white"
-            >
-              {block.description}
-            </Text>
-            <Heading
-              fontSize={[30, 36, 42]}
-              mt="3"
+            <Box
               sx={{
-                display: ['none', 'block'],
-                letterSpacing: '2px',
+                padding: '20px',
+                backdropFilter: 'blur(5px)',
+                background: 'rgba(0,0,0,0.5)',
               }}
-              color="background"
+              mt={block.textPosition || '50px'}
+              mb={block.textPosition || '0'}
             >
-              {block.subDescription}
-            </Heading>
-            {block.buttonText && (
-              <StyledButton
-                variant="shopNow"
-                sx={{
-                  bg: buttonBgColor,
-                  color: buttonTextColor,
-                  textTransform: 'uppercase',
-                }}
-                fontFamily="heading"
-                fontSize={[12, 15, 17]}
-                onClick={() => navigate('products/all')}
+              <Heading as="h2" fontSize={[18, 36, 42]} color="background">
+                {block.name}
+              </Heading>
+              <Text
+                fontSize={[12, 16, 20]}
+                mt={[1, 3]}
+                mb={[1, 3]}
+                color="white"
               >
-                {block.buttonText}
-              </StyledButton>
-            )}
+                {block.description}
+              </Text>
+              <Heading
+                fontSize={[30, 36, 42]}
+                mt="3"
+                sx={{
+                  display: ['none', 'block'],
+                  letterSpacing: '2px',
+                }}
+                color="background"
+              >
+                {block.subDescription}
+              </Heading>
+              {block.buttonText && (
+                <StyledButton
+                  variant="shopNow"
+                  sx={{
+                    bg: buttonBgColor,
+                    color: buttonTextColor,
+                    textTransform: 'uppercase',
+                    padding: ['4px 8px', '8px 16px'],
+                  }}
+                  fontFamily="heading"
+                  fontSize={[10, 15, 17]}
+                  onClick={() => navigate('products/all')}
+                  mt={block.buttonMT}
+                  mb={1}
+                >
+                  {block.buttonText}
+                </StyledButton>
+              )}
+            </Box>
           </GatsbyLink>
         </Box>
       </Flex>
