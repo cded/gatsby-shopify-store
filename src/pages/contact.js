@@ -53,7 +53,7 @@ export default (props) => {
             <Text mt="20px">
               If you do not find your answer there or prefer talking to us
               directly. <br />
-              Please call us at {phone} or shoot us an email at {email}
+              Do not hesitate to shoot us an email at {email}
             </Text>
           </Box>
         </Box>

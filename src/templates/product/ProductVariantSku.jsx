@@ -19,11 +19,11 @@ const ProductVariantSku = () => {
   return (
     <React.Fragment>
       {sku ? (
-        <Flex mb={4}>
-          <Box mr={2}>
+        <Flex mb={4} mt={2}>
+          <Box mr={2} fontFamily="heading">
             <Text>{skuLabel}</Text>
           </Box>
-          <Box>{sku}</Box>
+          <Box fontFamily="heading">{sku}</Box>
         </Flex>
       ) : (
         ' '

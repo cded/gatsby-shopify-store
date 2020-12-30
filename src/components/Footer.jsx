@@ -32,6 +32,7 @@ const validURL = (str) => {
 
 const CardImage = styled.img`
   width: 42px;
+  height: 27px;
   margin-right: 10px;
 `;
 
