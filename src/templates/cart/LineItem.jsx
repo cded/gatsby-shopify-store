@@ -77,7 +77,12 @@ const LineItem = (props) => {
           justifyContent={['center', 'flex-start']}
         >
           {imageSrc ? (
-            <Image src={imageSrc} alt={altText} width={['130px', 1]} />
+            <Image
+              src={imageSrc}
+              alt={altText}
+              width={['130px', 1]}
+              height={['130px', '100%']}
+            />
           ) : (
             <NoImage
               width={['130px', 1]}
