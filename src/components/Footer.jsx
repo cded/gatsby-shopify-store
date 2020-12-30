@@ -11,6 +11,7 @@ import styled from '@emotion/styled';
 import VisaImg from '../images/visa.svg';
 import MasterCardImg from '../images/mastercard.svg';
 import AmexImg from '../images/amex.svg';
+import PaypalImg from '../images/paypal.png';
 import MapMontreal from '../images/mapMontreal.png';
 // import { SocialIcon } from 'react-social-icons';
 
@@ -31,7 +32,6 @@ const validURL = (str) => {
 
 const CardImage = styled.img`
   width: 42px;
-  height: 42px;
   margin-right: 10px;
 `;
 
@@ -153,9 +153,9 @@ function Footer() {
               <Text mr={[3, 0]} my={[2, 0]}>
                 By Email: {email}
               </Text>
-              <Text mr={[3, 0]} my={[2, 0]}>
+              {/* <Text mr={[3, 0]} my={[2, 0]}>
                 Call Us: {phone}
-              </Text>
+              </Text> */}
             </Box>
 
             <Box my={[2, 0]} fontSize={['12px', 'inherit']} ml={['20px', 0]}>
@@ -201,6 +201,7 @@ function Footer() {
                 <CardImage src={VisaImg} alt="visa credit card" />
                 <CardImage src={MasterCardImg} alt="mastercard credit card" />
                 <CardImage src={AmexImg} alt="american express credit card" />
+                <CardImage src={PaypalImg} alt="paypal" />
               </Box>
             </Box>
           </Flex>

@@ -14,6 +14,10 @@ const BgImage = styled.div`
   background-position-y: 0%;
   background-position-y: ${(props) => props.positionY};
 
+  @media (min-width: 1600px) {
+    background-position-y: ${(props) => `calc(${props.positionY} + 80%)`};
+  }
+
   @media (-webkit-min-device-pixel-ratio: 1.3), (min-resolution: 120dpi) {
     background-image: url(${(props) => props.img});
   }
@@ -37,7 +41,11 @@ const MainPageSliderImage = ({
   buttonBgColor = 'white',
 }) => {
   return (
-    <BgImage img={image} positionY={block.positionY}>
+    <BgImage
+      img={image}
+      positionY={block.positionY}
+      sx={{ backgroundPositionY: ['10%', '120%', '190%'] }}
+    >
       <Flex
         m="auto"
         p="1"
@@ -48,12 +56,7 @@ const MainPageSliderImage = ({
           height: '100%',
         }}
       >
-        <Box
-          ml="auto"
-          mr="auto"
-          textAlign="center"
-          sx={{ display: 'flex', alignItems: 'center', marginTop: '-20%' }}
-        >
+        <Box ml="auto" mr="auto" textAlign="center">
           <GatsbyLink
             // to={shopifyThemePath}
             sx={{
@@ -69,11 +72,7 @@ const MainPageSliderImage = ({
             <Box
               sx={{
                 padding: '20px',
-                backdropFilter: 'blur(5px)',
-                background: 'rgba(0,0,0,0.5)',
               }}
-              mt={block.textPosition || '50px'}
-              mb={block.textPosition || '0'}
             >
               <Heading as="h2" fontSize={[18, 36, 42]} color="background">
                 {block.name}
@@ -83,6 +82,13 @@ const MainPageSliderImage = ({
                 mt={[1, 3]}
                 mb={[1, 3]}
                 color="white"
+                sx={
+                  block.highlightText && {
+                    backdropFilter: 'blur(5px)',
+                    width: '204px',
+                    margin: 'auto',
+                  }
+                }
               >
                 {block.description}
               </Text>

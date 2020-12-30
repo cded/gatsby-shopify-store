@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Flex, Box, Button, Heading, Text } from 'rebass';
 import styled from '@emotion/styled';
 import { useStaticQuery, graphql } from 'gatsby';
@@ -11,9 +11,30 @@ import LineItem from './LineItem';
 
 const { cartSubtotalLabel, cartCheckoutButton, cartHeader } = strings;
 
-const CheckoutButton = styled(Button)(({ theme }) => ({
-  fontFamily: theme.fonts.sans,
-}));
+const CheckoutButton = styled(Button)`
+  background: #2476f2;
+  color: #fff;
+  &:hover {
+    background: rgb(36, 118, 242, 0.8);
+    color: #fff;
+  }
+`;
+
+const ShoppingButton = styled(Button)`
+  background: #fff;
+  color: #000;
+  border-color: #dddddf;
+  &:hover {
+    background: rgb(255, 255, 255, 0.8);
+    color: #000;
+    border-color: #000;
+  }
+`;
+
+const SpinnerImage = styled.img`
+  width: 25px;
+  margin-left: 10px;
+`;
 
 function CartPage() {
   const data = useStaticQuery(graphql`
@@ -33,16 +54,23 @@ function CartPage() {
   const { checkout, updateItem, removeItem } = useShopifyFunctions();
   const { subtotalPrice, webUrl } = checkout;
 
-  const displaySubtotalPrice = formatPrice(
-    Number(subtotalPrice),
-    locales,
-    currency
-  );
+  const [showSpinner, setShowSpinner] = useState(false);
+
+  // const displaySubtotalPrice = formatPrice(
+  //   Number(subtotalPrice),
+  //   locales,
+  //   currency
+  // );
+
+  const displaySubtotalPrice = `CA $${subtotalPrice}`;
 
   async function decreaseProductAmount({ id, quantity }) {
     if (quantity === 1) return;
     try {
-      await updateItem({ id, quantity: quantity - 1 });
+      setShowSpinner(true);
+      await updateItem({ id, quantity: quantity - 1 }).then(() =>
+        setShowSpinner(false)
+      );
     } catch (error) {
       console.error(error);
     }
@@ -50,7 +78,10 @@ function CartPage() {
 
   async function increaseProductAmount({ id, quantity }) {
     try {
-      await updateItem({ id, quantity: quantity + 1 });
+      setShowSpinner(true);
+      await updateItem({ id, quantity: quantity + 1 }).then(() =>
+        setShowSpinner(false)
+      );
     } catch (error) {
       console.error(error);
     }
@@ -60,91 +91,148 @@ function CartPage() {
 
   return (
     <Box sx={{ maxWidth: '1300px', margin: 'auto' }}>
-      <Flex my={[3, 4]}>
-        <Box p={[1, 3]}>
-          <Heading fontSize={[3, 4, 5]}>{cartHeader}</Heading>
+      <Flex mt={[4, 4]} mb={[0, 0]} pl={[2, 0]}>
+        <Box p={[1, 3]} sx={{ display: 'flex' }}>
+          <Heading fontSize={[3, 4]} sx={{ textTransform: 'uppercase' }} mb={0}>
+            {cartHeader} ({checkout?.lineItems.length})
+          </Heading>
+          {/* {showSpinner && (
+            <Box>
+              <Spinner />
+            </Box>
+          )} */}
         </Box>
       </Flex>
-      <Flex
-        m={2}
-        sx={{
-          borderWidth: '1px',
-          borderStyle: 'solid',
-          borderColor: 'grey',
-        }}
-      >
-        <Box width={1}>
-          <Flex
+      <Box sx={{ display: ['block', 'flex'] }}>
+        <Flex
+          m={2}
+          sx={{
+            position: 'relative',
+            flex: '0 0 66.6666666667%',
+          }}
+        >
+          <Box width={1}>
+            <Flex>
+              <Box mt={2} width={1}>
+                {checkout.loaded &&
+                  checkout.lineItems.map((lineItem) => (
+                    <React.Fragment>
+                      <LineItem
+                        key={lineItem.id}
+                        lineItem={lineItem}
+                        decreaseProductAmount={decreaseProductAmount}
+                        increaseProductAmount={increaseProductAmount}
+                        removeItem={removeItem}
+                        mb={[4, 0]}
+                      />
+                      <Divider bg="grey" my={1} display={['block', 'none']} />
+                    </React.Fragment>
+                  ))}
+              </Box>
+            </Flex>
+          </Box>
+        </Flex>
+
+        <Box
+          m={2}
+          sx={{
+            position: 'relative',
+            flex: '0 0 33.333333337%',
+          }}
+        >
+          <Box
             sx={{
-              borderWidth: '0px',
-              borderBottomWidth: [0, '1px'],
+              borderWidth: '1px',
               borderStyle: 'solid',
               borderColor: 'grey',
             }}
+            p={[2, 1]}
           >
-            <Box
-              width={[1, 2 / 10, 1 / 10]}
-              p={[1, 3]}
-              display={['none', 'block']}
-            >
-              Image
-            </Box>
-            <Box
-              width={[1, 4 / 10, 5 / 10]}
-              p={[1, 3]}
-              display={['none', 'block']}
-            >
-              Product
-            </Box>
-            <Box width={[1, 1 / 10]} p={[1, 3]} display={['none', 'block']}>
-              Price
-            </Box>
-            <Box width={[1, 3 / 10]} p={[1, 3]} display={['none', 'block']}>
-              Amount
-            </Box>
-          </Flex>
-
-          <Flex>
-            <Box mt={2} width={1}>
-              {checkout.loaded &&
-                checkout.lineItems.map((lineItem) => (
-                  <React.Fragment>
-                    <LineItem
-                      key={lineItem.id}
-                      lineItem={lineItem}
-                      decreaseProductAmount={decreaseProductAmount}
-                      increaseProductAmount={increaseProductAmount}
-                      removeItem={removeItem}
-                      mb={[4, 0]}
-                    />
-                    <Divider bg="grey" my={1} display={['block', 'none']} />
-                  </React.Fragment>
-                ))}
-            </Box>
-          </Flex>
-
-          <Flex justifyContent="space-between" alignItems="top" mt={1}>
             <Box p={[1, 3]}>
-              <Text fontSize={3}>{cartSubtotalLabel}</Text>
-              <Text>{displaySubtotalPrice}</Text>
-            </Box>
-            <Box p={[1, 3]}>
-              <CheckoutButton
-                as={'a'}
-                href={buttonEnabled && webUrl}
-                variant="primary"
-                px={5}
-                py={3}
-                style={{
-                  opacity: buttonEnabled ? 1 : 0.7,
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
                 }}
+                fontSize={1}
               >
-                {cartCheckoutButton}
-              </CheckoutButton>
+                <Text>{cartSubtotalLabel}</Text>
+                <Text>{displaySubtotalPrice}</Text>
+              </Box>
+
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                }}
+                fontSize={1}
+              >
+                <Text>Shipping</Text>
+                <Text>Calculated at next step</Text>
+              </Box>
+
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                }}
+                fontSize={1}
+              >
+                <Text>Tax</Text>
+                <Text>Calculated at next step</Text>
+              </Box>
+
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                }}
+                mt={4}
+                fontSize={[2, 4]}
+              >
+                <Heading fontWeight="700">TOTAL COST</Heading>
+                <Text>{displaySubtotalPrice}</Text>
+              </Box>
             </Box>
-          </Flex>
+          </Box>
+
+          <Box>
+            <CheckoutButton
+              as={'a'}
+              href={buttonEnabled && webUrl}
+              variant="primary"
+              px={5}
+              py={3}
+              style={{
+                opacity: buttonEnabled ? 1 : 0.7,
+              }}
+              sx={{ textTransform: 'uppercase', width: '100%' }}
+              mt={4}
+            >
+              Proceed to checkout
+            </CheckoutButton>
+
+            <ShoppingButton
+              as={'a'}
+              href={'/products/all'}
+              variant="primary"
+              px={5}
+              py={3}
+              style={{
+                opacity: buttonEnabled ? 1 : 0.7,
+              }}
+              sx={{ textTransform: 'uppercase', width: '100%' }}
+              mt={2}
+            >
+              Continue Shopping
+            </ShoppingButton>
+          </Box>
         </Box>
-      </Flex>
+      </Box>
     </Box>
   );
 }

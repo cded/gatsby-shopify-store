@@ -67,7 +67,7 @@ const MainPageCarousel = (props) => {
       name: 'Make your Home Bright',
       image: img1,
       description: 'With LEDCO Furniture',
-      positionY: '120%',
+      positionY: '130%',
       // textPosition: 'auto',
       highlightText: true,
       buttonText: 'Shop now',
@@ -76,7 +76,8 @@ const MainPageCarousel = (props) => {
       name: 'Discover our selection of products',
       image: img2,
       buttonText: 'Shop now',
-      positionY: '80%',
+      positionY: '70%',
+      highlightTitle: true,
     },
   ];
 

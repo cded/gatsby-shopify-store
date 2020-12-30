@@ -48,62 +48,68 @@ const MainPageProductBlock = (props) => {
   } = props;
 
   return (
-    <ShopifyBackgroundImage src={firstImage.originalSrc} maxSize="400">
-      <Flex
-        m="auto"
-        sx={{
-          justifyContent: 'flex-start',
-          alignItems: 'stretch',
-          width: '100%',
-          height: '100%',
-          position: 'relative',
-        }}
-      >
-        <BottomBar>
-          <Box>
-            <GatsbyLink
-              to={shopifyThemePath}
-              sx={{
-                color: textColor,
-                textAlign: 'center',
-                textDecoration: 'none',
-                display: 'flex',
-                justifyContent: 'space-around',
-                alignItems: 'center',
-                ':hover,:focus,.active': {
+    <ShopifyBackgroundImage
+      src={firstImage.originalSrc}
+      maxSize="400"
+      positionY="70%"
+    >
+      <GatsbyLink to={shopifyThemePath}>
+        <Flex
+          m="auto"
+          sx={{
+            justifyContent: 'flex-start',
+            alignItems: 'stretch',
+            width: '100%',
+            height: '100%',
+            position: 'relative',
+          }}
+        >
+          <BottomBar>
+            <Box>
+              <GatsbyLink
+                to={shopifyThemePath}
+                sx={{
                   color: textColor,
+                  textAlign: 'center',
                   textDecoration: 'none',
-                },
-              }}
-            >
-              <Heading
-                as="h2"
-                fontSize={[20, 25, 30]}
-                sx={{
-                  textTransform: 'uppercase',
-                  // textShadow:
-                  //   '-1px -1px 0 #2476f2, 1px -1px 0 #2476f2, -1px 1px 0 #2476f2, 1px 1px 0 #2476f2',
-                  backdropFilter: 'blur(10px)',
+                  display: 'flex',
+                  justifyContent: 'space-around',
+                  alignItems: 'center',
+                  ':hover,:focus,.active': {
+                    color: textColor,
+                    textDecoration: 'none',
+                  },
                 }}
-                color="#fff"
               >
-                {block.name ? block.name : substrDescription(title, 30)}
-              </Heading>
-              <StyledButton
-                variant="shopNow"
-                sx={{
-                  bg: buttonBgColor,
-                  color: buttonTextColor,
-                }}
-                fontFamily="heading"
-                fontSize={[12, 15, 17]}
-              >
-                {buttonText.toUpperCase()}
-              </StyledButton>
-            </GatsbyLink>
-          </Box>
-        </BottomBar>
-      </Flex>
+                <Heading
+                  as="h2"
+                  fontSize={[20, 25, 30]}
+                  sx={{
+                    textTransform: 'uppercase',
+                    // textShadow:
+                    //   '-1px -1px 0 #2476f2, 1px -1px 0 #2476f2, -1px 1px 0 #2476f2, 1px 1px 0 #2476f2',
+                    backdropFilter: 'blur(10px)',
+                  }}
+                  color="#fff"
+                >
+                  {block.name ? block.name : substrDescription(title, 30)}
+                </Heading>
+                <StyledButton
+                  variant="shopNow"
+                  sx={{
+                    bg: buttonBgColor,
+                    color: buttonTextColor,
+                  }}
+                  fontFamily="heading"
+                  fontSize={[12, 15, 17]}
+                >
+                  {buttonText.toUpperCase()}
+                </StyledButton>
+              </GatsbyLink>
+            </Box>
+          </BottomBar>
+        </Flex>
+      </GatsbyLink>
     </ShopifyBackgroundImage>
   );
 };

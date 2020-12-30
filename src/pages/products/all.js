@@ -76,9 +76,9 @@ const CatalogAllProducs = () => {
         >
           <Text textAlign="left">
             <Heading as="h1" fontSize={[20, 25, 30]}>
-              Browse all our products
+              CATALOG
             </Heading>
-            <Text fontSize={[2, 3]}>Our Catalog</Text>
+            <Text fontSize={[2, 3]}>Browse our products</Text>
           </Text>
           {/* <Text
             textAlign={['center', 'right']}

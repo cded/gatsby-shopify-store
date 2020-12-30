@@ -242,14 +242,21 @@ const Navbar = (props) => {
         >
           {!hideNavbarOnScroll && (
             <Text
+              as={GatsbyLink}
+              to="/"
               color="primary"
               fontSize={[2, 3]}
+              aria-label={ariaHomaPageLinkLabel}
               sx={{
                 marginRight: 'auto',
                 width: ['160px', 'auto'],
                 display: 'flex',
+                ':hover': {
+                  color: '#000',
+                },
               }}
               fontFamily="heading"
+              style={{ textDecoration: 'none' }}
             >
               <Text fontFamily="heading" mr="5px">
                 H&B{' '}

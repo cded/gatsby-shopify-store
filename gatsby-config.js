@@ -65,7 +65,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Roboto', 'Montserrat'],
+          families: ['Roboto', 'Montserrat', 'Montserrat:wght@700'],
         },
       },
     },

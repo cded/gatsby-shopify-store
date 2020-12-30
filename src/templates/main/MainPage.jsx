@@ -4,6 +4,7 @@ import { Box, Heading } from 'rebass';
 import MainPageCarousel from './MainPageCarousel';
 import MainPageSection from './MainPageSection';
 import MainPageProductBox from './MainPageProductBox';
+import Banner from './Banner';
 
 const MainPage = (props) => {
   const { data } = props;
@@ -17,7 +18,8 @@ const MainPage = (props) => {
       <Box width={1} mb={1}>
         <MainPageCarousel />
       </Box>
-      <Box style={{ maxWidth: 1300 }} mx="auto" px={2} pt={3}>
+      <Banner></Banner>
+      <Box style={{ maxWidth: 1300 }} mx="auto" px={2}>
         <Box width={1} mb={1}>
           <MainPageSection
             section={{ children: featuredProducts.nodes }}

@@ -10,6 +10,7 @@ const BgImage = styled.div`
   background-size: ${(props) => (props.contain ? 'contain' : 'cover')};
   background-position-x: 50%;
   background-position-y: 0%;
+  background-position-y: ${(props) => props.positionY};
 
   @media (-webkit-min-device-pixel-ratio: 1.3), (min-resolution: 120dpi) {
     background-image: url(${({ src, maxSize }) =>
@@ -30,11 +31,22 @@ const NoImage = styled.div`
   background-position-y: 0%;
 `;
 
-const ShopifyBackgroundImage = ({ src, maxSize, children, contain }) => {
+const ShopifyBackgroundImage = ({
+  src,
+  maxSize,
+  children,
+  contain,
+  positionY,
+}) => {
   return (
     <>
       {src ? (
-        <BgImage src={src} maxSize={maxSize} contain={contain}>
+        <BgImage
+          src={src}
+          maxSize={maxSize}
+          contain={contain}
+          positionY={positionY}
+        >
           {children}
         </BgImage>
       ) : (

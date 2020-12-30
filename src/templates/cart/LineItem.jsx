@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Flex, Box, Image, Text } from 'rebass';
 import { useStaticQuery, graphql } from 'gatsby';
+import GatsbyLink from 'gatsby-link';
 
 import ProductCounter from '../../components/ProductCounter';
 import NoImage from '../../components/Icons/NoImage';
 import RemoveItemIcon from './RemoveItemIcon';
 import formatPrice from '../../utils/formatPrice';
 import strings from './strings.json';
+import QuantityButton from '../product/QuantityButton';
 
 const { cartItemPriceLabel, cartItemAriaRemoveFromCart } = strings;
 
-const LineItem = props => {
+const LineItem = (props) => {
   const data = useStaticQuery(graphql`
     {
       site {
@@ -57,7 +59,8 @@ const LineItem = props => {
     );
   }, [selectedOptions]);
 
-  const displayPrice = formatPrice(Number(variant.price), locales, currency);
+  // const displayPrice = formatPrice(Number(variant.price), locales, currency);
+  const displayPrice = `CA $${variant.price}`;
 
   return (
     <React.Fragment>
@@ -65,34 +68,16 @@ const LineItem = props => {
         flexDirection={['column', 'row']}
         alignItems="top"
         fontFamily="body"
+        sx={{ borderBottom: '1px solid #dddddf' }}
         {...props}
       >
-        <Box
-          p={[1, 3]}
-          sx={{ position: 'absolute', right: 20 }}
-          display={['block', 'none']}
-        >
-          <RemoveItemIcon
-            onClick={() => removeItem(id)}
-            ml={['29px', 4]}
-            aria-hidden
-            aria-label={cartItemAriaRemoveFromCart}
-            size={[16, 18, 20]}
-            sx={{ cursor: 'pointer', height: 'auto' }}
-          />
-        </Box>
         <Flex
-          width={[1, 2 / 10, 1 / 10]}
+          width={[1, 2 / 10, 2 / 10]}
           p={[1, 3]}
           justifyContent={['center', 'flex-start']}
         >
           {imageSrc ? (
-            <Image
-              src={imageSrc}
-              alt={altText}
-              width={['130px', 1]}
-              maxHeight={'130px'}
-            />
+            <Image src={imageSrc} alt={altText} width={['130px', 1]} />
           ) : (
             <NoImage
               width={['130px', 1]}
@@ -109,13 +94,28 @@ const LineItem = props => {
           justifyContent={['center', 'flex-start']}
         >
           <Box>
-            <Text fontSize={[3, 4]}>{title}</Text>
+            <Text
+              as={GatsbyLink}
+              to={variant?.product && `/product/${variant.product.handle}`}
+              fontSize={[2, 3]}
+              sx={{
+                textTransform: 'uppercase',
+                color: '#000',
+                textDecoration: 'none',
+                ':hover': {
+                  textDecoration: 'none',
+                },
+              }}
+            >
+              {title}
+            </Text>
             {showVariants ? (
               <Flex
                 pt={2}
                 fontSize={[2]}
                 lineHeight={1}
                 style={{ opacity: 0.7 }}
+                sx={{ textTransform: 'uppercase' }}
               >
                 {options.map((option, index) => {
                   return (
@@ -133,44 +133,38 @@ const LineItem = props => {
         </Flex>
 
         <Flex
-          width={[1, 1 / 10]}
-          p={[1, 3]}
-          justifyContent={['center', 'flex-start']}
-        >
-          <Text fontSize={[3, 4]} aria-label={cartItemPriceLabel}>
-            {displayPrice}
-          </Text>
-        </Flex>
-        <Flex
           width={[1, 2 / 10]}
           p={[1, 3]}
           justifyContent={['center', 'flex-start']}
+          // alignItems="center"
         >
-          <Box width={[1 / 5, 1]}>
-            <ProductCounter
-              currentAmount={quantity}
+          <Box width={['auto', 1]}>
+            <QuantityButton
+              quantity={quantity}
               decreaseAmount={() => decreaseProductAmount({ id, quantity })}
               increaseAmount={() => increaseProductAmount({ id, quantity })}
+              noLabel
             />
           </Box>
         </Flex>
-        <Flex
-          width={[1, 1 / 10]}
-          p={[1, 3]}
-          display={['none', 'block']}
-          justifyContent={['center', 'flex-start']}
-        >
-          <Box display={['none', 'block']}>
-            <RemoveItemIcon
-              onClick={() => removeItem(id)}
-              display={['none', 'block']}
-              ml={[1, 4]}
-              aria-hidden
-              size={[16, 18, 20]}
-              sx={{ cursor: 'pointer', height: 'auto' }}
-            />
-          </Box>
-        </Flex>
+
+        <Box width={[1, 2 / 10]} p={[1, 3]} sx={{ textAlign: 'right' }}>
+          <Text fontSize={[2, 2]} aria-label={cartItemPriceLabel}>
+            {displayPrice}
+          </Text>
+          <Text
+            fontSize={[1, 1]}
+            onClick={() => removeItem(id)}
+            sx={{
+              cursor: 'pointer',
+              ':hover': {
+                color: '#2476f2',
+              },
+            }}
+          >
+            Remove
+          </Text>
+        </Box>
       </Flex>
     </React.Fragment>
   );

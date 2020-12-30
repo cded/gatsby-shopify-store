@@ -56,7 +56,13 @@ const StyledMiddleButton = styled(StyledButton)`
   }
 `;
 
-const QuantityButton = ({ quantity, setQuantity }) => {
+const QuantityButton = ({
+  quantity,
+  setQuantity,
+  increaseAmount,
+  decreaseAmount,
+  noLabel,
+}) => {
   const increaseQuantity = () => {
     setQuantity((q) => q + 1);
   };
@@ -65,12 +71,12 @@ const QuantityButton = ({ quantity, setQuantity }) => {
   };
   return (
     <div className="field">
-      <Label htmlFor="quantity">Quantity</Label>
+      {!noLabel && <Label htmlFor="quantity">Quantity</Label>}
       <Control id="quantity">
         <FlexDiv>
           <Control>
             <StyledButton
-              onClick={decreaseQuantity}
+              onClick={decreaseAmount ? decreaseAmount : decreaseQuantity}
               sx={{ borderBottomRightRadius: 0, borderTopRightRadius: 0 }}
             >
               -
@@ -83,7 +89,7 @@ const QuantityButton = ({ quantity, setQuantity }) => {
           </Control>
           <Control>
             <StyledButton
-              onClick={increaseQuantity}
+              onClick={increaseAmount ? increaseAmount : increaseQuantity}
               sx={{ borderBottomLeftRadius: 0, borderTopLeftRadius: 0 }}
             >
               +
