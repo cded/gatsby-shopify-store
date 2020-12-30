@@ -11,6 +11,10 @@ const StyledBox = styled(Box)`
   display: flex;
   align-items: center;
   justify-content: center;
+  &:hover {
+    text-decoration: none;
+    opacity: 0.8;
+  }
 `;
 
 const Banner = () => {

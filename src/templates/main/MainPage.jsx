@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Heading } from 'rebass';
+import GatsbyLink from 'gatsby-link';
 
 import MainPageCarousel from './MainPageCarousel';
 import MainPageSection from './MainPageSection';
@@ -18,7 +19,9 @@ const MainPage = (props) => {
       <Box width={1} mb={1}>
         <MainPageCarousel />
       </Box>
-      <Banner></Banner>
+      <GatsbyLink style={{ textDecoration: 'none' }} to="/collection/sale">
+        <Banner></Banner>
+      </GatsbyLink>
       <Box style={{ maxWidth: 1300 }} mx="auto" px={2}>
         <Box width={1} mb={1}>
           <MainPageSection
