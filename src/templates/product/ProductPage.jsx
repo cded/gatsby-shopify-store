@@ -297,7 +297,7 @@ function ProductPage({ data, pageContext, location }) {
               ''
             )}
 
-            <Flex mb={4} alignItems="center">
+            <Flex mb={4} mt="24px" alignItems="center">
               {/* <Box mr={2}>
                 <Text>{shareButtonsLabel}</Text>
               </Box> */}

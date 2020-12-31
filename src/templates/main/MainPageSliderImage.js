@@ -14,7 +14,7 @@ const BgImage = styled.div`
   background-position-y: 0%;
   background-position-y: ${(props) => props.positionY};
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1280px) {
     background-position-y: ${(props) => `calc(${props.positionY} + 40%)`};
   }
 
