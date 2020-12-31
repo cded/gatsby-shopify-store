@@ -76,7 +76,7 @@ module.exports = {
     },
   ],
   siteMetadata: {
-    siteUrl: 'https://ledco.com',
+    siteUrl: 'https://hbledco.com',
     gatsbyStorefrontConfig: {
       storeName: 'Ledco',
       storeDescription: 'Buy vintage affordable furniture with leds',
