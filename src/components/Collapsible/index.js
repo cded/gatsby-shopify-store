@@ -6,8 +6,9 @@ const Header = styled(Box)`
   cursor: pointer;
   border-bottom: 2px solid #f2f2f2;
   padding: 15px;
-  // background-color: #2476f2;
   color: #000;
+  // background-color: ${(props) => (props.isOpen ? '#f4f7fa' : '#fff')};
+  color: ${(props) => (props.isOpen ? '#2476f2' : '#000')};
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -39,6 +40,7 @@ const Collapsible = ({ title, children }) => {
         onClick={togglePanel}
         fontSize={['16px', '20px']}
         fontFamily="description"
+        isOpen={isOpen}
       >
         {title}
       </Header>
