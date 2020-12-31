@@ -195,7 +195,12 @@ function Footer() {
               >
                 Made in Montreal, Quebec
               </Text>
-              <Text fontSize={[1, 2]} fontFamily="heading" mb={[0, 2]}>
+              <Text
+                fontSize={[1, 2]}
+                fontFamily="heading"
+                mb={[0, 2]}
+                sx={{ textAlign: ['center', 'left'] }}
+              >
                 © {year} {company || ''}
               </Text>
               <Box style={{ textAlign: 'right', display: 'flex' }}>

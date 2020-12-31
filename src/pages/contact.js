@@ -38,7 +38,12 @@ export default (props) => {
       >
         <Heading
           m="auto"
-          sx={{ textAlign: 'center', textTransform: 'uppercase' }}
+          sx={{
+            textAlign: 'center',
+            textTransform: 'uppercase',
+            maxWidth: '80%',
+            fontSize: ['18px', '24px'],
+          }}
         >
           How can we help you?
         </Heading>

@@ -9,7 +9,11 @@ const ProductDescription = ({ description, sections = [] }) => {
       {sections.length > 0 ? (
         <ProductDescriptionSections sections={sections} />
       ) : (
-        <DescriptionBox source={description.replace(/\\n/g, '<br />')} />
+        <DescriptionBox
+          source={description
+            .replace(/\\n/g, '<br />')
+            .replace(/Dimensions:/g, '<h2>Dimensions:</h2>')}
+        />
       )}
     </>
   );

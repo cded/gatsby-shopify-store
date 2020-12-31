@@ -22,6 +22,7 @@ export default (props) => {
             textAlign: 'center',
             textTransform: 'uppercase',
             maxWidth: '80%',
+            fontSize: ['18px', '24px'],
           }}
         >
           Why buy from H&B LEDCO?

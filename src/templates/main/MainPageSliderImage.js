@@ -74,7 +74,18 @@ const MainPageSliderImage = ({
                 padding: '20px',
               }}
             >
-              <Heading as="h2" fontSize={[18, 36, 42]} color="background">
+              <Heading
+                as="h2"
+                fontSize={[18, 36, 42]}
+                color="background"
+                sx={
+                  block.highlightTitle && {
+                    backdropFilter: 'blur(10px)',
+                    paddingLeft: '10px',
+                    paddingRight: '10px',
+                  }
+                }
+              >
                 {block.name}
               </Heading>
               <Text
@@ -85,7 +96,7 @@ const MainPageSliderImage = ({
                 sx={
                   block.highlightText && {
                     backdropFilter: 'blur(5px)',
-                    width: '204px',
+                    width: ['144px', '244px'],
                     margin: 'auto',
                   }
                 }

@@ -52,6 +52,7 @@ export const preset = {
     sans: 'Tahoma, Geneva, sans-serif',
     serif: '"Palatino Linotype", "Book Antiqua", Palatino, serif',
     mono: '"Courier New", Courier, monospace',
+    description: '"Josefin Sans", system-ui, sans-serif',
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],
   fontWeights: {

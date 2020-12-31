@@ -66,7 +66,7 @@ const MainPageCarousel = (props) => {
     {
       name: 'Make your Home Bright',
       image: img1,
-      description: 'With LEDCO Furniture',
+      description: 'With LEDCO LED Furniture',
       positionY: '130%',
       // textPosition: 'auto',
       highlightText: true,

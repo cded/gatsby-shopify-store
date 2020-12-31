@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Flex, Box, Text } from 'rebass';
+import { Flex, Box, Text, Heading } from 'rebass';
 import { Helmet } from 'react-helmet';
 import loadable from '@loadable/component';
 import { CarouselProvider } from 'pure-react-carousel';
@@ -262,6 +262,9 @@ function ProductPage({ data, pageContext, location }) {
               ) : (
                 (withoutShortDescription || description) && (
                   <Box>
+                    <Heading mb={2} fontFamily="description" color="#7b7b7b">
+                      Description:
+                    </Heading>
                     <ProductDescription
                       description={withoutShortDescription || description}
                       sections={sections}

@@ -5,7 +5,8 @@ const DescriptionBox = (props) => {
   return (
     <Text
       dangerouslySetInnerHTML={{ __html: props.source }}
-      fontFamily="heading"
+      fontFamily="description"
+      color="#7b7b7b"
     />
   );
 };
