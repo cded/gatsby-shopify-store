@@ -61,7 +61,7 @@ const MainPageSection = (props) => {
                 width={[1, 1 / sectionItemsNumber]}
                 key={index}
                 height={['60vh', sectionHeight]}
-                height={['45vh', '60vh']}
+                height={['45vh', '45vh', '60vh']}
                 p={1}
                 mb={[3, 0]}
               >
