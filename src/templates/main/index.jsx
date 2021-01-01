@@ -17,7 +17,11 @@ export default (props) => {
 
   return (
     <Layout>
-      <Helmet title={storeName} titleTemplate={pageTitleTemplate} defer={false}>
+      <Helmet
+        title="H&B LEDCO: Modern Led Furniture"
+        titleTemplate={pageTitleTemplate}
+        defer={false}
+      >
         <meta name="description" content={storeDescription} />
       </Helmet>
       <MainPage {...props} />

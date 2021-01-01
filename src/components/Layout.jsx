@@ -61,6 +61,12 @@ const LayoutComponents = ({ children }) => {
         <html lang="en" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
+        <meta
+          name="description"
+          content="Make Your Home Bright with LEDCO. Browse our led furniture selection! 
+          High quality design. Modern European style. Affordable. Based in Montreal. Delivery accross Canada.
+          Categories: TV stands, Coffee tables, Bedside tables, Sideboards"
+        />
         <script type="text/javascript">
           {`(function () {
   window.__insp = window.__insp || [];

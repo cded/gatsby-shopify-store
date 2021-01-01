@@ -78,8 +78,10 @@ module.exports = {
   siteMetadata: {
     siteUrl: 'https://hbledco.com',
     gatsbyStorefrontConfig: {
-      storeName: 'Ledco',
-      storeDescription: 'Buy vintage affordable furniture with leds',
+      storeName: 'H&B LEDCO',
+      storeDescription: `Make Your Home Bright with Ledco. Browse our led furniture selection! 
+      High quality design. Modern European style. Affordable. Based in Montreal. Delivery accross Canada.
+      Categories: TV stands, Coffee tables, Bedside tables, Sideboards`,
       email: 'info@hbledco.com',
       company: 'H&B Ledco Inc.',
       location: 'Montreal, QC',
