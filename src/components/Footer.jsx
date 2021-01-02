@@ -12,7 +12,7 @@ import VisaImg from '../images/visa.svg';
 import MasterCardImg from '../images/mastercard.svg';
 import AmexImg from '../images/amex.svg';
 import PaypalImg from '../images/paypal.png';
-import MapMontreal from '../images/mapMontreal.png';
+import MapMontreal from '../images/mapMontreal.webp';
 // import { SocialIcon } from 'react-social-icons';
 
 const SocialIcon = loadable(() => import('./SocialIcon'));

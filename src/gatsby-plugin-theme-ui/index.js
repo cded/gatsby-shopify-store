@@ -58,7 +58,7 @@ export const preset = {
   fontWeights: {
     light: 300,
     body: 400,
-    heading: 700,
+    heading: 500,
     bold: 700,
   },
   lineHeights: {

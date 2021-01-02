@@ -62,14 +62,22 @@ module.exports = {
     },
     'gatsby-plugin-loadable-components-ssr',
     {
-      resolve: 'gatsby-plugin-web-font-loader',
+      resolve: `gatsby-plugin-webfonts`,
       options: {
-        google: {
-          families: [
-            'Roboto',
-            'Montserrat',
-            'Montserrat:wght@700',
-            'Josefin Sans',
+        fonts: {
+          google: [
+            {
+              family: 'Roboto',
+              variants: ['400', '500', '700'],
+            },
+            {
+              family: 'Montserrat',
+              variants: ['400', '500', '700'],
+            },
+            {
+              family: 'Josefin Sans',
+              variants: ['400', '700'],
+            },
           ],
         },
       },

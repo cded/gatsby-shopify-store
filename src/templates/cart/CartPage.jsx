@@ -194,7 +194,7 @@ function CartPage() {
                 mt={4}
                 fontSize={[2, 4]}
               >
-                <Heading fontWeight="700">TOTAL COST</Heading>
+                <Heading fontWeight="500">TOTAL COST</Heading>
                 <Text>{displaySubtotalPrice}</Text>
               </Box>
             </Box>

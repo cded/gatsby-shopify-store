@@ -141,7 +141,7 @@ const Navbar = (props) => {
             color="primary"
             fontSize="0.875em"
             fontFamily="heading"
-            fontWeight="600"
+            fontWeight="500"
             sx={{ display: ['none', 'block'] }}
           >
             Contact Us
@@ -155,7 +155,7 @@ const Navbar = (props) => {
             color="primary"
             fontSize="0.875em"
             fontFamily="heading"
-            fontWeight="600"
+            fontWeight="500"
             sx={{ display: ['none', 'block'] }}
           >
             About Us
@@ -201,7 +201,7 @@ const Navbar = (props) => {
               color="primary"
               fontSize="0.875em"
               fontFamily="heading"
-              fontWeight="600"
+              fontWeight="500"
               sx={{ display: ['none', 'block'] }}
             >
               CATALOG

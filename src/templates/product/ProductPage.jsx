@@ -262,7 +262,12 @@ function ProductPage({ data, pageContext, location }) {
               ) : (
                 (withoutShortDescription || description) && (
                   <Box>
-                    <Heading mb={2} fontFamily="description" color="#7b7b7b">
+                    <Heading
+                      mb={2}
+                      fontFamily="description"
+                      fontWeight="600"
+                      color="#7b7b7b"
+                    >
                       Description:
                     </Heading>
                     <ProductDescription
