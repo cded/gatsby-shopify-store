@@ -12,8 +12,6 @@ const MainPage = (props) => {
 
   const { products: featuredProducts, bestsellers, collections } = data;
 
-  const { cartUrl } = props.pageContext;
-
   return (
     <Box>
       <Box width={1} mb={1}>

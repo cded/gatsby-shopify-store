@@ -28,7 +28,7 @@ export default (props) => {
       }
     }
   `);
-  const { email, phone } = data.site.siteMetadata.gatsbyStorefrontConfig;
+  const { email } = data.site.siteMetadata.gatsbyStorefrontConfig;
   return (
     <Layout>
       <Box

@@ -44,12 +44,12 @@ const IndividualProduct = ({ product }) => {
   const minDisplayPrice = formatPrice(minPrice, locales, currency);
   const maxDisplayPrice = formatPrice(maxPrice, locales, currency);
 
-  const { compareAtPrice } = variants[0];
-  const compareAtPriceFmormatted = formatPrice(
-    variants[0].compareAtPrice,
-    locales,
-    currency
-  );
+  // const { compareAtPrice } = variants[0];
+  // const compareAtPriceFmormatted = formatPrice(
+  //   variants[0].compareAtPrice,
+  //   locales,
+  //   currency
+  // );
 
   let hasSaleBadge = false;
 
@@ -58,9 +58,9 @@ const IndividualProduct = ({ product }) => {
   const Image = styled(ShopifyImage)``;
   const Title = styled(Heading)``;
 
-  const CompareAtPrice = styled.strike`
-    color: #c0c0c0;
-  `;
+  // const CompareAtPrice = styled.strike`
+  //   color: #c0c0c0;
+  // `;
 
   const AddToCartStyled = styled(AddToCart)`
     position: absolute;

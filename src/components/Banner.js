@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Box, Text } from 'rebass';
+import { Box } from 'rebass';
 import styled from '@emotion/styled';
 
 const StyledBanner = styled(Box)`

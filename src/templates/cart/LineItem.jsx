@@ -1,32 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Flex, Box, Image, Text } from 'rebass';
-import { useStaticQuery, graphql } from 'gatsby';
 import GatsbyLink from 'gatsby-link';
 
-import ProductCounter from '../../components/ProductCounter';
 import NoImage from '../../components/Icons/NoImage';
-import RemoveItemIcon from './RemoveItemIcon';
-import formatPrice from '../../utils/formatPrice';
 import strings from './strings.json';
 import QuantityButton from '../product/QuantityButton';
 
-const { cartItemPriceLabel, cartItemAriaRemoveFromCart } = strings;
+const { cartItemPriceLabel } = strings;
 
 const LineItem = (props) => {
-  const data = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          gatsbyStorefrontConfig {
-            locales
-            currency
-          }
-        }
-      }
-    }
-  `);
-  const { locales, currency } = data.site.siteMetadata.gatsbyStorefrontConfig;
-
   const {
     lineItem,
     decreaseProductAmount,

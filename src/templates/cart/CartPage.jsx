@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Flex, Box, Button, Heading, Text } from 'rebass';
 import styled from '@emotion/styled';
-import { useStaticQuery, graphql } from 'gatsby';
 
 import strings from './strings.json';
 import Divider from '../../components/Divider';
-import formatPrice from '../../utils/formatPrice';
 import useShopifyFunctions from '../../hooks/useShopifyFunctions';
 import LineItem from './LineItem';
 
-const { cartSubtotalLabel, cartCheckoutButton, cartHeader } = strings;
+const { cartSubtotalLabel, cartHeader } = strings;
 
 const CheckoutButton = styled(Button)`
   background: #2476f2;
@@ -31,30 +29,9 @@ const ShoppingButton = styled(Button)`
   }
 `;
 
-const SpinnerImage = styled.img`
-  width: 25px;
-  margin-left: 10px;
-`;
-
 function CartPage() {
-  const data = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          gatsbyStorefrontConfig {
-            locales
-            currency
-          }
-        }
-      }
-    }
-  `);
-  const { locales, currency } = data.site.siteMetadata.gatsbyStorefrontConfig;
-
   const { checkout, updateItem, removeItem } = useShopifyFunctions();
   const { subtotalPrice, webUrl } = checkout;
-
-  const [showSpinner, setShowSpinner] = useState(false);
 
   // const displaySubtotalPrice = formatPrice(
   //   Number(subtotalPrice),
@@ -67,10 +44,7 @@ function CartPage() {
   async function decreaseProductAmount({ id, quantity }) {
     if (quantity === 1) return;
     try {
-      setShowSpinner(true);
-      await updateItem({ id, quantity: quantity - 1 }).then(() =>
-        setShowSpinner(false)
-      );
+      await updateItem({ id, quantity: quantity - 1 });
     } catch (error) {
       console.error(error);
     }
@@ -78,10 +52,7 @@ function CartPage() {
 
   async function increaseProductAmount({ id, quantity }) {
     try {
-      setShowSpinner(true);
-      await updateItem({ id, quantity: quantity + 1 }).then(() =>
-        setShowSpinner(false)
-      );
+      await updateItem({ id, quantity: quantity + 1 });
     } catch (error) {
       console.error(error);
     }

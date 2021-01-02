@@ -6,7 +6,6 @@ import Pagination from '../../components/Pagination';
 import CollectionStats from '../../components/CollectionStats';
 
 function CatalogPage(props) {
-  console.log(props);
   const { limit, skip, cartUrl } = props.pageContext;
   const { title, description } = props.data.collection.nodes[0];
   let products = [];

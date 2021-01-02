@@ -4,7 +4,6 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { useCurrentVariantContext } from './CurrentVariantContext';
 
 import formatPrice from '../../utils/formatPrice';
-import strings from './strings.json';
 
 const ProductVariantPrice = ({ initialDisplayPrice = 0, mb = 0 }) => {
   const data = useStaticQuery(graphql`
@@ -21,7 +20,6 @@ const ProductVariantPrice = ({ initialDisplayPrice = 0, mb = 0 }) => {
   `);
   const { locales, currency } = data.site.siteMetadata.gatsbyStorefrontConfig;
 
-  const { productPriceLabel, productCompareAtPriceLabel } = strings;
   const { currentVariant } = useCurrentVariantContext();
   const [displayPrice, setDisplayPrice] = useState(
     formatPrice(initialDisplayPrice, locales, currency)
@@ -58,7 +56,7 @@ const ProductVariantPrice = ({ initialDisplayPrice = 0, mb = 0 }) => {
         <Box>
           {/* {productPriceLabel}{' '} */}
           {initialDisplayPrice && (
-            <Text as="span" color="primary" fontSize={[3, 4]} color="red">
+            <Text as="span" fontSize={[3, 4]} color="red">
               ${parseInt(initialDisplayPrice).toString()}
             </Text>
           )}

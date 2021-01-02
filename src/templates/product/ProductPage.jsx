@@ -7,7 +7,6 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 
 import strings from './strings.json';
 import substrDescription from '../../utils/substrDescription';
-import ProductCounter from '../../components/ProductCounter';
 import Divider from '../../components/Divider';
 import Breadcrumbs from '../../components/Breadcrumbs';
 
@@ -27,13 +26,7 @@ import QuantityButton from './QuantityButton';
 const ShareButtons = loadable(() => import('../../components/ShareButtons'));
 const DescriptionBox = loadable(() => import('./DescriptionBox'));
 
-const {
-  productQuantityLabel,
-  paymentsLabel,
-  shareButtonsLabel,
-  vendorLabel,
-  productTypeLabel,
-} = strings;
+const { productTypeLabel } = strings;
 
 function ProductPage({ data, pageContext, location }) {
   const [currentAmount, setCurrentAmount] = useState(1);
@@ -45,7 +38,6 @@ function ProductPage({ data, pageContext, location }) {
       images,
       variants,
       options,
-      vendor,
       productType,
       cmsConnection,
       reviewsConnection: reviews,

@@ -47,15 +47,6 @@ const MenuItem = styled(Box)`
   }
 `;
 
-const MenuItemTitle = styled(MenuItem)`
-  padding-left: 15px;
-  border-bottom: 2px solid #2476f2;
-  width: 100%;
-  &: hover {
-    opacity: 1;
-  }
-`;
-
 const StyledClosed = styled(Close)`
   width: 15px;
   height: 15px;

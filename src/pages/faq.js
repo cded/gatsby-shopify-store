@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Text, Heading } from 'rebass';
+import { Box, Heading } from 'rebass';
 import styled from '@emotion/styled';
 import GatsbyLink from 'gatsby-link';
 import Layout from '../components/Layout';
@@ -10,7 +10,7 @@ const Separation = styled(Box)`
   border: 1px solid #e0e0e0;
 `;
 
-export default (props) => {
+export default () => {
   return (
     <Layout>
       <Box

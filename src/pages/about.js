@@ -8,7 +8,7 @@ const Separation = styled(Box)`
   border: 1px solid #e0e0e0;
 `;
 
-export default (props) => {
+export default () => {
   return (
     <Layout>
       <Box

@@ -1,8 +1,7 @@
 /** @jsx jsx */
-import React from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 import { jsx } from 'theme-ui';
-import { Flex, Box, Text, Heading, Button } from 'rebass';
+import { Flex, Box, Heading, Button } from 'rebass';
 import styled from '@emotion/styled';
 
 import ShopifyBackgroundImage from '../../components/ShopifyBackgroundImage';
@@ -29,19 +28,12 @@ const StyledButton = styled(Button)`
 const MainPageProductBlock = (props) => {
   const {
     title,
-    description,
-    fields: {
-      shopifyThemePath,
-      firstImage,
-      descriptionSections,
-      shortDescription,
-    },
+    fields: { shopifyThemePath, firstImage },
   } = props.product;
 
   const {
     block,
     textColor = 'primary',
-    textBgColor = 'white',
     buttonText = 'Shop now',
     buttonTextColor = 'primary',
     buttonBgColor = 'white',
@@ -91,6 +83,7 @@ const MainPageProductBlock = (props) => {
                     backdropFilter: 'blur(10px)',
                   }}
                   color="#fff"
+                  fontWeight="500"
                 >
                   {block.name ? block.name : substrDescription(title, 30)}
                 </Heading>

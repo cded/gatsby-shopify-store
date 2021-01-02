@@ -34,14 +34,7 @@ const MainPageCollectionBlock = (props) => {
     fields: { shopifyThemePath },
   } = props.collection;
 
-  const {
-    block,
-    textColor = 'primary',
-    textBgColor = 'white',
-    buttonText = 'Explore',
-    buttonTextColor = 'primary',
-    buttonBgColor = 'white',
-  } = props;
+  const { block, textColor = 'primary', buttonText = 'Explore' } = props;
 
   return (
     <ShopifyBackgroundImage

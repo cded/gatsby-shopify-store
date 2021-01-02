@@ -1,6 +1,6 @@
 /** @jsx jsx */
 /* eslint no-unused-vars: 0 */
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { jsx, useThemeUI } from 'theme-ui';
 import { Box } from 'rebass';
 import {
@@ -24,9 +24,7 @@ import img2 from '../../images/image2.webp';
 
 const { ariaNextButtonLabel, ariaBackButtonLabel } = strings;
 
-const MainPageCarousel = (props) => {
-  const { carousel, data } = props;
-
+const MainPageCarousel = () => {
   const {
     theme: { breakpoints },
   } = useThemeUI();

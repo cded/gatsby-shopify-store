@@ -11,7 +11,6 @@ const { pageTitleTemplate } = strings;
 
 export default (props) => {
   const {
-    storeName,
     storeDescription,
   } = props.data.store.siteMetadata.gatsbyStorefrontConfig;
 

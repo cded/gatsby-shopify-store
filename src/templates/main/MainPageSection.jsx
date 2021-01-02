@@ -1,6 +1,5 @@
 /** @jsx jsx */
 
-import React from 'react';
 import { jsx } from 'theme-ui';
 import { Flex, Box } from 'rebass';
 
@@ -14,7 +13,7 @@ const MainPageSection = (props) => {
   //     ? section.children.length
   //     : 1;
   const sectionItemsNumber = 2;
-  const sectionHeight = sectionItemsNumber < 3 ? '60vh' : '40vh';
+  // const sectionHeight = sectionItemsNumber < 3 ? '60vh' : '40vh';
 
   return (
     <Box maxWidth={1300} mx="auto">
@@ -60,7 +59,6 @@ const MainPageSection = (props) => {
               <Box
                 width={[1, 1 / sectionItemsNumber]}
                 key={index}
-                height={['60vh', sectionHeight]}
                 height={['45vh', '45vh', '60vh']}
                 p={1}
                 mb={[3, 0]}

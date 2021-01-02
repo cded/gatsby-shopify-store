@@ -40,7 +40,6 @@ const MainPageSliderImage = ({
   image,
   block,
   textColor = 'primary',
-  textBgColor = 'white',
   buttonTextColor = 'primary',
   buttonBgColor = 'white',
 }) => {

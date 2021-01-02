@@ -5,7 +5,6 @@ import { useStaticQuery } from 'gatsby';
 
 import CatalogProducts from '../../templates/catalog/CatalogProducts';
 import Pagination from '../../components/Pagination';
-import CollectionStats from '../../components/CollectionStats';
 import Layout from '../../components/Layout';
 
 const CatalogAllProducs = () => {

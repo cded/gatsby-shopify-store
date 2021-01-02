@@ -20,6 +20,7 @@ const StyledButton = styled(Button)`
   padding: 8px 20px;
   text-transform: uppercase;
   width: 100%;
+  font-weight: 500;
   &:hover {
     background: #000;
     color: #fff;

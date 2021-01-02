@@ -5,7 +5,6 @@ import Layout from '../../components/Layout';
 import CatalogPage from './CatalogPage';
 
 export default (props) => {
-  console.log(props);
   const { title, description } = props.data.collection.nodes[0];
   const { storeName } = props.data.store.siteMetadata.gatsbyStorefrontConfig;
   return (
