@@ -19,9 +19,8 @@ import ChevronRight from '../../components/Icons/ChevronRight';
 import strings from './strings.json';
 import MainPageSliderImage from './MainPageSliderImage';
 
-import img from '../../images/image7.png';
-import img1 from '../../images/image1.png';
-import img2 from '../../images/image2.png';
+import img1 from '../../images/image1Compressed.png';
+import img2 from '../../images/image2Compressed.png';
 
 const { ariaNextButtonLabel, ariaBackButtonLabel } = strings;
 
