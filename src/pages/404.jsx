@@ -1,13 +1,13 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 import { Flex, Box, Text } from 'rebass';
-import GatsbyLink from 'gatsby-link';
+import { Link as GatsbyLink } from 'gatsby';
 import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 
 function Home() {
   return (
     <Layout>
-      <Helmet title="Not found" defer={false} />
+      <SEO title="404: Not found" />
       <Flex mt={6} px={[3, null, 4]} justifyContent="center">
         <Box sx={{ maxWidth: '1300px', margin: 'auto' }}>
           <Text

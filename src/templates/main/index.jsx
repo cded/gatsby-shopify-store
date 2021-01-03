@@ -1,28 +1,15 @@
 /* eslint react/jsx-props-no-spreading: "off" */
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
 
 import MainPage from './MainPage';
 import Layout from '../../components/Layout';
-import strings from './strings.json';
-
-const { pageTitleTemplate } = strings;
+import SEO from '../../components/SEO';
 
 export default (props) => {
-  const {
-    storeDescription,
-  } = props.data.store.siteMetadata.gatsbyStorefrontConfig;
-
   return (
     <Layout>
-      <Helmet
-        title="H&B LEDCO: Modern Led Furniture"
-        titleTemplate={pageTitleTemplate}
-        defer={false}
-      >
-        <meta name="description" content={storeDescription} />
-      </Helmet>
+      <SEO title="Modern LED Furniture" />
       <MainPage {...props} />
     </Layout>
   );

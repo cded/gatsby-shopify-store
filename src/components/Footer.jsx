@@ -3,8 +3,7 @@
 import React from 'react';
 import { jsx, useThemeUI } from 'theme-ui';
 import { Flex, Box, Text, Link, Heading } from 'rebass';
-import { useStaticQuery, graphql } from 'gatsby';
-import GatsbyLink from 'gatsby-link';
+import { useStaticQuery, graphql, Link as GatsbyLink } from 'gatsby';
 import loadable from '@loadable/component';
 import styled from '@emotion/styled';
 import Img from 'gatsby-image';

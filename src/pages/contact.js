@@ -1,9 +1,9 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
-import GatsbyLink from 'gatsby-link';
+import { graphql, useStaticQuery, Link as GatsbyLink } from 'gatsby';
 import { Box, Text, Heading } from 'rebass';
 import styled from '@emotion/styled';
 import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 
 const Separation = styled(Box)`
   width: 60%;
@@ -31,6 +31,10 @@ export default (props) => {
   const { email } = data.site.siteMetadata.gatsbyStorefrontConfig;
   return (
     <Layout>
+      <SEO
+        title="Contact Us"
+        description="Please contact us if you have any questions! Customer satisfaction is our number one priority."
+      />
       <Box
         p={['0', '50px']}
         pt={['50px', '50px']}

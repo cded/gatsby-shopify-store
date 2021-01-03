@@ -6,7 +6,7 @@ const Label = styled(Text)`
   color: #363636;
   display: block;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 10px;
   text-align: right;
 `;

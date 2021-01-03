@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import GatsbyLink from 'gatsby-link';
+import { useStaticQuery, graphql, Link as GatsbyLink } from 'gatsby';
 import { Index } from 'elasticlunr';
 import { Flex, Box, Text } from 'rebass';
 import { Input } from '@rebass/forms';

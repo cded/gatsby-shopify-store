@@ -1,11 +1,11 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 import { Flex, Box, Heading, Text } from 'rebass';
 import { useStaticQuery } from 'gatsby';
 
 import CatalogProducts from '../../templates/catalog/CatalogProducts';
 import Pagination from '../../components/Pagination';
 import Layout from '../../components/Layout';
+import SEO from '../../components/SEO';
 
 const CatalogAllProducs = () => {
   const data = useStaticQuery(graphql`
@@ -63,7 +63,10 @@ const CatalogAllProducs = () => {
 
   return (
     <Layout>
-      <Helmet title="Catalog" defer={false} />
+      <SEO
+        title="Catalog"
+        description="Browse all our available products here. Discover our selection of modern, chic, LED furniture"
+      />
       <Flex flexWrap="wrap" px={2} pt={3} mx="auto" style={{ maxWidth: 1300 }}>
         <Flex
           width={1}

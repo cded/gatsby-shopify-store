@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import Layout from '../../components/Layout';
 import PolicyPage from './PolicyPage';
 
-export default props => {
+export default (props) => {
   return (
     <Layout>
       <PolicyPage {...props} />

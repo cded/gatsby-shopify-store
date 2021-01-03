@@ -1,9 +1,10 @@
 import React from 'react';
 import { Box, Heading } from 'rebass';
 import styled from '@emotion/styled';
-import GatsbyLink from 'gatsby-link';
+import { Link as GatsbyLink } from 'gatsby';
 import Layout from '../components/Layout';
 import Collapsible from '../components/Collapsible';
+import SEO from '../components/SEO';
 
 const Separation = styled(Box)`
   width: 60%;
@@ -13,6 +14,10 @@ const Separation = styled(Box)`
 export default () => {
   return (
     <Layout>
+      <SEO
+        title="FAQ"
+        description="You may find an answer to your questions here."
+      />
       <Box
         p={['0', '50px']}
         pt={['50px', '50px']}

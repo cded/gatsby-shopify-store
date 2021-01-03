@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Heading } from 'rebass';
-import GatsbyLink from 'gatsby-link';
+import { Link as GatsbyLink } from 'gatsby';
 
 import MainPageCarousel from './MainPageCarousel';
 import MainPageSection from './MainPageSection';

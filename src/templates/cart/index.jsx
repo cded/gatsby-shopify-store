@@ -1,17 +1,15 @@
 import React from 'react';
 import CartPage from './CartPage';
-import { Helmet } from 'react-helmet';
 import Layout from '../../components/Layout';
 import strings from './strings.json';
+import SEO from '../../components/SEO';
 
-const { pageTitle, pageDescription } = strings;
+const { pageTitle } = strings;
 
-export default props => {
+export default (props) => {
   return (
     <Layout>
-      <Helmet title={pageTitle} defer={false}>
-        <meta name="description" content={pageDescription} />
-      </Helmet>
+      <SEO title={pageTitle} />
       <CartPage {...props} />
     </Layout>
   );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Flex, Box, Heading } from 'rebass';
-import { Helmet } from 'react-helmet';
 import styled from '@emotion/styled';
+import SEO from '../../components/SEO';
 
 const Separation = styled(Box)`
   width: 60%;
@@ -10,12 +10,9 @@ const Separation = styled(Box)`
 
 const PolicyPage = (props) => {
   const { title, body } = props.data.policies.nodes[0];
-  const { storeName } = props.data.store.siteMetadata.gatsbyStorefrontConfig;
   return (
     <Flex flexWrap="wrap" px={2} pt={3} mx="auto" style={{ maxWidth: 1300 }}>
-      <Helmet title={title} titleTemplate={`%s — ${storeName}`} defer={false}>
-        <meta name="description" content={title} />
-      </Helmet>
+      <SEO title={title} description={title} />
       <Box
         p={['0', '50px']}
         pt={['50px', '50px']}

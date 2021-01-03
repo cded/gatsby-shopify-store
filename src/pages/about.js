@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Text, Heading } from 'rebass';
 import styled from '@emotion/styled';
 import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 
 const Separation = styled(Box)`
   width: 60%;
@@ -11,6 +12,10 @@ const Separation = styled(Box)`
 export default () => {
   return (
     <Layout>
+      <SEO
+        title="About Us"
+        description="High quality design. Modern European style. Affordable. Based in Montreal."
+      />
       <Box
         p={['0', '50px']}
         pt={['50px', '50px']}

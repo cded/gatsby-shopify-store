@@ -92,6 +92,10 @@ module.exports = {
   ],
   siteMetadata: {
     siteUrl: 'https://hbledco.com',
+    title: 'H&B LEDCO',
+    description: `Make Your Home Bright with HB LEDCO. Browse our LED furniture selection! 
+    High quality design. Modern European style. Affordable. Based in Montreal. Delivery across Canada.
+    Categories: TV stands, Coffee tables, Bedside tables, Sideboards`,
     gatsbyStorefrontConfig: {
       storeName: 'LEDCO',
       storeDescription: `Make Your Home Bright with Ledco. Browse our led furniture selection! 

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link as GatsbyLink } from 'gatsby';
 import { Flex, Box, Text } from 'rebass';
-import GatsbyLink from 'gatsby-link';
 import styled from '@emotion/styled';
 import {
   disableBodyScroll,

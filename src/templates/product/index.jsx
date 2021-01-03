@@ -1,16 +1,16 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
 
 import ProductPage from './ProductPage';
 import Layout from '../../components/Layout';
+import SEO from '../../components/SEO';
 
 export default (props) => {
-  const { title } = props.data.product;
-  const { storeName } = props.data.store.siteMetadata.gatsbyStorefrontConfig;
+  const { title, description } = props.data.product;
+
   return (
     <Layout>
-      <Helmet title={title} titleTemplate={`%s — ${storeName}`} defer={false} />
+      <SEO title={title} description={description} />
       <ProductPage {...props} />
     </Layout>
   );

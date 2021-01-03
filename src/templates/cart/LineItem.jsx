@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Flex, Box, Image, Text } from 'rebass';
-import GatsbyLink from 'gatsby-link';
+import { Link as GatsbyLink } from 'gatsby';
 
 import NoImage from '../../components/Icons/NoImage';
 import strings from './strings.json';
