@@ -82,7 +82,7 @@ const MainPageCollectionBlock = (props) => {
                 >
                   {block.name ? block.name : title}
                 </Heading>
-                <Text
+                {/* <Text
                   fontSize={[1, 2, 3]}
                   mt="3"
                   sx={{ display: ['none', 'block'] }}
@@ -90,7 +90,7 @@ const MainPageCollectionBlock = (props) => {
                   {block.description
                     ? block.description
                     : substrDescription(description, 80)}
-                </Text>
+                </Text> */}
                 <StyledButton
                   variant="shopNow"
                   sx={{
