@@ -32,7 +32,7 @@ function CatalogPage(props) {
           >
             {title}
           </Heading>
-          <Text fontSize={[2, 3]}>{description}</Text>
+          {/* <Text fontSize={[2, 3]}>{description}</Text> */}
         </Text>
         <Text
           textAlign={['center', 'right']}
