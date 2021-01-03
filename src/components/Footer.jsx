@@ -7,12 +7,12 @@ import { useStaticQuery, graphql } from 'gatsby';
 import GatsbyLink from 'gatsby-link';
 import loadable from '@loadable/component';
 import styled from '@emotion/styled';
+import Img from 'gatsby-image';
 
 import VisaImg from '../images/visa.svg';
 import MasterCardImg from '../images/mastercard.svg';
 import AmexImg from '../images/amex.svg';
 import PaypalImg from '../images/paypal.png';
-import MapMontreal from '../images/mapMontreal.webp';
 // import { SocialIcon } from 'react-social-icons';
 
 const SocialIcon = loadable(() => import('./SocialIcon'));
@@ -45,12 +45,15 @@ const ImageCropper = styled.div`
   margin: auto;
 `;
 
-const MapImage = styled.img`
-  display: inline;
+const MapImage = styled(Img)`
   margin: 0 auto;
   margin-left: -25%; //centers the image
   height: 100%;
   width: auto;
+  &.gatsby-image-wrapper {
+    position: initial !important;
+    display: block !important;
+  }
 `;
 
 function Footer() {
@@ -74,18 +77,21 @@ function Footer() {
           }
         }
       }
+      file(relativePath: { eq: "mapMontreal.webp" }) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fluid(maxWidth: 150, maxHeight: 150) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   `);
 
   const {
     email,
     company,
-    location,
-    address,
-    phone,
-    workingDays,
-    workingHours,
-    socialNetworks,
     footerLinks,
   } = data.site.siteMetadata.gatsbyStorefrontConfig;
 
@@ -126,7 +132,10 @@ function Footer() {
               {/* <Heading mb={1}>ABOUT</Heading> */}
 
               <ImageCropper>
-                <MapImage src={MapMontreal} alt="map of montreal" />
+                <MapImage
+                  fixed={data.file.childImageSharp.fluid}
+                  alt="map of montreal"
+                />
               </ImageCropper>
               <Text mt={[2]} sx={{ textAlign: 'center' }} fontSize={[1, 2]}>
                 Made in Montreal, Quebec

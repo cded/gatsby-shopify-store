@@ -11,7 +11,7 @@ const MainPageProductBox = (props) => {
           fluid={product.fields.firstImage.localFile.childImageSharp.fluid}
           key={product}
           fadeIn={false}
-          loading="eager"
+          loading="lazy"
           alt={product.title}
         />
         <div className="product-details">

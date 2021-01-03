@@ -1,6 +1,7 @@
 import React from 'react';
 import { getSizedImageUrl } from '@shopify/theme-images';
 import styled from '@emotion/styled';
+import BackgroundImage from 'gatsby-background-image';
 
 const BgImage = styled.div`
   width: 100%;
@@ -31,8 +32,17 @@ const NoImage = styled.div`
   background-position-y: 0%;
 `;
 
+const StyledBackgroundSection = styled.div`
+  width: 100%;
+  height: 100%;
+  background-position: bottom center;
+  background-repeat: repeat-y;
+  background-size: ${(props) => (props.contain ? 'contain' : 'cover')};
+`;
+
 const ShopifyBackgroundImage = ({
   src,
+  fluid,
   maxSize,
   children,
   contain,
@@ -40,7 +50,21 @@ const ShopifyBackgroundImage = ({
 }) => {
   return (
     <>
-      {src ? (
+      {fluid ? (
+        <StyledBackgroundSection contain={contain}>
+          <BackgroundImage
+            fluid={fluid}
+            Tag="section"
+            style={{
+              width: '100%',
+              height: '100%',
+              backgroundSize: `${contain ? 'contain' : 'cover'}`,
+            }}
+          >
+            {children}
+          </BackgroundImage>
+        </StyledBackgroundSection>
+      ) : src ? (
         <BgImage
           src={src}
           maxSize={maxSize}

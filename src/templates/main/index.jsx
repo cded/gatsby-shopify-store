@@ -48,6 +48,9 @@ export const mainPageQuery = graphql`
                 height
                 aspectRatio
               }
+              fluid(maxWidth: 1920) {
+                ...GatsbyImageSharpFluid_withWebp_noBase64
+              }
             }
           }
         }
@@ -124,6 +127,9 @@ export const mainPageQuery = graphql`
                   width
                   height
                   aspectRatio
+                }
+                fluid(maxWidth: 1920) {
+                  ...GatsbyImageSharpFluid_withWebp_noBase64
                 }
               }
             }

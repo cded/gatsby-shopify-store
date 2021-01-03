@@ -42,6 +42,7 @@ const MainPageProductBlock = (props) => {
   return (
     <ShopifyBackgroundImage
       src={firstImage.originalSrc}
+      fluid={firstImage.localFile.childImageSharp.fluid}
       maxSize="400"
       positionY="70%"
     >

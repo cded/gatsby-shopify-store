@@ -82,6 +82,13 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'image',
+        path: `${__dirname}/src/images`,
+      },
+    },
   ],
   siteMetadata: {
     siteUrl: 'https://hbledco.com',

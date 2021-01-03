@@ -39,6 +39,7 @@ const MainPageCollectionBlock = (props) => {
   return (
     <ShopifyBackgroundImage
       src={image && image.src}
+      fluid={image && image.localFile.childImageSharp.fluid}
       maxSize="1300"
       sx={{ border: '1px solid black' }}
       contain
