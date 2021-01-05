@@ -69,9 +69,7 @@ function CartPage() {
       }));
       if (typeof window !== 'undefined') {
         if (window.fbq != null) {
-          window.fbq('track', 'InitiateCheckout', {
-            contents: checkoutItems,
-          });
+          window.fbq('track', 'InitiateCheckout');
         }
       }
     }
