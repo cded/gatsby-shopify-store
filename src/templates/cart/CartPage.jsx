@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Flex, Box, Button, Heading, Text } from 'rebass';
 import styled from '@emotion/styled';
 
@@ -59,6 +59,14 @@ function CartPage() {
   }
 
   const buttonEnabled = checkout.loaded && checkout.lineItems.length > 0;
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      if (window.fbq != null) {
+        window.fbq('track', 'Purchase');
+      }
+    }
+  }, []);
 
   const trackFacebookAds = () => {
     if (checkout?.lineItems) {
