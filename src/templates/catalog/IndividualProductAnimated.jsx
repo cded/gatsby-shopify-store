@@ -291,9 +291,9 @@ const IndividualProduct = ({ product }) => {
               </Text>
               <Text
                 sx={{ fontSize: [1], fontWeight: 'bold', textAlign: 'right' }}
-                color="green"
+                color={availableForSale ? 'green' : 'grey'}
               >
-                IN STOCK
+                {availableForSale ? 'IN STOCK' : 'SOLDOUT'}
               </Text>
             </Box>
           </Box>
