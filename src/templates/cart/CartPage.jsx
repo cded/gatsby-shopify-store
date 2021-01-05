@@ -61,11 +61,18 @@ function CartPage() {
   const buttonEnabled = checkout.loaded && checkout.lineItems.length > 0;
 
   const trackFacebookAds = () => {
-    if (typeof window !== 'undefined') {
-      if (window.fbq != null) {
-        window.fbq('trackCustom', 'InitiateCheckout', {
-          contents: checkout.lineItems,
-        });
+    if (checkout?.lineItems) {
+      const checkoutItems = checkout.lineItems.map((lineItem) => ({
+        id: lineItem.id,
+        title: lineItem.title,
+        quantity: lineItem.quantity,
+      }));
+      if (typeof window !== 'undefined') {
+        if (window.fbq != null) {
+          window.fbq('track', 'InitiateCheckout', {
+            contents: checkoutItems,
+          });
+        }
       }
     }
   };
@@ -184,7 +191,7 @@ function CartPage() {
           <Box>
             <CheckoutButton
               as={'a'}
-              href={buttonEnabled && webUrl}
+              // href={buttonEnabled && webUrl}
               onClick={trackFacebookAds}
               variant="primary"
               px={5}
