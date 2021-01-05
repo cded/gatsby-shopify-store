@@ -61,7 +61,7 @@ const LayoutComponents = ({ children }) => {
         <html lang="en" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
-        <script type="text/javascript">
+        {/* <script type="text/javascript">
           {`(function () {
   window.__insp = window.__insp || [];
   __insp.push(['wid', 229295937]);
@@ -81,7 +81,7 @@ const LayoutComponents = ({ children }) => {
   };
   setTimeout(ldinsp, 0);
 })();`}
-        </script>
+        </script> */}
       </Helmet>
 
       <Flex flexDirection="column" style={{ minHeight: '100vh' }}>
