@@ -60,6 +60,14 @@ function CartPage() {
 
   const buttonEnabled = checkout.loaded && checkout.lineItems.length > 0;
 
+  const trackFacebookAds = () => {
+    if (typeof window !== 'undefined') {
+      if (window.fbq != null) {
+        window.fbq('track', 'InitiateCheckout');
+      }
+    }
+  };
+
   return (
     <Box sx={{ maxWidth: '1300px', margin: 'auto' }}>
       <Flex mt={[4, 4]} mb={[0, 0]} pl={[2, 0]}>
@@ -175,6 +183,7 @@ function CartPage() {
             <CheckoutButton
               as={'a'}
               href={buttonEnabled && webUrl}
+              onClick={trackFacebookAds}
               variant="primary"
               px={5}
               py={3}

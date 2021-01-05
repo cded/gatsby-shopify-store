@@ -89,6 +89,12 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-plugin-facebook-pixel`,
+      options: {
+        pixelId: '421823002354586',
+      },
+    },
   ],
   siteMetadata: {
     siteUrl: 'https://hbledco.com',

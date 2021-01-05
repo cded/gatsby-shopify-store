@@ -1,5 +1,5 @@
 {
-  "name": "@cded/ledco",
+  "name": "hbledco",
   "private": false,
   "description": "Ecommerce platform for led furniture",
   "version": "2.1.0",
@@ -26,6 +26,7 @@
     "gatsby": "^2.13.38",
     "gatsby-background-image": "^1.3.1",
     "gatsby-image": "^2.8.0",
+    "gatsby-plugin-facebook-pixel": "^1.0.5",
     "gatsby-plugin-lint-queries": "^0.0.3",
     "gatsby-plugin-loadable-components-ssr": "^2.1.0",
     "gatsby-plugin-manifest": "^2.2.29",
@@ -96,6 +97,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbystorefront/gatsby-starter-storefront-shopify"
+    "url": "https://github.com/@cded/ledco"
   }
 }
