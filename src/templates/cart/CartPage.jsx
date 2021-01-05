@@ -63,7 +63,9 @@ function CartPage() {
   const trackFacebookAds = () => {
     if (typeof window !== 'undefined') {
       if (window.fbq != null) {
-        window.fbq('track', 'InitiateCheckout');
+        window.fbq('track', 'InitiateCheckout', {
+          contents: checkout.lineItems,
+        });
       }
     }
   };
