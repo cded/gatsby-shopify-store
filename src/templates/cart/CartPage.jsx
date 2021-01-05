@@ -61,21 +61,16 @@ function CartPage() {
   const buttonEnabled = checkout.loaded && checkout.lineItems.length > 0;
 
   const trackFacebookAds = () => {
-    // if (checkout?.lineItems) {
-    //   const checkoutItems = checkout.lineItems.map((lineItem) => ({
-    //     id: lineItem.id,
-    //     title: lineItem.title,
-    //     quantity: lineItem.quantity,
-    //   }));
-    //   if (typeof window !== 'undefined') {
-    //     if (window.fbq != null) {
-    //       window.fbq('track', 'InitiateCheckout');
-    //     }
-    //   }
-    // }
-    if (typeof window !== 'undefined') {
-      if (window.fbq != null) {
-        window.fbq('track', 'InitiateCheckout');
+    if (checkout?.lineItems) {
+      const checkoutItems = checkout.lineItems.map((lineItem) => ({
+        id: lineItem.id,
+        title: lineItem.title,
+        quantity: lineItem.quantity,
+      }));
+      if (typeof window !== 'undefined') {
+        if (window.fbq != null) {
+          window.fbq('track', 'InitiateCheckout', { contents: checkoutItems });
+        }
       }
     }
   };
