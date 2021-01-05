@@ -191,7 +191,7 @@ function CartPage() {
           <Box>
             <CheckoutButton
               as={'a'}
-              // href={buttonEnabled && webUrl}
+              href={buttonEnabled && webUrl}
               onClick={trackFacebookAds}
               variant="primary"
               px={5}
