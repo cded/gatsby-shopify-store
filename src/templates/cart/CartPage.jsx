@@ -69,7 +69,7 @@ function CartPage() {
   }, []);
 
   const trackFacebookAds = () => {
-    if (checkout?.lineItems) {
+    if (checkout.loaded && checkout.lineItems.length > 0) {
       const checkoutItems = checkout.lineItems.map((lineItem) => ({
         id: lineItem.id,
         title: lineItem.title,
