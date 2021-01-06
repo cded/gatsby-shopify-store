@@ -111,9 +111,9 @@ module.exports = {
       company: 'H&B Ledco Inc.',
       location: 'Montreal, QC',
       address: '400 Ville Marie',
-      phone: '+1 (800) 123-1234',
+      phone: '+1 (450) 999-5280',
       workingDays: 'Mon - Sun',
-      workingHours: '8AM - 6PM',
+      workingHours: '9AM - 9PM',
       socialNetworks: [
         'https://facebook.com',
         'https://instagram.com',

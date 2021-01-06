@@ -28,7 +28,11 @@ export default (props) => {
       }
     }
   `);
-  const { email } = data.site.siteMetadata.gatsbyStorefrontConfig;
+  const {
+    email,
+    phone,
+    workingHours,
+  } = data.site.siteMetadata.gatsbyStorefrontConfig;
   return (
     <Layout>
       <SEO
@@ -61,8 +65,12 @@ export default (props) => {
             </Text>
             <Text mt="20px">
               If you do not find your answer there or prefer talking to us
-              directly. <br />
-              Do not hesitate to shoot us an email at {email}
+              directly, <br />
+              <br />
+              Do not hesitate to shoot us an email anytime at{' '}
+              <strong>{email}</strong>, or give us a call on <br />{' '}
+              <strong>{phone}</strong>, our team will be glad to help you any
+              day from <strong>{workingHours}</strong>
             </Text>
           </Box>
         </Box>

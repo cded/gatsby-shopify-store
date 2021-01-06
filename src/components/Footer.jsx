@@ -92,6 +92,9 @@ function Footer() {
     email,
     company,
     footerLinks,
+    phone,
+    workingDays,
+    workingHours,
   } = data.site.siteMetadata.gatsbyStorefrontConfig;
 
   const { theme } = useThemeUI();
@@ -155,16 +158,15 @@ function Footer() {
                 <Link href="/faq">FAQ</Link>
               </Text>
 
-              {/* <Text mr={[3, 0]} my={[2, 0]}>
-                By phone:
-              </Text> */}
-
               <Text mr={[3, 0]} my={[2, 0]}>
                 By Email: {email}
               </Text>
-              {/* <Text mr={[3, 0]} my={[2, 0]}>
+              <Text mr={[3, 0]} my={[2, 0]}>
                 Call Us: {phone}
-              </Text> */}
+              </Text>
+              <Text mr={[3, 0]} my={[2, 0]}>
+                {workingDays}: {workingHours}
+              </Text>
             </Box>
 
             <Box my={[2, 0]} fontSize={['12px', 'inherit']} ml={['20px', 0]}>
@@ -201,7 +203,7 @@ function Footer() {
                 fontSize={[1, 2]}
                 mb="10px"
               >
-                Made in Montreal, Quebec
+                Made in Montreal, Canada
               </Text>
               <Text
                 fontSize={[1, 2]}
