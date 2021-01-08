@@ -105,7 +105,7 @@ module.exports = {
     gatsbyStorefrontConfig: {
       storeName: 'LEDCO',
       storeDescription: `Make Your Home Bright with Ledco. Browse our led furniture selection! 
-      High quality design. Modern European style. Affordable. Based in Montreal. Delivery accross Canada.
+      High quality design. Modern European style. Affordable. Based in Montreal. Delivery across Canada.
       Categories: TV stands, Coffee tables, Bedside tables, Sideboards`,
       email: 'info@hbledco.com',
       company: 'H&B Ledco Inc.',
