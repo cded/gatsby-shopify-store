@@ -210,7 +210,7 @@ const Menu = ({ storeName }) => {
                 color="#6d6e70"
                 fontFamily="heading"
               >
-                H&B {storeName}
+                {storeName}
               </Text>
             </Sidebar>
 

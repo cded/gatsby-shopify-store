@@ -178,9 +178,6 @@ const Navbar = (props) => {
                 }}
                 fontFamily="heading"
               >
-                <Text fontFamily="heading" mr="5px">
-                  H&B{' '}
-                </Text>{' '}
                 {storeName.toUpperCase()}
               </Text>
             </Flex>
@@ -257,9 +254,6 @@ const Navbar = (props) => {
               fontFamily="heading"
               style={{ textDecoration: 'none' }}
             >
-              <Text fontFamily="heading" mr="5px">
-                H&B{' '}
-              </Text>{' '}
               {storeName.toUpperCase()}
             </Text>
           )}
