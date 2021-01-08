@@ -173,7 +173,7 @@ const Navbar = (props) => {
                 fontSize={[2, 3]}
                 sx={{
                   marginLeft: [0, 60],
-                  width: ['160px', 'auto'],
+                  width: ['142px', 'auto'],
                   display: 'flex',
                 }}
                 fontFamily="heading"
@@ -211,7 +211,7 @@ const Navbar = (props) => {
               <div>(CAD)</div>
             </FlagBox>
 
-            <Box ml="auto" sx={{ display: ['none', 'block'] }}>
+            <Box ml="auto" sx={{ marginRight: ['10px', '0'] }}>
               <Search width="25px" height="25px" color="primary" />
             </Box>
 
@@ -249,7 +249,7 @@ const Navbar = (props) => {
               sx={{
                 marginRight: 'auto',
                 width: ['160px', 'auto'],
-                display: 'flex',
+                display: ['none', 'none', 'flex'],
                 ':hover': {
                   color: '#000',
                 },
