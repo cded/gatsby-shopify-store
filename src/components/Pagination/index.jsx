@@ -26,7 +26,7 @@ const Pagination = (props) => {
           {prevLink ? (
             <Button
               as={GatsbyLink}
-              to={prevLink}
+              to={`${prevLink}/`}
               mx={2}
               rel="prev"
               variant="pagination"
@@ -57,7 +57,7 @@ const Pagination = (props) => {
                 return (
                   <Button
                     as={GatsbyLink}
-                    to={link}
+                    to={`${link}/`}
                     mx={2}
                     variant="pagination"
                     key={pageNum}
@@ -73,7 +73,7 @@ const Pagination = (props) => {
           {nextLink ? (
             <Button
               as={GatsbyLink}
-              to={nextLink}
+              to={`${nextLink}/`}
               mx={2}
               rel="next"
               variant="pagination"

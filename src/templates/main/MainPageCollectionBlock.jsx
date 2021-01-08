@@ -44,7 +44,7 @@ const MainPageCollectionBlock = (props) => {
       sx={{ border: '1px solid black' }}
       contain
     >
-      <GatsbyLink to={shopifyThemePath}>
+      <GatsbyLink to={`${shopifyThemePath}/`}>
         <Flex
           m="auto"
           p="1"
@@ -59,7 +59,7 @@ const MainPageCollectionBlock = (props) => {
           <BottomBar>
             <Box m="auto" textAlign="center" sx={{ width: '100%' }}>
               <GatsbyLink
-                to={shopifyThemePath}
+                to={`${shopifyThemePath}/`}
                 sx={{
                   color: textColor,
                   textAlign: 'center',

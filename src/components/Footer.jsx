@@ -186,7 +186,10 @@ function Footer() {
                     } else {
                       return (
                         <Text key={index} mr={[3, 0]} my={[2, 0]}>
-                          <GatsbyLink to={link.link} sx={theme.variants.link}>
+                          <GatsbyLink
+                            to={`${link.link}/`}
+                            sx={theme.variants.link}
+                          >
                             {link.name}
                           </GatsbyLink>
                         </Text>

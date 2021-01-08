@@ -62,7 +62,7 @@ export default () => {
             </Collapsible>
             <Collapsible title="What if I don’t like the product I ordered when it arrives?">
               No way you don’t like it... really! Simply{' '}
-              <GatsbyLink to="/contact">contact us</GatsbyLink> within 15 days
+              <GatsbyLink to="/contact/">contact us</GatsbyLink> within 15 days
               of receiving your product(s) and we will assist you with the
               return.
             </Collapsible>
@@ -73,7 +73,7 @@ export default () => {
             </Collapsible>
             <Collapsible title="Wrong product or color delivered">
               If you receive the wrong product, part or missing pieces{' '}
-              <GatsbyLink to="/contact">let us know</GatsbyLink> and we will
+              <GatsbyLink to="/contact/">let us know</GatsbyLink> and we will
               promptly ship replacements at no charge. If you need to return an
               incorrect shipment, we will not charge for any wrong parts or
               products.
@@ -102,7 +102,7 @@ export default () => {
               service.
             </Collapsible>
             <Collapsible title="What should I do if my merchandise arrives damaged or defective?">
-              Please <GatsbyLink to="/contact">contact us</GatsbyLink> as soon
+              Please <GatsbyLink to="/contact/">contact us</GatsbyLink> as soon
               as possible with a detailed description of the issue along with a
               photo. We will take care of the rest.
             </Collapsible>

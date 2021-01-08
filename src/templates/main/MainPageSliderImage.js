@@ -128,7 +128,7 @@ const MainPageSliderImage = ({
                   }}
                   fontFamily="heading"
                   fontSize={[10, 15, 17]}
-                  onClick={() => navigate('products/all')}
+                  onClick={() => navigate('products/all/')}
                   mt={block.buttonMT}
                   mb={1}
                 >

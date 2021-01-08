@@ -134,7 +134,7 @@ const Navbar = (props) => {
 
           <Text
             as={GatsbyLink}
-            to="/contact"
+            to="/contact/"
             style={{ textDecoration: 'none', textTransform: 'uppercase' }}
             mr="10px"
             color="primary"
@@ -148,7 +148,7 @@ const Navbar = (props) => {
 
           <Text
             as={GatsbyLink}
-            to="/about"
+            to="/about/"
             style={{ textDecoration: 'none', textTransform: 'uppercase' }}
             ml="10px"
             color="primary"
@@ -193,7 +193,7 @@ const Navbar = (props) => {
           >
             <Text
               as={GatsbyLink}
-              to="/products/all"
+              to="/products/all/"
               style={{ textDecoration: 'none' }}
               mr="10px"
               ml="auto"
@@ -218,7 +218,7 @@ const Navbar = (props) => {
             <Text
               as={GatsbyLink}
               aria-label={ariaShoppingCartLabel}
-              to="/cart"
+              to="/cart/"
               fontSize={4}
               style={{ textDecoration: 'none', position: 'relative' }}
               sx={{ marginLeft: ['0', 'auto'] }}
@@ -271,7 +271,7 @@ const Navbar = (props) => {
               collections.map((collection) => (
                 <TextCategory
                   as={GatsbyLink}
-                  to={collection.fields.shopifyThemePath}
+                  to={`${collection.fields.shopifyThemePath}/`}
                   style={{ textDecoration: 'none', position: 'relative' }}
                   sx={{
                     textTransform: 'uppercase',
@@ -300,7 +300,7 @@ const Navbar = (props) => {
               <Text
                 as={GatsbyLink}
                 aria-label={ariaShoppingCartLabel}
-                to="/cart"
+                to="/cart/"
                 fontSize={4}
                 style={{ textDecoration: 'none', position: 'relative' }}
                 sx={{ marginLeft: ['0', 'auto'] }}

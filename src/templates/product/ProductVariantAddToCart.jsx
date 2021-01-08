@@ -36,7 +36,7 @@ const ProductVariantAddToCart = ({ amount, cartUrl }) => {
 
   async function addToCartHandler(id, amount) {
     await addItem({ variantId: id, quantity: amount });
-    navigate(cartUrl);
+    navigate(`${cartUrl}/`);
   }
 
   useEffect(() => {

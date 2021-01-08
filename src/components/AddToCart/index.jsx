@@ -11,7 +11,7 @@ const AddToCart = (props) => {
     addItem({ variantId: shopifyId, quantity: amount })
       .then(
         (res) => {
-          navigate(cartUrl);
+          navigate(`${cartUrl}/`);
         },
         (rej) => {
           console.error(rej);

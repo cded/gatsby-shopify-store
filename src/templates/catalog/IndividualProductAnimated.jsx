@@ -196,7 +196,7 @@ const IndividualProduct = ({ product }) => {
           </Box>
           <Box sx={{ overflow: 'hidden', mb: 2 }}>
             <GatsbyLink
-              to={shopifyThemePath}
+              to={`${shopifyThemePath}/`}
               style={{ textDecoration: 'none' }}
             >
               {firstImage && firstImage.localFile ? (

@@ -17,7 +17,7 @@ const MainPage = (props) => {
       <Box width={1} mb={1}>
         <MainPageCarousel />
       </Box>
-      <GatsbyLink style={{ textDecoration: 'none' }} to="/collection/sale">
+      <GatsbyLink style={{ textDecoration: 'none' }} to="/collection/sale/">
         <Banner></Banner>
       </GatsbyLink>
       <Box style={{ maxWidth: 1300 }} mx="auto" px={2}>

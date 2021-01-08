@@ -140,7 +140,7 @@ const Search = () => {
                       <Text
                         as={GatsbyLink}
                         variant="searchLink"
-                        to={page.shopifyThemePath}
+                        to={`${page.shopifyThemePath}/`}
                       >
                         <Box>{page.title}</Box>
                       </Text>

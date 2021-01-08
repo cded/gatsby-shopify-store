@@ -46,7 +46,7 @@ const MainPageProductBlock = (props) => {
       maxSize="400"
       positionY="70%"
     >
-      <GatsbyLink to={shopifyThemePath}>
+      <GatsbyLink to={`${shopifyThemePath}/`}>
         <Flex
           m="auto"
           sx={{
@@ -60,7 +60,7 @@ const MainPageProductBlock = (props) => {
           <BottomBar>
             <Box>
               <GatsbyLink
-                to={shopifyThemePath}
+                to={`${shopifyThemePath}/`}
                 sx={{
                   color: textColor,
                   textAlign: 'center',

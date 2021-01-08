@@ -52,7 +52,7 @@ const Breadcrumbs = ({
           >
             <Text
               as={GatsbyLink}
-              to={`${collectionPath}`}
+              to={`${collectionPath}/`}
               // mr={1}
               itemProp="item"
               variant="link"

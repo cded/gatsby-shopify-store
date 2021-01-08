@@ -78,7 +78,7 @@ const IndividualProduct = ({ product }) => {
   `;
 
   return (
-    <Card px={4} py={2} mb={4} width={[1, 1 / 2, 1 / 3]} bg='backgroundMain'>
+    <Card px={4} py={2} mb={4} width={[1, 1 / 2, 1 / 3]} bg="backgroundMain">
       <Box>
         <Box
           m={2}
@@ -128,7 +128,10 @@ const IndividualProduct = ({ product }) => {
           )}
         </Box>
         <Box sx={{ mb: 2 }}>
-          <GatsbyLink to={shopifyThemePath} style={{ textDecoration: 'none' }}>
+          <GatsbyLink
+            to={`${shopifyThemePath}/`}
+            style={{ textDecoration: 'none' }}
+          >
             {firstImage && firstImage.localFile ? (
               <Image
                 src={firstImage.originalSrc}

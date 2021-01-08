@@ -60,7 +60,7 @@ export default (props) => {
           <Box m="0 auto" width={[1, 3 / 4]}>
             <Text>
               If you have any questions, concerns or issues with an order,
-              please consult our <GatsbyLink to="/faq">FAQ</GatsbyLink> page
+              please consult our <GatsbyLink to="/faq/">FAQ</GatsbyLink> page
               where the most common questions are answered.
             </Text>
             <Text mt="20px">

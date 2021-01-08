@@ -129,7 +129,7 @@ const Menu = ({ storeName }) => {
                 {collections &&
                   collections.map((element) => (
                     <GatsbyLink
-                      to={`/collection/${element.handle}`}
+                      to={`/collection/${element.handle}/`}
                       key={element.id}
                       style={{ textDecoration: 'none' }}
                     >
@@ -147,7 +147,7 @@ const Menu = ({ storeName }) => {
                   ))}
                 <Separation mt="20px" mb="20px" />
                 <GatsbyLink
-                  to={`/products/all`}
+                  to={`/products/all/`}
                   style={{ textDecoration: 'none' }}
                 >
                   <MenuItem
@@ -161,7 +161,7 @@ const Menu = ({ storeName }) => {
                     Catalog
                   </MenuItem>
                 </GatsbyLink>
-                <GatsbyLink to={`/contact`} style={{ textDecoration: 'none' }}>
+                <GatsbyLink to={`/contact/`} style={{ textDecoration: 'none' }}>
                   <MenuItem
                     bg="backgroundMain"
                     color="#6d6e70"
@@ -173,7 +173,7 @@ const Menu = ({ storeName }) => {
                     Contact Us
                   </MenuItem>
                 </GatsbyLink>
-                <GatsbyLink to={`/about`} style={{ textDecoration: 'none' }}>
+                <GatsbyLink to={`/about/`} style={{ textDecoration: 'none' }}>
                   <MenuItem
                     bg="backgroundMain"
                     color="#6d6e70"

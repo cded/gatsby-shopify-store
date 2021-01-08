@@ -83,7 +83,7 @@ const LineItem = (props) => {
           <Box>
             <Text
               as={GatsbyLink}
-              to={variant?.product && `/product/${variant.product.handle}`}
+              to={variant?.product && `/product/${variant.product.handle}/`}
               fontSize={[2, 3]}
               sx={{
                 textTransform: 'uppercase',
