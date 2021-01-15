@@ -115,11 +115,8 @@ module.exports = {
       workingDays: 'Mon - Sun',
       workingHours: '9AM - 9PM',
       socialNetworks: [
-        'https://facebook.com',
-        'https://instagram.com',
-        'https://pinterest.com',
-        'https://twitter.com',
-        'https://youtube.com',
+        'https://facebook.com/hbledco/',
+        'https://instagram.com/hbledco/',
       ],
       // Payments icons are temporarily disabled, due to large package size and negative impact on Lighthouse 6 performance.
       // Need to find an alternative package to react-payment-icons-inline.

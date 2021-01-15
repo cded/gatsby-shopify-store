@@ -4,7 +4,7 @@ import React from 'react';
 import { jsx, useThemeUI } from 'theme-ui';
 import { Flex, Box, Text, Link, Heading } from 'rebass';
 import { useStaticQuery, graphql, Link as GatsbyLink } from 'gatsby';
-import loadable from '@loadable/component';
+// import loadable from '@loadable/component';
 import styled from '@emotion/styled';
 import Img from 'gatsby-image';
 
@@ -12,9 +12,11 @@ import VisaImg from '../images/visa.svg';
 import MasterCardImg from '../images/mastercard.svg';
 import AmexImg from '../images/amex.svg';
 import PaypalImg from '../images/paypal.png';
+import FaceImg from '../images/facebook1.svg';
+import InstaImg from '../images/instagram.svg';
 // import { SocialIcon } from 'react-social-icons';
 
-const SocialIcon = loadable(() => import('./SocialIcon'));
+// const SocialIcon = loadable(() => import('./SocialIcon'));
 
 const validURL = (str) => {
   const pattern = new RegExp(
@@ -33,6 +35,15 @@ const CardImage = styled.img`
   width: 42px;
   height: 27px;
   margin-right: 10px;
+`;
+
+const SocialImage = styled.img`
+  width: 27px;
+  height: 27px;
+  margin-right: 15px;
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 
 const ImageCropper = styled.div`
@@ -120,19 +131,11 @@ function Footer() {
             mx="auto"
             mb={3}
           >
-            {/* <Box>
-              <Text fontSize={[1, 2]} fontFamily="heading">
-                © {year} {company || ''}
-              </Text>
-            </Box> */}
-
-            <Box
+            {/* <Box
               mr={[1, 0]}
               width={['100%', 'auto']}
               sx={{ display: ['none', 'block'] }}
             >
-              {/* <Heading mb={1}>ABOUT</Heading> */}
-
               <ImageCropper>
                 <MapImage
                   fixed={data.file.childImageSharp.fluid}
@@ -142,19 +145,57 @@ function Footer() {
               <Text mt={[2]} sx={{ textAlign: 'center' }} fontSize={[1, 2]}>
                 Made in Montreal, Quebec
               </Text>
+            </Box> */}
+
+            <Box
+              mr={[1, 3]}
+              width={['100%', 'auto']}
+              sx={{ display: ['none', 'block'] }}
+            >
+              <Heading mb={1} sx={{ textTransform: 'uppercase' }}>
+                Who we are
+              </Heading>
+
+              <Text mr={[3, 0]} mt={[2, 0]}>
+                <Link href="/about">About Us</Link>
+              </Text>
+              <Text mr={[3, 0]} mt={[2, 0]}>
+                <Link href="/faq">FAQ</Link>
+              </Text>
+              <Box
+                style={{ textAlign: 'right', display: 'flex' }}
+                sx={{
+                  marginTop: [1, 2],
+                }}
+              >
+                <a href="https://facebook.com/hbledco/" target="_blank">
+                  <SocialImage src={FaceImg} alt="facebook page link" />
+                </a>
+                <a href="https://instagram.com/hbledco/" target="_blank">
+                  <SocialImage src={InstaImg} alt="instagram link" />
+                </a>
+              </Box>
+              {/* <Text mt={[2]} sx={{ textAlign: 'center' }} fontSize={[1, 2]}>
+                Made in Montreal, Canada
+              </Text> */}
             </Box>
 
             <Box my={[2, 0]} fontSize={['12px', 'inherit']}>
               <Heading mb={1} fontSize={['18px', '24px']}>
                 CONTACT
               </Heading>
-              <Text mr={[3, 0]} mt={[2, 0]}>
+              <Text mr={[3, 0]} mt={[2, 0]} sx={{ display: ['block', 'none'] }}>
                 <Link href="/about">About Us</Link>
               </Text>
-              <Text mr={[3, 0]} my={[2, 0]}>
+              <Text mr={[3, 0]} my={[2, 0]} mb={[0, 2]}>
                 <Link href="/contact">Contact Us</Link>
               </Text>
-              <Text mr={[3, 0]} mt={[2, 0]} mb={3}>
+              <Text
+                mr={[3, 0]}
+                mt={[2, 0]}
+                mb={3}
+                sx={{ display: ['block', 'none'] }}
+              >
                 <Link href="/faq">FAQ</Link>
               </Text>
 
@@ -167,6 +208,53 @@ function Footer() {
               <Text mr={[3, 0]} my={[2, 0]}>
                 {workingDays}: {workingHours}
               </Text>
+
+              <Flex
+                width={[1, 1, 1 / 4]}
+                justifyContent={['left', 'left', 'none']}
+                display={['block', 'none']}
+                mr="auto"
+                // pl={2}
+                mb={[2, 3]}
+                mt={3}
+                sx={{ alignItems: 'baseline' }}
+              >
+                <SocialImage src={FaceImg} alt="facebook page link" />
+                <SocialImage src={InstaImg} alt="instagram link" />
+                {/* {socialNetworks
+                  ? socialNetworks.map((socialNetwork, index) => {
+                      return (
+                        <Box
+                          key={index}
+                          sx={{
+                            marginLeft: [2, 3],
+                            opacity: 0.8,
+                            ':hover,:focus,.active': {
+                              opacity: 1,
+                            },
+                          }}
+                        >
+                          <SocialIcon
+                            url={socialNetwork}
+                            // bg={
+                            //   socialNetwork.includes('instagram') && ' #d6249f'
+                            // }
+                            bgColor={
+                              socialNetwork.includes('instagram') &&
+                              'transparent'
+                            }
+                            fgColor={
+                              socialNetwork.includes('instagram') && '#d6249f'
+                            }
+                            width={
+                              socialNetwork.includes('instagram') && '50px'
+                            }
+                          />
+                        </Box>
+                      );
+                    })
+                  : ''} */}
+              </Flex>
             </Box>
 
             <Box my={[2, 0]} fontSize={['12px', 'inherit']} ml={['20px', 0]}>
@@ -200,14 +288,15 @@ function Footer() {
             </Box>
 
             <Box>
-              <Text
+              {/* <Text
                 mt={[2]}
                 sx={{ textAlign: 'center', display: ['block', 'none'] }}
                 fontSize={[1, 2]}
                 mb="10px"
               >
                 Made in Montreal, Canada
-              </Text>
+              </Text> */}
+
               <Text
                 fontSize={[1, 2]}
                 fontFamily="heading"
@@ -224,36 +313,6 @@ function Footer() {
               </Box>
             </Box>
           </Flex>
-
-          {/* <Flex
-            width={[1, 1, 1 / 4]}
-            justifyContent={['center', 'center', 'flex-end']}
-            mr="auto"
-            pl={2}
-            mb={3}
-          >
-            {socialNetworks
-              ? socialNetworks.map((socialNetwork, index) => {
-                  return (
-                    <Box
-                      key={index}
-                      sx={{
-                        marginLeft: [2, 3],
-                        opacity: 0.8,
-                        ':hover,:focus,.active': {
-                          opacity: 1,
-                        },
-                      }}
-                    >
-                      <SocialIcon
-                        url={socialNetwork}
-                        bgColor={theme.colors.primary}
-                      />
-                    </Box>
-                  );
-                })
-              : ''}
-          </Flex> */}
         </Flex>
       </Box>
     </Box>

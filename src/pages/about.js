@@ -47,24 +47,38 @@ export default () => {
                 CHIC, MODERN AND INNOVATIVE
               </Heading>
               <Text>
-                At H&B LEDCO, we pride ourselves on creating high quality
-                furniture that will last generations. Our pieces are more than
-                just furniture; they are works of art that inspire
-                conversations, enhance any space, and bring European modern
-                style to your every day.
+                HB LEDCO is an online platform specialized in the sale of
+                stylish and affordable LED furniture.
               </Text>
               <Text mt="20px">
-                H&B LEDCO Is an online retailer of Modern and contemporary
-                Furniture. We strive to provide Canadians with functional
-                aesthetically pleasing designs inspired by simple, beautiful
-                shapes and modern forms. All of our designs contain LED LIGHT,
-                clean edges, smooth simple shapes mixing of style and
-                practicality.
+                At HB LEDCO, we are passionate about home decor and lighting. We
+                have been thinking for a long time about how we could combine
+                both to create a cutting edge and modern atmosphere in our
+                homes. That’s when we had the idea to integrate RGB LED lights
+                directly in furniture. We spent a few months on the drawing
+                boards, visualizing and sketching multiple designs. We are now
+                finally able to proudly present our catalog.
               </Text>
               <Text mt="20px">
-                All of our Furnitures and designs are inspired by elements of
-                Nordic and European minimalism. We believe less is more.
-                Function should never sacrifice style.
+                Furniture for every room of your home. A coffee table and a tv
+                stand for the living room, a sideboard for the hall and
+                nightstands for the bedroom. You will be able to make your Home
+                Bright! Our pieces are more than just furniture; they are works
+                of art that inspire conversations, enhance any space, and bring
+                European modern style to your every day.
+              </Text>
+              <Text mt="20px">
+                Not only are our furniture amazing, but they are also
+                affordable! Because we operate online only with no physical
+                store to maintain and because we have great partnerships with
+                local delivery companies, we are able to keep the price down
+                without compromising on quality, and we ship your orders
+                straight to your door.
+              </Text>
+              <Text mt="20px">
+                Order online! Our platform is fast, reliable and we partner with
+                the best in the industry to offer you the most secure payments.
+                See you soon!
               </Text>
             </Box>
 
@@ -78,6 +92,11 @@ export default () => {
                 Identical to the original
               </Heading>
               <Text>
+                All of our Furnitures and designs are inspired by elements of
+                Nordic and European minimalism. We believe less is more.
+                Function should never sacrifice style.
+              </Text>
+              <Text mt="20px">
                 We are dedicated to designing quality products specializing
                 specifically in luxurious and contemporary European houses, we
                 offer you modern replicas that are accessible to everyone. With
