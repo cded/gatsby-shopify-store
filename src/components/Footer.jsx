@@ -219,8 +219,12 @@ function Footer() {
                 mt={3}
                 sx={{ alignItems: 'baseline' }}
               >
-                <SocialImage src={FaceImg} alt="facebook page link" />
-                <SocialImage src={InstaImg} alt="instagram link" />
+                <a href="https://facebook.com/hbledco/" target="_blank">
+                  <SocialImage src={FaceImg} alt="facebook page link" />
+                </a>
+                <a href="https://instagram.com/hbledco/" target="_blank">
+                  <SocialImage src={InstaImg} alt="instagram link" />
+                </a>
                 {/* {socialNetworks
                   ? socialNetworks.map((socialNetwork, index) => {
                       return (
