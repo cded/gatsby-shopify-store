@@ -215,7 +215,7 @@ function Footer() {
                 display={['block', 'none']}
                 mr="auto"
                 // pl={2}
-                mb={[2, 3]}
+                mb={['12px', 3]}
                 mt={3}
                 sx={{ alignItems: 'baseline' }}
               >
