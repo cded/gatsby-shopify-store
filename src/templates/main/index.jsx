@@ -5,11 +5,25 @@ import { graphql } from 'gatsby';
 import MainPage from './MainPage';
 import Layout from '../../components/Layout';
 import SEO from '../../components/SEO';
+import { JsonLd } from '../../components/JsonLd/JsonLd';
 
 export default (props) => {
   return (
     <Layout>
       <SEO title="Modern LED Furniture" />
+      <JsonLd>
+        {{
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          url: 'https://www.hbledco.com',
+          name: 'HB LEDCO',
+          contactPoint: {
+            '@type': 'ContactPoint',
+            telephone: '+1-450-999-5280',
+            contactType: 'Customer service',
+          },
+        }}
+      </JsonLd>
       <MainPage {...props} />
     </Layout>
   );
