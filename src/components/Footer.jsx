@@ -162,6 +162,9 @@ function Footer() {
               <Text mr={[3, 0]} mt={[2, 0]}>
                 <Link href="/faq">FAQ</Link>
               </Text>
+              <Text mr={[3, 0]} mt={[2, 0]}>
+                Based in Montreal, Canada
+              </Text>
               <Box
                 style={{ textAlign: 'right', display: 'flex' }}
                 sx={{
@@ -176,7 +179,7 @@ function Footer() {
                 </a>
               </Box>
               {/* <Text mt={[2]} sx={{ textAlign: 'center' }} fontSize={[1, 2]}>
-                Made in Montreal, Canada
+                Based in Montreal, Canada
               </Text> */}
             </Box>
 
@@ -292,14 +295,14 @@ function Footer() {
             </Box>
 
             <Box>
-              {/* <Text
+              <Text
                 mt={[2]}
                 sx={{ textAlign: 'center', display: ['block', 'none'] }}
                 fontSize={[1, 2]}
                 mb="10px"
               >
-                Made in Montreal, Canada
-              </Text> */}
+                Based in Montreal, Canada
+              </Text>
 
               <Text
                 fontSize={[1, 2]}
