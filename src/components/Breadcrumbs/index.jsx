@@ -92,8 +92,8 @@ const Breadcrumbs = ({
             <Text as="span" itemProp="name">
               {productTitle}
             </Text>
+            <meta itemProp="position" content="3" />
           </Box>
-          <meta itemProp="position" content="3" />
         </Box>
       ) : (
         ''
