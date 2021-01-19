@@ -27,12 +27,12 @@ const Breadcrumbs = ({
           itemProp="item"
           variant="link"
           color="darkPrimaryBlue"
-          position={1}
         >
           <Text as="span" itemProp="name">
             Home
           </Text>
         </Text>
+        <meta itemProp="position" content="1" />
       </Box>
 
       {collectionPath && collectionTitle ? (
@@ -60,14 +60,12 @@ const Breadcrumbs = ({
               itemProp="item"
               variant="link"
               color="darkPrimaryBlue"
-              position={2}
             >
-              <Text as="span" itemProp="position" position={3}>
-                <Text as="span" itemProp="name">
-                  {collectionTitle}
-                </Text>
+              <Text as="span" itemProp="name">
+                {collectionTitle}
               </Text>
             </Text>
+            <meta itemProp="position" content="2" />
           </Box>
         </Box>
       ) : (
@@ -91,12 +89,11 @@ const Breadcrumbs = ({
             itemScope
             itemType="https://schema.org/ListItem"
           >
-            <Text as="span" position={3}>
-              <Text as="span" itemProp="name">
-                {productTitle}
-              </Text>
+            <Text as="span" itemProp="name">
+              {productTitle}
             </Text>
           </Box>
+          <meta itemProp="position" content="3" />
         </Box>
       ) : (
         ''
