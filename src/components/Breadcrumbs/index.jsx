@@ -20,6 +20,7 @@ const Breadcrumbs = ({
         itemProp="itemListElement"
         itemScope
         itemType="https://schema.org/ListItem"
+        position={1}
       >
         <Text
           as={GatsbyLink}
@@ -28,7 +29,9 @@ const Breadcrumbs = ({
           variant="link"
           color="darkPrimaryBlue"
         >
-          Home
+          <Text as="span" itemProp="name">
+            Home
+          </Text>
         </Text>
       </Box>
 
@@ -49,6 +52,7 @@ const Breadcrumbs = ({
             itemProp="itemListElement"
             itemScope
             itemType="https://schema.org/ListItem"
+            position={2}
           >
             <Text
               as={GatsbyLink}
@@ -58,7 +62,9 @@ const Breadcrumbs = ({
               variant="link"
               color="darkPrimaryBlue"
             >
-              {collectionTitle}
+              <Text as="span" itemProp="name">
+                {collectionTitle}
+              </Text>
             </Text>
           </Box>
         </Box>
@@ -82,6 +88,7 @@ const Breadcrumbs = ({
             itemProp="itemListElement"
             itemScope
             itemType="https://schema.org/ListItem"
+            position={3}
           >
             <Text as="span" itemProp="name">
               {productTitle}

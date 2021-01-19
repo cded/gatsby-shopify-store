@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { Flex, Box, Text, Heading } from 'rebass';
-import { Helmet } from 'react-helmet';
 import loadable from '@loadable/component';
 import { CarouselProvider } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
 import strings from './strings.json';
-import substrDescription from '../../utils/substrDescription';
+// import substrDescription from '../../utils/substrDescription';
 import Divider from '../../components/Divider';
 import Breadcrumbs from '../../components/Breadcrumbs';
 
@@ -20,6 +19,7 @@ import ProductVariantSku from './ProductVariantSku';
 import ProductDescription from './ProductDescription';
 import ProductReviews from './ProductReviews';
 import QuantityButton from './QuantityButton';
+// import { JsonLd } from '../../components/JsonLd/JsonLd';
 
 // react-payment-icons-inline heavily increases webpack bundle size. Need to find alternative solution. Will disable it for now.
 // const Payments = loadable(() => import('../../components/Payments'));
@@ -72,10 +72,10 @@ function ProductPage({ data, pageContext, location }) {
 
   return (
     <Box style={{ maxWidth: '1300px', margin: 'auto' }}>
-      <Helmet>
-        {/* Google's meta description length is up to 920 pixels, which might
+      {/* <Helmet>
+        Google's meta description length is up to 920 pixels, which might
           allow for up to 158 characters. On mobile devices, the max limit is
-          about 680 pixels and 120 characters. Oct 1, 2019 */}
+          about 680 pixels and 120 characters. Oct 1, 2019
         <meta
           name="description"
           content={
@@ -84,7 +84,40 @@ function ProductPage({ data, pageContext, location }) {
               : substrDescription(description, 158)
           }
         />
-      </Helmet>
+      </Helmet> */}
+      {/* <JsonLd>
+        {{
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              item: {
+                '@id': `https://hbledco/`,
+                name: 'Home',
+              },
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              item: {
+                '@id': `https://hbledco${collectionPath}/`,
+                name: { collectionTitle },
+              },
+            },
+            {
+              '@type': 'ListItem',
+              position: 3,
+              item: {
+                '@id': `https://hbledco/product/${title}/`,
+                name: title,
+              },
+            },
+          ],
+        }}
+      </JsonLd> */}
+
       {/* Breadcrumbs block 2 for desktop */}
       <Box sx={{ display: ['none', 'none', 'block'] }} pt={1}>
         <Breadcrumbs
