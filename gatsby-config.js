@@ -22,7 +22,42 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-theme-ui',
-    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        query: `{
+          site {
+            siteMetadata {
+              siteUrl
+            }
+          }
+          allSitePage {
+            edges {
+              node {
+                path
+              }
+            }
+          }
+        }`,
+        serialize: ({ site, allSitePage }) => {
+          let pages = [];
+          allSitePage.edges.map((edge) => {
+            const hasTrailingSlash =
+              edge.node.path.charAt(edge.node.path.length - 1) === '/';
+            let url = site.siteMetadata.siteUrl + edge.node.path;
+            if (!hasTrailingSlash) {
+              url += '/';
+            }
+            pages.push({
+              url,
+              changefreq: `daily`,
+              priority: 0.7,
+            });
+          });
+          return pages;
+        },
+      },
+    },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
