@@ -5,7 +5,7 @@ import { CarouselProvider } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
 import strings from './strings.json';
-// import substrDescription from '../../utils/substrDescription';
+import substrDescription from '../../utils/substrDescription';
 import Divider from '../../components/Divider';
 import Breadcrumbs from '../../components/Breadcrumbs';
 
@@ -19,7 +19,7 @@ import ProductVariantSku from './ProductVariantSku';
 import ProductDescription from './ProductDescription';
 import ProductReviews from './ProductReviews';
 import QuantityButton from './QuantityButton';
-// import { JsonLd } from '../../components/JsonLd/JsonLd';
+import { JsonLd } from '../../components/JsonLd/JsonLd';
 
 // react-payment-icons-inline heavily increases webpack bundle size. Need to find alternative solution. Will disable it for now.
 // const Payments = loadable(() => import('../../components/Payments'));
@@ -85,38 +85,31 @@ function ProductPage({ data, pageContext, location }) {
           }
         />
       </Helmet> */}
-      {/* <JsonLd>
+      <JsonLd>
         {{
           '@context': 'https://schema.org',
-          '@type': 'BreadcrumbList',
-          itemListElement: [
-            {
-              '@type': 'ListItem',
-              position: 1,
-              item: {
-                '@id': `https://hbledco/`,
-                name: 'Home',
-              },
-            },
-            {
-              '@type': 'ListItem',
-              position: 2,
-              item: {
-                '@id': `https://hbledco${collectionPath}/`,
-                name: { collectionTitle },
-              },
-            },
-            {
-              '@type': 'ListItem',
-              position: 3,
-              item: {
-                '@id': `https://hbledco/product/${title}/`,
-                name: title,
-              },
-            },
-          ],
+          '@type': 'Product',
+          name: title,
+          image: images?.length > 0 && images[0].originalSrc,
+          description: substrDescription(description, 158),
+          brand: {
+            '@type': 'Brand',
+            name: 'HBLEDCO',
+          },
+          aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: '4.7',
+            reviewCount: '89',
+          },
+          offers: {
+            '@type': 'Offer',
+            url: 'https://example.com/anvil',
+            priceCurrency: 'CAD',
+            price: variants?.length > 0 && variants[0].price,
+            availability: 'https://schema.org/InStock',
+          },
         }}
-      </JsonLd> */}
+      </JsonLd>
 
       {/* Breadcrumbs block 2 for desktop */}
       <Box sx={{ display: ['none', 'none', 'block'] }} pt={1}>

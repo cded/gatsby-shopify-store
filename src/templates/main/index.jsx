@@ -15,12 +15,26 @@ export default (props) => {
         {{
           '@context': 'https://schema.org',
           '@type': 'Organization',
-          url: 'https://www.hbledco.com',
+          url: 'https://www.hbledco.com/',
           name: 'HB LEDCO',
+          description:
+            'We are an online platform, based in Canada, specialized in the sale of stylish and affordable LED furniture.',
+          sameAs: 'https://facebook.com/hbledco/',
+          sameAs: 'https://instagram.com/hbledco/',
           contactPoint: {
             '@type': 'ContactPoint',
             telephone: '+1-450-999-5280',
-            contactType: 'Customer service',
+            contactType: 'Customer Service',
+          },
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Montreal',
+            addressRegion: 'QC',
+            postalCode: 'H3C 0E0',
+            addressCountry: {
+              '@type': 'Country',
+              name: 'CA',
+            },
           },
         }}
       </JsonLd>

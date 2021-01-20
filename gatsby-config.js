@@ -97,7 +97,7 @@ module.exports = {
     },
   ],
   siteMetadata: {
-    siteUrl: 'https://hbledco.com',
+    siteUrl: 'https://hbledco.com/',
     title: 'H&B LEDCO',
     description: `Make Your Home Bright with HB LEDCO. Browse our LED furniture selection! 
     High quality design. Modern European style. Affordable. Based in Montreal. Delivery across Canada.
