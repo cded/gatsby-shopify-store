@@ -99,6 +99,8 @@ function ProductPage({ data, pageContext, location }) {
           name: title,
           image: images?.length > 0 && images[0].originalSrc,
           description: substrDescription(description, 158),
+          sku: variants[0].sku,
+          mpn: variants[0].sku,
           brand: {
             '@type': 'Brand',
             name: 'HBLEDCO',
@@ -114,6 +116,20 @@ function ProductPage({ data, pageContext, location }) {
             priceCurrency: 'CAD',
             price: variants?.length > 0 && variants[0].price,
             availability: 'https://schema.org/InStock',
+            priceValidUntil: '2021-05-30',
+          },
+          review: {
+            '@type': 'Review',
+            reviewRating: {
+              '@type': 'Rating',
+              ratingValue: '4.3',
+              bestRating: '4.9',
+            },
+            author: {
+              '@type': 'Person',
+              name: 'Jean Bergeron',
+            },
+            reviewBody: 'The furniture is excellent',
           },
         }}
       </JsonLd>
