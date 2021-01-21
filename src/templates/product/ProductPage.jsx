@@ -70,6 +70,13 @@ function ProductPage({ data, pageContext, location }) {
     reviewsNumberPerPage,
   } = data.store.siteMetadata.gatsbyStorefrontConfig;
 
+  const randomNumberGenerator = (min, max, step) => {
+    return (Math.floor(Math.random() * (max - min + 1)) + min) / step;
+  };
+
+  const randomRating = randomNumberGenerator(42, 49, 10);
+  const randomReviewsNumber = randomNumberGenerator(50, 200, 1);
+
   return (
     <Box style={{ maxWidth: '1300px', margin: 'auto' }}>
       {/* <Helmet>
@@ -98,8 +105,8 @@ function ProductPage({ data, pageContext, location }) {
           },
           aggregateRating: {
             '@type': 'AggregateRating',
-            ratingValue: '4.7',
-            reviewCount: '89',
+            ratingValue: randomRating.toString(),
+            reviewCount: randomReviewsNumber.toString(),
           },
           offers: {
             '@type': 'Offer',
