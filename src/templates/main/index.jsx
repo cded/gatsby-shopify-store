@@ -38,6 +38,7 @@ export default (props) => {
           },
         }}
       </JsonLd>
+      <meta name="robots" content="noodp, noydir" />
       <MainPage {...props} />
     </Layout>
   );
