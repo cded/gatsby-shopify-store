@@ -7,7 +7,7 @@ import CollectionStats from '../../components/CollectionStats';
 
 function CatalogPage(props) {
   const { limit, skip, cartUrl } = props.pageContext;
-  const { title, description } = props.data.collection.nodes[0];
+  const { title } = props.data.collection.nodes[0];
   let products = [];
 
   props.data.collection.nodes.forEach((node) => {
