@@ -20,7 +20,7 @@ const StyledBox = styled(Box)`
 const Banner = () => {
   return (
     <StyledBox fontFamily="heading" fontSize={['20px', '26px', '32px']}>
-      <Text>Discover our holiday hot deals up to 40% discount</Text>
+      <Text>Discover our hot deals up to 40% discount</Text>
     </StyledBox>
   );
 };
