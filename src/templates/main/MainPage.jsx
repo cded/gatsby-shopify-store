@@ -12,20 +12,6 @@ const MainPage = (props) => {
 
   const { products: featuredProducts, bestsellers, collections } = data;
 
-  useEffect(() => {
-    const script = document.createElement('script');
-
-    script.src =
-      'https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Ykfw4w';
-    script.async = true;
-
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
   return (
     <Box>
       <Box width={1} mb={1}>

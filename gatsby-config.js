@@ -130,6 +130,13 @@ module.exports = {
         pixelId: '167642541779625',
       },
     },
+    {
+      resolve: 'gatsby-plugin-klaviyo',
+      options: {
+        klaviyoKey: 'Ykfw4w',
+        enableDuringDevelop: false,
+      },
+    },
   ],
   siteMetadata: {
     siteUrl: 'https://hbledco.com/',
