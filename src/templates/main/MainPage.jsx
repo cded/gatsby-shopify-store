@@ -17,6 +17,7 @@ const MainPage = (props) => {
 
     script.src =
       'https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Ykfw4w';
+    script.async = true;
 
     document.body.appendChild(script);
 
