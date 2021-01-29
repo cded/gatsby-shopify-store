@@ -315,6 +315,15 @@ function ProductPage({ data, pageContext, location }) {
                       description={withoutShortDescription || description}
                       sections={sections}
                     />
+                    <Text
+                      fontFamily="description"
+                      fontSize="13px"
+                      color="#7b7b7b"
+                      mt="20px"
+                    >
+                      All our products come with a remote to change the LED
+                      lights colors.
+                    </Text>
                     <ProductVariantSku />
                   </Box>
                 )

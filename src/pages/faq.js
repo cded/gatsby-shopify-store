@@ -71,6 +71,15 @@ export default () => {
               between 15 to 60 business days at the moment. We will make sure to
               deliver your order as fast as we can, directly to your door.
             </Collapsible>
+            <Collapsible title="Do the LED lights on the furniture change color?">
+              Yes, the colors change. There is a remote control to change the
+              colors.
+            </Collapsible>
+            <Collapsible title="How does the LED lights on the furniture work?">
+              For most of our furniture (tv stands, bookshelves), the furniture
+              must be connected to an electrical outlet. For the coffee tables
+              the LED lights work with batteries.
+            </Collapsible>
             <Collapsible title="Wrong product or color delivered">
               If you receive the wrong product, part or missing pieces{' '}
               <GatsbyLink to="/contact/">let us know</GatsbyLink> and we will

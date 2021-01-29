@@ -1,4 +1,5 @@
 require('dotenv').config({ path: `.env` });
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = {
   plugins: [
@@ -67,7 +68,7 @@ module.exports = {
         background_color: '#fff',
         theme_color: '#333',
         display: 'standalone',
-        icon: 'src/images/favicon.png',
+        icon: 'src/images/favicon.webp',
         icon_options: {
           purpose: 'any maskable',
         },
@@ -141,12 +142,12 @@ module.exports = {
   siteMetadata: {
     siteUrl: 'https://hbledco.com/',
     title: 'H&B LEDCO',
-    description: `Make Your Home Bright with HB LEDCO. Browse our LED furniture selection! 
+    description: `Make Your Home Bright with HBLEDCO. Browse our LED furniture selection! 
     High quality design. Modern European style. Affordable. Based in Montreal. Delivery across Canada.
     Categories: TV stands, Coffee tables, Bedside tables, Sideboards`,
     gatsbyStorefrontConfig: {
       storeName: 'H&B LEDCO',
-      storeDescription: `Make Your Home Bright with Ledco. Browse our led furniture selection! 
+      storeDescription: `Make Your Home Bright with HBLedco. Browse our led furniture selection! 
       High quality design. Modern European style. Affordable. Based in Montreal. Delivery across Canada.
       Categories: TV stands, Coffee tables, Bedside tables, Sideboards`,
       email: 'info@hbledco.com',
@@ -215,5 +216,16 @@ module.exports = {
       productsPerCollectionPage: '9',
       articlesPerBlogPage: '6',
     },
+  },
+  developMiddleware: (app) => {
+    app.use(
+      '/.netlify/functions/',
+      createProxyMiddleware({
+        target: 'http://localhost:8080',
+        pathRewrite: {
+          '/.netlify/functions/': '',
+        },
+      })
+    );
   },
 };

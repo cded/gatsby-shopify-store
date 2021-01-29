@@ -1,0 +1,72 @@
+form {
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+}
+
+.feedback-input {
+  color: black;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  border-radius: 5px;
+  line-height: 22px;
+  background-color: transparent;
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s;
+  padding: 13px;
+  margin-bottom: 15px;
+  width: 100%;
+
+  box-sizing: border-box;
+  outline: 0;
+}
+
+.feedback-input:focus {
+  border: 1px solid #db9200;
+  box-shadow: 0 0 5px #db9200;
+}
+
+.feedback-input.email {
+  margin-right: 0;
+}
+
+.feedback-input.msg {
+  width: 100%;
+}
+
+textarea {
+  height: 150px;
+  line-height: 150%;
+  resize: vertical;
+}
+
+.contact-form .submit-button {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  width: 100%;
+  background: #db9200;
+  border-radius: 5px;
+  border: 0;
+  cursor: pointer;
+  color: white;
+  font-size: 24px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: all 0.3s;
+  margin-top: -4px;
+  font-weight: 400;
+}
+.contact-form .submit-button:hover {
+  opacity: 0.8;
+}
+
+.contact-form .submit-button.disabled {
+  background: #9b9c9d;
+  pointer-events: none;
+  color: #fffffa;
+}

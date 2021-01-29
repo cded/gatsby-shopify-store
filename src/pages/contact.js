@@ -4,6 +4,7 @@ import { Box, Text, Heading } from 'rebass';
 import styled from '@emotion/styled';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
+import ContactForm from '../components/ContactForm/ContactForm';
 
 const Separation = styled(Box)`
   width: 60%;
@@ -71,9 +72,17 @@ export default (props) => {
               <strong>{email}</strong>, or give us a call on <br />{' '}
               <strong>{phone}</strong>, our team will be glad to help you any
               day from <strong>{workingHours}</strong>
+              <br />
+              <br />
+              Or you can simply use the form below.
+              <br />
+              <br />
+              <br />
             </Text>
           </Box>
         </Box>
+
+        <ContactForm />
       </Box>
     </Layout>
   );

@@ -72,3 +72,5 @@ schema.json
 Docker/
 
 .vscode/
+
+/lambda
