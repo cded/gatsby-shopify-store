@@ -163,7 +163,7 @@ function Footer() {
                 <Link href="/faq">FAQ</Link>
               </Text>
               <Text mr={[3, 0]} mt={[2, 0]}>
-                Based in Montreal, Canada
+                Delivery anywhere in Canada
               </Text>
               <Box
                 style={{ textAlign: 'right', display: 'flex' }}
@@ -301,7 +301,7 @@ function Footer() {
                 fontSize={[1, 2]}
                 mb="10px"
               >
-                Based in Montreal, Canada
+                Delivery anywhere in Canada
               </Text>
 
               <Text
