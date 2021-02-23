@@ -50,20 +50,10 @@ const MainPageCarousel = () => {
   }
 
   const newCarousel = [
-    // {
-    //   name: 'H&B',
-    //   image: img,
-    //   description: 'Presents',
-    //   subDescription: 'LEDCO',
-    //   positionY: '15%',
-    //   highlightTitle: true,
-    //   buttonText: 'Shop now',
-    //   buttonMT: '50%',
-    // },
     {
       name: 'Make your Home Bright',
       image: img1,
-      description: 'With LEDCO LED Furniture',
+      description: 'With HomeLed Furniture',
       positionY: '90%',
       // textPosition: 'auto',
       highlightText: true,

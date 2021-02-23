@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery, Link as GatsbyLink } from 'gatsby';
+import { useIntl, FormattedMessage } from 'gatsby-plugin-intl';
 import { Box, Text, Heading } from 'rebass';
 import styled from '@emotion/styled';
 import Layout from '../components/Layout';
@@ -34,6 +35,7 @@ export default (props) => {
     phone,
     workingHours,
   } = data.site.siteMetadata.gatsbyStorefrontConfig;
+  const intl = useIntl();
   return (
     <Layout>
       <SEO
@@ -54,6 +56,7 @@ export default (props) => {
             fontSize: ['18px', '24px'],
           }}
         >
+          {/* {intl.formatMessage({ id: 'contact_us' })} */}
           How can we help you?
         </Heading>
         <Separation mx="auto" mt="20px" mb="20px" />

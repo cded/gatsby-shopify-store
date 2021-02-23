@@ -1,2 +1,2 @@
-Ledco ecommerce website
+Led furniture ecommerce website
 Made with Gatsby/React connected to the Shopify Storefront API

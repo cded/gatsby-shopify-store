@@ -62,8 +62,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'HB Ledco led furniture store',
-        short_name: 'HB Ledco',
+        name: 'HomeLed led furniture store',
+        short_name: 'HomeLed',
         start_url: '/',
         background_color: '#fff',
         theme_color: '#333',
@@ -96,6 +96,19 @@ module.exports = {
         },
       },
     },
+    // {
+    //   resolve: `gatsby-plugin-intl`,
+    //   options: {
+    //     // language JSON resource path
+    //     path: `${__dirname}/src/intl`,
+    //     // supported language
+    //     languages: [`en`, `fr`],
+    //     // language file path
+    //     defaultLanguage: `en`,
+    //     // option to redirect to `/en` when connecting `/`
+    //     redirect: false,
+    //   },
+    // },
     'gatsby-plugin-loadable-components-ssr',
     {
       resolve: `gatsby-plugin-webfonts`,
@@ -138,28 +151,29 @@ module.exports = {
         enableDuringDevelop: false,
       },
     },
+    'gatsby-plugin-netlify',
   ],
   siteMetadata: {
-    siteUrl: 'https://hbledco.com/',
-    title: 'H&B LEDCO',
-    description: `Make Your Home Bright with HBLEDCO. Browse our LED furniture selection! 
+    siteUrl: 'https://myhomeled.com/',
+    title: 'HomeLed',
+    description: `Make Your Home Bright with HomeLed. Browse our LED furniture selection! 
     High quality design. Modern European style. Affordable. Based in Montreal. Delivery across Canada.
     Categories: TV stands, Coffee tables, Bedside tables, Sideboards`,
     gatsbyStorefrontConfig: {
-      storeName: 'H&B LEDCO',
-      storeDescription: `Make Your Home Bright with HBLedco. Browse our led furniture selection! 
+      storeName: 'HomeLed',
+      storeDescription: `Make Your Home Bright with HomeLed. Browse our led furniture selection! 
       High quality design. Modern European style. Affordable. Based in Montreal. Delivery across Canada.
       Categories: TV stands, Coffee tables, Bedside tables, Sideboards`,
-      email: 'info@hbledco.com',
-      company: 'H&B Ledco Inc.',
+      email: 'info@myhomeled.com',
+      company: 'HomeLed Inc.',
       location: 'Montreal, QC',
       address: '400 Ville Marie',
       phone: '+1 (450) 999-5280',
       workingDays: 'Mon - Sun',
       workingHours: '9AM - 9PM',
       socialNetworks: [
-        'https://facebook.com/hbledco/',
-        'https://instagram.com/hbledco/',
+        'https://facebook.com/homeled/',
+        'https://instagram.com/homeled/',
       ],
       // Payments icons are temporarily disabled, due to large package size and negative impact on Lighthouse 6 performance.
       // Need to find an alternative package to react-payment-icons-inline.

@@ -1,0 +1,26 @@
+{
+  "title": "Gatsby keskispasse",
+  "description": "Project description",
+  "author": "@louisbertin",
+  "hello": "Hi people!",
+  "welcome": "Welcome to your new Gatsby site.",
+  "title_page2": "Page two",
+  "hello_page2": "Hi from the second page",
+  "go_page2": "Go to page 2",
+  "welcome_page2": "Welcome to page 2",
+  "go_back": "Go back to the homepage",
+  "footer_build": "Built with",
+  "notfound": {
+      "header": "NOT FOUND",
+      "description": "You just hit a route that doesn't exist... the sadness."
+  },
+  "contact_us": "Contact Us",
+  "about_us": "About Us",
+  "catalog": "Catalog",
+  "contact": {
+    "title": "Contact Us",
+    "description": "Please contact us if you have any questions! Customer satisfaction is our number one priority.",
+    "header": "How can we help you?",
+    "paragraph_1": "If you have any questions, concerns or issues with an order, please consult our <GatsbyLink to='/faq/'>FAQ</GatsbyLink> page where the most common questions are answered."
+  }
+}

@@ -30,7 +30,7 @@ export default () => {
             fontSize: ['18px', '24px'],
           }}
         >
-          Why buy from H&B LEDCO?
+          Why buy from HomeLed?
         </Heading>
         <Separation mx="auto" mt="20px" mb="20px" />
         <Box pl="10%" pr="10%">
@@ -47,11 +47,11 @@ export default () => {
                 CHIC, MODERN AND INNOVATIVE
               </Heading>
               <Text>
-                HB LEDCO is an online platform specialized in the sale of
-                stylish and affordable LED furniture.
+                HomeLed is an online platform specialized in the sale of stylish
+                and affordable LED furniture.
               </Text>
               <Text mt="20px">
-                At HB LEDCO, we are passionate about home decor and lighting. We
+                At HomeLed, we are passionate about home decor and lighting. We
                 have been thinking for a long time about how we could combine
                 both to create a cutting edge and modern atmosphere in our
                 homes. That’s when we had the idea to integrate RGB LED lights
@@ -119,8 +119,8 @@ export default () => {
                 All of our products heed to the highest North American standard.
                 We follow a strict protocol to ensure that the quality of our
                 products is maintained. The materials we offer are exclusive
-                solely to H&amp;B LEDCO. We have a perceptive sourcing team who
-                hand selects premium materials from all over the globe!
+                solely to HomeLed. We have a perceptive sourcing team who hand
+                selects premium materials from all over the globe!
               </Text>
             </Box>
 

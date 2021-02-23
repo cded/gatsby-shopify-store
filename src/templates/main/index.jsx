@@ -15,12 +15,12 @@ export default (props) => {
         {{
           '@context': 'https://schema.org',
           '@type': 'Organization',
-          url: 'https://www.hbledco.com/',
-          name: 'HB LEDCO',
+          url: 'https://www.myhomeled.com/',
+          name: 'HomeLed',
           description:
             'We are an online platform, based in Canada, specialized in the sale of stylish and affordable LED furniture.',
-          sameAs: 'https://facebook.com/hbledco/',
-          sameAs: 'https://instagram.com/hbledco/',
+          sameAs: 'https://facebook.com/homeled/',
+          sameAs: 'https://instagram.com/homeled/',
           contactPoint: {
             '@type': 'ContactPoint',
             telephone: '+1-450-999-5280',

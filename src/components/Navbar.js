@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 
 import useShopifyFunctions from '../hooks/useShopifyFunctions';
+import { useIntl, FormattedMessage } from 'gatsby-plugin-intl';
 
 import Menu from './Menu';
 import Search from './Search';
@@ -66,6 +67,7 @@ const TextCategory = styled(Text)`
 
 const Navbar = (props) => {
   const [hideNavbarOnScroll, setHideNavbarOnScroll] = useState(true);
+  // const intl = useIntl();
 
   useScrollPosition(
     ({ prevPos, currPos }) => {
@@ -143,6 +145,7 @@ const Navbar = (props) => {
             fontWeight="500"
             sx={{ display: ['none', 'block'] }}
           >
+            {/* {intl.formatMessage({ id: 'contact_us' })} */}
             Contact Us
           </Text>
 
@@ -157,6 +160,7 @@ const Navbar = (props) => {
             fontWeight="500"
             sx={{ display: ['none', 'block'] }}
           >
+            {/* {intl.formatMessage({ id: 'about_us' })} */}
             About Us
           </Text>
 
@@ -191,7 +195,7 @@ const Navbar = (props) => {
             <Text
               as={GatsbyLink}
               to="/products/all/"
-              style={{ textDecoration: 'none' }}
+              style={{ textDecoration: 'none', textTransform: 'uppercase' }}
               mr="10px"
               ml="auto"
               color="primary"
@@ -200,7 +204,8 @@ const Navbar = (props) => {
               fontWeight="500"
               sx={{ display: ['none', 'block'] }}
             >
-              CATALOG
+              {/* {intl.formatMessage({ id: 'catalog' })} */}
+              Catalog
             </Text>
 
             <FlagBox ml="auto" sx={{ display: ['none', 'flex'] }}>

@@ -38,7 +38,7 @@ export default () => {
         <Box pl="10%" pr="10%">
           <Box m="0 auto">
             <Collapsible title="Does your furniture come with Instructions and tools?">
-              Yes, all LEDCO furniture comes with clear instructions for
+              Yes, all HomeLed furniture comes with clear instructions for
               assembly, hardware components and a light control remote. Hammer
               and screwdrivers are not included.
             </Collapsible>
@@ -118,7 +118,7 @@ export default () => {
             <Collapsible title="How much are shipping fees?">
               Shipping fees vary depending on the product and the destination.
             </Collapsible>
-            <Collapsible title="What is LEDCO’s return policy?">
+            <Collapsible title="What is HomeLed's return policy?">
               If you are not completely satisfied with your purchase, we will
               gladly accept a return or exchange within 15 days of delivery,
               upon presentation of the original receipt. Refunds will be

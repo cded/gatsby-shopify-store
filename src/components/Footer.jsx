@@ -171,10 +171,10 @@ function Footer() {
                   marginTop: [1, 2],
                 }}
               >
-                <a href="https://facebook.com/hbledco/" target="_blank">
+                <a href="https://facebook.com/homeled/" target="_blank">
                   <SocialImage src={FaceImg} alt="facebook page link" />
                 </a>
-                <a href="https://instagram.com/hbledco/" target="_blank">
+                <a href="https://instagram.com/homeled/" target="_blank">
                   <SocialImage src={InstaImg} alt="instagram link" />
                 </a>
               </Box>
@@ -222,10 +222,10 @@ function Footer() {
                 mt={3}
                 sx={{ alignItems: 'baseline' }}
               >
-                <a href="https://facebook.com/hbledco/" target="_blank">
+                <a href="https://facebook.com/homeled/" target="_blank">
                   <SocialImage src={FaceImg} alt="facebook page link" />
                 </a>
-                <a href="https://instagram.com/hbledco/" target="_blank">
+                <a href="https://instagram.com/homeled/" target="_blank">
                   <SocialImage src={InstaImg} alt="instagram link" />
                 </a>
                 {/* {socialNetworks

@@ -103,7 +103,7 @@ function ProductPage({ data, pageContext, location }) {
           mpn: variants[0].sku,
           brand: {
             '@type': 'Brand',
-            name: 'HBLEDCO',
+            name: 'HomeLed',
           },
           aggregateRating: {
             '@type': 'AggregateRating',
