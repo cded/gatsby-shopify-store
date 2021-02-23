@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery, Link as GatsbyLink } from 'gatsby';
-import { useIntl, FormattedMessage } from 'gatsby-plugin-intl';
+// import { useIntl, FormattedMessage } from 'gatsby-plugin-intl';
 import { Box, Text, Heading } from 'rebass';
 import styled from '@emotion/styled';
 import Layout from '../components/Layout';
@@ -35,7 +35,7 @@ export default (props) => {
     phone,
     workingHours,
   } = data.site.siteMetadata.gatsbyStorefrontConfig;
-  const intl = useIntl();
+  // const intl = useIntl();
   return (
     <Layout>
       <SEO

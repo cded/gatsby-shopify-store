@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 
 import useShopifyFunctions from '../hooks/useShopifyFunctions';
-import { useIntl, FormattedMessage } from 'gatsby-plugin-intl';
+// import { useIntl, FormattedMessage } from 'gatsby-plugin-intl';
 
 import Menu from './Menu';
 import Search from './Search';
