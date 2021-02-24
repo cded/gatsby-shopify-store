@@ -19,8 +19,8 @@ export default (props) => {
           name: 'HomeLed',
           description:
             'We are an online platform, based in Canada, specialized in the sale of stylish and affordable LED furniture.',
-          sameAs: 'https://facebook.com/homeled/',
-          sameAs: 'https://instagram.com/homeled/',
+          sameAs: 'https://facebook.com/homeledfurniture/',
+          sameAs: 'https://instagram.com/homeledfurniture/',
           contactPoint: {
             '@type': 'ContactPoint',
             telephone: '+1-450-999-5280',
