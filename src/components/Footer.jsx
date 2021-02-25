@@ -2,8 +2,10 @@
 /* eslint no-unused-vars: 0 */
 import React from 'react';
 import { jsx, useThemeUI } from 'theme-ui';
-import { Flex, Box, Text, Link, Heading } from 'rebass';
-import { useStaticQuery, graphql, Link as GatsbyLink } from 'gatsby';
+import { Flex, Box, Text, Heading } from 'rebass';
+import { useStaticQuery, graphql } from 'gatsby';
+import { useIntl, Link as GatsbyLink, Link } from 'gatsby-plugin-intl';
+
 // import loadable from '@loadable/component';
 import styled from '@emotion/styled';
 import Img from 'gatsby-image';
@@ -112,6 +114,8 @@ function Footer() {
 
   const year = new Date().getFullYear();
 
+  const intl = useIntl();
+
   return (
     <Box bg="backgroundFooter" py={[1, 2, 3, 4]} mt={[2, 3, 4]}>
       <Box
@@ -153,17 +157,21 @@ function Footer() {
               sx={{ display: ['none', 'block'] }}
             >
               <Heading mb={1} sx={{ textTransform: 'uppercase' }}>
-                Who we are
+                {intl.formatMessage({ id: 'footer.who' })}
               </Heading>
 
               <Text mr={[3, 0]} mt={[2, 0]}>
-                <Link href="/about">About Us</Link>
+                <Link to="/about" sx={theme.variants.link}>
+                  {intl.formatMessage({ id: 'about_us' })}
+                </Link>
               </Text>
               <Text mr={[3, 0]} mt={[2, 0]}>
-                <Link href="/faq">FAQ</Link>
+                <Link to="/faq" sx={theme.variants.link}>
+                  {intl.formatMessage({ id: 'FAQ' })}
+                </Link>
               </Text>
               <Text mr={[3, 0]} mt={[2, 0]}>
-                Delivery anywhere in Canada
+                {intl.formatMessage({ id: 'footer.delivery' })}
               </Text>
               <Box
                 style={{ textAlign: 'right', display: 'flex' }}
@@ -191,13 +199,17 @@ function Footer() {
 
             <Box my={[2, 0]} fontSize={['12px', 'inherit']}>
               <Heading mb={1} fontSize={['18px', '24px']}>
-                CONTACT
+                {intl.formatMessage({ id: 'footer.contact' })}
               </Heading>
               <Text mr={[3, 0]} mt={[2, 0]} sx={{ display: ['block', 'none'] }}>
-                <Link href="/about">About Us</Link>
+                <Link to="/about" sx={theme.variants.link}>
+                  {intl.formatMessage({ id: 'about_us' })}
+                </Link>
               </Text>
               <Text mr={[3, 0]} my={[2, 0]} mb={[0, 2]}>
-                <Link href="/contact">Contact Us</Link>
+                <Link to="/contact" sx={theme.variants.link}>
+                  {intl.formatMessage({ id: 'contact_us' })}
+                </Link>
               </Text>
               <Text
                 mr={[3, 0]}
@@ -205,14 +217,17 @@ function Footer() {
                 mb={3}
                 sx={{ display: ['block', 'none'] }}
               >
-                <Link href="/faq">FAQ</Link>
+                <Link to="/faq" sx={theme.variants.link}>
+                  {intl.formatMessage({ id: 'FAQ' })}
+                </Link>
               </Text>
 
               <Text mr={[3, 0]} my={[2, 0]}>
-                By Email: {email}
+                {intl.formatMessage({ id: 'footer.email' })} {email}
               </Text>
               <Text mr={[3, 0]} my={[2, 0]}>
-                Call Us: {phone}
+                {intl.formatMessage({ id: 'footer.phone' })}
+                {phone}
               </Text>
               <Text mr={[3, 0]} my={[2, 0]}>
                 {workingDays}: {workingHours}
@@ -277,8 +292,12 @@ function Footer() {
             </Box>
 
             <Box my={[2, 0]} fontSize={['12px', 'inherit']} ml={['20px', 0]}>
-              <Heading mb={1} fontSize={['18px', '24px']}>
-                LEGAL
+              <Heading
+                mb={1}
+                fontSize={['18px', '24px']}
+                sx={{ textTransform: 'uppercase' }}
+              >
+                {intl.formatMessage({ id: 'footer.legal' })}
               </Heading>
               {footerLinks
                 ? footerLinks.map((link, index) => {
@@ -297,7 +316,7 @@ function Footer() {
                             to={`${link.link}/`}
                             sx={theme.variants.link}
                           >
-                            {link.name}
+                            {intl.formatMessage({ id: link.name })}
                           </GatsbyLink>
                         </Text>
                       );
@@ -313,7 +332,7 @@ function Footer() {
                 fontSize={[1, 2]}
                 mb="10px"
               >
-                Delivery anywhere in Canada
+                {intl.formatMessage({ id: 'footer.delivery' })}
               </Text>
 
               <Text

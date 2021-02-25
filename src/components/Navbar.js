@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Flex, Text, Box } from 'rebass';
-import { useStaticQuery, graphql, Link as GatsbyLink } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 
 import useShopifyFunctions from '../hooks/useShopifyFunctions';
-// import { useIntl, FormattedMessage } from 'gatsby-plugin-intl';
+import { useIntl, Link as GatsbyLink } from 'gatsby-plugin-intl';
 
 import Menu from './Menu';
 import Search from './Search';
@@ -67,7 +67,7 @@ const TextCategory = styled(Text)`
 
 const Navbar = (props) => {
   const [hideNavbarOnScroll, setHideNavbarOnScroll] = useState(true);
-  // const intl = useIntl();
+  const intl = useIntl();
 
   useScrollPosition(
     ({ prevPos, currPos }) => {
@@ -145,8 +145,7 @@ const Navbar = (props) => {
             fontWeight="500"
             sx={{ display: ['none', 'block'] }}
           >
-            {/* {intl.formatMessage({ id: 'contact_us' })} */}
-            Contact Us
+            {intl.formatMessage({ id: 'contact_us' })}
           </Text>
 
           <Text
@@ -160,8 +159,7 @@ const Navbar = (props) => {
             fontWeight="500"
             sx={{ display: ['none', 'block'] }}
           >
-            {/* {intl.formatMessage({ id: 'about_us' })} */}
-            About Us
+            {intl.formatMessage({ id: 'about_us' })}
           </Text>
 
           <Text
@@ -204,8 +202,8 @@ const Navbar = (props) => {
               fontWeight="500"
               sx={{ display: ['none', 'block'] }}
             >
-              {/* {intl.formatMessage({ id: 'catalog' })} */}
-              Catalog
+              {intl.formatMessage({ id: 'catalog' })}
+              {/* Catalog */}
             </Text>
 
             <FlagBox ml="auto" sx={{ display: ['none', 'flex'] }}>
@@ -285,7 +283,7 @@ const Navbar = (props) => {
                   p="8px 12px"
                   isSale={collection.handle === 'sale'}
                 >
-                  {collection.title}
+                  {intl.formatMessage({ id: collection.handle })}
                 </TextCategory>
               ))}
           </Box>

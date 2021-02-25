@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Heading } from 'rebass';
 import styled from '@emotion/styled';
-import { Link as GatsbyLink } from 'gatsby';
+import { useIntl } from 'gatsby-plugin-intl';
 import Layout from '../components/Layout';
 import Collapsible from '../components/Collapsible';
 import SEO from '../components/SEO';
@@ -12,11 +12,12 @@ const Separation = styled(Box)`
 `;
 
 export default () => {
+  const intl = useIntl();
   return (
     <Layout>
       <SEO
         title="FAQ"
-        description="You may find an answer to your questions here."
+        description={intl.formatMessage({ id: 'faq.description' })}
       />
       <Box
         p={['0', '50px']}
@@ -32,98 +33,61 @@ export default () => {
             fontSize: ['18px', '24px'],
           }}
         >
-          Frequently Asked Questions
+          {intl.formatMessage({ id: 'faq.title' })}
         </Heading>
         <Separation mx="auto" mt="20px" mb="20px" />
         <Box pl="10%" pr="10%">
           <Box m="0 auto">
-            <Collapsible title="Does your furniture come with Instructions and tools?">
-              Yes, all HomeLed furniture comes with clear instructions for
-              assembly, hardware components and a light control remote. Hammer
-              and screwdrivers are not included.
+            <Collapsible title={intl.formatMessage({ id: 'faq.q0' })}>
+              {intl.formatMessage({ id: 'faq.r0' })}
             </Collapsible>
-            <Collapsible title="It is safe to provide my credit card and personal information online?">
-              It is absolutely safe to use your credit card on our website. All
-              sensitive information is transferred using the same encryption and
-              physical security used by financial institutions.
+            <Collapsible title={intl.formatMessage({ id: 'faq.q1' })}>
+              {intl.formatMessage({ id: 'faq.r1' })}
             </Collapsible>
-            <Collapsible title="Can I cancel an order if I change my mind?">
-              If you have a change of heart, you can cancel at any time before
-              your item is dispatched/sent to our delivery partners. Simply
-              contact us and we'll cancel your order and give you a full refund.
-              Cancellations made after the dispatch of your item(s) will need to
-              be made at the time of delivery, via a refusal of delivery or
-              within 15 days of delivery by contacting us. Once you have
-              notified us of your unwanted item, we will arrange for collection
-              of the item by our courier, who will advise you of a proposed
-              collection date shortly after. You will receive a full refund
-              (less return or collection costs set out below) once the product
-              has been returned to us.
+            <Collapsible title={intl.formatMessage({ id: 'faq.q2' })}>
+              {intl.formatMessage({ id: 'faq.r2' })}
             </Collapsible>
-            <Collapsible title="What if I don’t like the product I ordered when it arrives?">
-              No way you don’t like it... really! Simply{' '}
-              <GatsbyLink to="/contact/">contact us</GatsbyLink> within 15 days
-              of receiving your product(s) and we will assist you with the
-              return.
+            <Collapsible title={intl.formatMessage({ id: 'faq.q3' })}>
+              {intl.formatMessage({ id: 'faq.r3' })}
             </Collapsible>
-            <Collapsible title="How long will it take for my order to arrive?">
-              Due to the current added health measures, processing can take
-              between 15 to 60 business days at the moment. We will make sure to
-              deliver your order as fast as we can, directly to your door.
+            <Collapsible title={intl.formatMessage({ id: 'faq.q4' })}>
+              {intl.formatMessage({ id: 'faq.r4' })}
             </Collapsible>
-            <Collapsible title="Do the LED lights on the furniture change color?">
-              Yes, the colors change. There is a remote control to change the
-              colors.
+            <Collapsible title={intl.formatMessage({ id: 'faq.q5' })}>
+              {intl.formatMessage({ id: 'faq.r5' })}
             </Collapsible>
-            <Collapsible title="How does the LED lights on the furniture work?">
-              For most of our furniture (tv stands, bookshelves), the furniture
-              must be connected to an electrical outlet. For the coffee tables
-              the LED lights work with batteries.
+            <Collapsible title={intl.formatMessage({ id: 'faq.q6' })}>
+              {intl.formatMessage({ id: 'faq.r6' })}
             </Collapsible>
-            <Collapsible title="Wrong product or color delivered">
-              If you receive the wrong product, part or missing pieces{' '}
-              <GatsbyLink to="/contact/">let us know</GatsbyLink> and we will
-              promptly ship replacements at no charge. If you need to return an
-              incorrect shipment, we will not charge for any wrong parts or
-              products.
+            <Collapsible title={intl.formatMessage({ id: 'faq.q7' })}>
+              {intl.formatMessage({ id: 'faq.r7' })}
             </Collapsible>
-            <Collapsible title="What if I'm unsure how to assemble a unit?">
-              If you have general assembly questions or concerns we're always
-              happy and available to help by e-mail. If you are unsure how to
-              assemble we recommend hiring a local furniture assembly service.
+            <Collapsible title={intl.formatMessage({ id: 'faq.q8' })}>
+              {intl.formatMessage({ id: 'faq.r8' })}
             </Collapsible>
-            <Collapsible title="What are the accepted methods of payment?">
-              We accept PayPal, Visa, MasterCard and American Express.
+            <Collapsible title={intl.formatMessage({ id: 'faq.q9' })}>
+              {intl.formatMessage({ id: 'faq.r9' })}
             </Collapsible>
-            <Collapsible title="When will my order be invoiced?">
-              Your order will be invoiced as soon as it has been placed.
+            <Collapsible title={intl.formatMessage({ id: 'faq.q10' })}>
+              {intl.formatMessage({ id: 'faq.r10' })}
             </Collapsible>
-            <Collapsible title="Will furniture I order arrive assembled?">
-              A large majority of hardwood home furnishings come flat-packed
-              parcels that require assembly, allowing us to keep our costs down,
-              and for ease of transportation In order to provide our customers
-              with quality products at great prices.
+            <Collapsible title={intl.formatMessage({ id: 'faq.q11' })}>
+              {intl.formatMessage({ id: 'faq.r11' })}
             </Collapsible>
-            <Collapsible title="What shipping options do you offer?">
-              We aim to deliver our products in a timely and economical manner.
-              Accessories and smaller items ship via FedEx Standard Ground.
-              Larger, heavier items are shipped via our in-home delivery
-              service.
+            <Collapsible title={intl.formatMessage({ id: 'faq.q12' })}>
+              {intl.formatMessage({ id: 'faq.r12' })}
             </Collapsible>
-            <Collapsible title="What should I do if my merchandise arrives damaged or defective?">
-              Please <GatsbyLink to="/contact/">contact us</GatsbyLink> as soon
-              as possible with a detailed description of the issue along with a
-              photo. We will take care of the rest.
+            <Collapsible title={intl.formatMessage({ id: 'faq.q13' })}>
+              {intl.formatMessage({ id: 'faq.r13' })}
             </Collapsible>
-            <Collapsible title="How much are shipping fees?">
-              Shipping fees vary depending on the product and the destination.
+            <Collapsible title={intl.formatMessage({ id: 'faq.q14' })}>
+              {intl.formatMessage({ id: 'faq.r14' })}
             </Collapsible>
-            <Collapsible title="What is HomeLed's return policy?">
-              If you are not completely satisfied with your purchase, we will
-              gladly accept a return or exchange within 15 days of delivery,
-              upon presentation of the original receipt. Refunds will be
-              processed based on the original method of payment. The unused item
-              must be returned in its original condition and packaging.
+            <Collapsible title={intl.formatMessage({ id: 'faq.q15' })}>
+              {intl.formatMessage({ id: 'faq.r15' })}
+            </Collapsible>
+            <Collapsible title={intl.formatMessage({ id: 'faq.q16' })}>
+              {intl.formatMessage({ id: 'faq.r16' })}
             </Collapsible>
           </Box>
         </Box>

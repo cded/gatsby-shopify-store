@@ -1,13 +1,16 @@
 import React from 'react';
 import { Flex, Box, Heading, Text } from 'rebass';
+import { useIntl } from 'gatsby-plugin-intl';
 
 import CatalogProducts from './CatalogProducts';
 import Pagination from '../../components/Pagination';
 import CollectionStats from '../../components/CollectionStats';
 
 function CatalogPage(props) {
+  const intl = useIntl();
   const { limit, skip, cartUrl } = props.pageContext;
-  const { title } = props.data.collection.nodes[0];
+  const { handle } = props.data.collection.nodes[0];
+  const title = intl.formatMessage({ id: handle });
   let products = [];
 
   props.data.collection.nodes.forEach((node) => {

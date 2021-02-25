@@ -1,6 +1,10 @@
 import React from 'react';
 import { graphql, useStaticQuery, Link as GatsbyLink } from 'gatsby';
-// import { useIntl, FormattedMessage } from 'gatsby-plugin-intl';
+import {
+  useIntl,
+  FormattedMessage,
+  FormattedHTMLMessage,
+} from 'gatsby-plugin-intl';
 import { Box, Text, Heading } from 'rebass';
 import styled from '@emotion/styled';
 import Layout from '../components/Layout';
@@ -13,34 +17,14 @@ const Separation = styled(Box)`
 `;
 
 export default (props) => {
-  const data = useStaticQuery(graphql`
-    query contactQuery {
-      site {
-        siteMetadata {
-          gatsbyStorefrontConfig {
-            email
-            company
-            location
-            address
-            phone
-            workingDays
-            workingHours
-          }
-        }
-      }
-    }
-  `);
-  const {
-    email,
-    phone,
-    workingHours,
-  } = data.site.siteMetadata.gatsbyStorefrontConfig;
-  // const intl = useIntl();
+  const intl = useIntl();
+  const locale = `/${intl.locale}`;
+
   return (
     <Layout>
       <SEO
-        title="Contact Us"
-        description="Please contact us if you have any questions! Customer satisfaction is our number one priority."
+        title={intl.formatMessage({ id: 'contact.title' })}
+        description={intl.formatMessage({ id: 'contact.description' })}
       />
       <Box
         p={['0', '50px']}
@@ -56,31 +40,23 @@ export default (props) => {
             fontSize: ['18px', '24px'],
           }}
         >
-          {/* {intl.formatMessage({ id: 'contact_us' })} */}
-          How can we help you?
+          {intl.formatMessage({ id: 'contact.header' })}
         </Heading>
         <Separation mx="auto" mt="20px" mb="20px" />
         <Box pl="10%" pr="10%">
           <Box m="0 auto" width={[1, 3 / 4]}>
             <Text>
-              If you have any questions, concerns or issues with an order,
-              please consult our <GatsbyLink to="/faq/">FAQ</GatsbyLink> page
-              where the most common questions are answered.
+              <FormattedMessage id="contact.paragraph_1" />
+              <GatsbyLink to={`${locale}/faq/`}>
+                {intl.formatMessage({ id: 'contact.paragraph_1_link' })}
+              </GatsbyLink>
+              <FormattedMessage id="contact.paragraph_1_2" />
             </Text>
             <Text mt="20px">
-              If you do not find your answer there or prefer talking to us
-              directly, <br />
+              <FormattedHTMLMessage id="contact.paragraph_2" />
               <br />
-              Do not hesitate to shoot us an email anytime at{' '}
-              <strong>{email}</strong>, or give us a call on <br />{' '}
-              <strong>{phone}</strong>, our team will be glad to help you any
-              day from <strong>{workingHours}</strong>
-              <br />
-              <br />
-              Or you can simply use the form below.
-              <br />
-              <br />
-              <br />
+              <FormattedHTMLMessage id="contact.paragraph_3" />
+              <FormattedHTMLMessage id="contact.paragraph_4" />
             </Text>
           </Box>
         </Box>
