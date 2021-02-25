@@ -106,7 +106,7 @@ module.exports = {
         // language file path
         defaultLanguage: `en`,
         // option to redirect to `/en` when connecting `/`
-        redirect: false,
+        redirect: true,
       },
     },
     'gatsby-plugin-loadable-components-ssr',

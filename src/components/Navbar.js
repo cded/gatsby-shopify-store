@@ -12,6 +12,7 @@ import Search from './Search';
 import ShoppingCart from './Icons/ShoppingCart';
 import strings from './strings.json';
 import CanadaFlag from './Icons/CanadaFlag';
+import Language from './Language/Language';
 
 const NavbarBase = styled.nav`
   position: fixed;
@@ -185,16 +186,12 @@ const Navbar = (props) => {
             </Flex>
           </Text>
 
-          <Flex
-            ml="auto"
-            width={['auto', 250]}
-            style={{ alignItems: 'center' }}
-          >
+          <Flex ml="auto" width={['auto']} style={{ alignItems: 'center' }}>
             <Text
               as={GatsbyLink}
               to="/products/all/"
               style={{ textDecoration: 'none', textTransform: 'uppercase' }}
-              mr="10px"
+              mr="20px"
               ml="auto"
               color="primary"
               fontSize="0.875em"
@@ -203,15 +200,18 @@ const Navbar = (props) => {
               sx={{ display: ['none', 'block'] }}
             >
               {intl.formatMessage({ id: 'catalog' })}
-              {/* Catalog */}
             </Text>
 
-            <FlagBox ml="auto" sx={{ display: ['none', 'flex'] }}>
+            <Text mr="20px" sx={{ display: ['none', 'flex'] }} color="primary">
+              <Language />
+            </Text>
+
+            <FlagBox ml="auto" sx={{ display: ['none', 'flex'] }} mr="20px">
               <CanadaFlag width="25px" height="25px" />
               <div>(CAD)</div>
             </FlagBox>
 
-            <Box ml="auto" sx={{ marginRight: ['10px', '0'] }}>
+            <Box ml="auto" sx={{ marginRight: ['10px'] }}>
               <Search width="25px" height="25px" color="primary" />
             </Box>
 

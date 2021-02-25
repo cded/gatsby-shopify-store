@@ -1,0 +1,11 @@
+.language-selector {
+  color: inherit;
+  margin: 10;
+  cursor: pointer;
+  font-weight: 400;
+  font-family: 'Montserrat';
+}
+
+.language-selector:hover {
+  color: #2476f2 !important;
+}
