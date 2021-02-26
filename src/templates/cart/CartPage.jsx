@@ -30,7 +30,9 @@ const ShoppingButton = styled(Button)`
 function CartPage() {
   const { checkout, updateItem, removeItem } = useShopifyFunctions();
   const intl = useIntl();
+  const locale = intl.locale;
   const { subtotalPrice, webUrl } = checkout;
+  const localizedCheckoutUrl = `${webUrl}?locale=${locale}`;
 
   // const displaySubtotalPrice = formatPrice(
   //   Number(subtotalPrice),
@@ -191,7 +193,7 @@ function CartPage() {
           <Box>
             <CheckoutButton
               as={'a'}
-              href={buttonEnabled && webUrl}
+              href={buttonEnabled && localizedCheckoutUrl}
               onClick={trackFacebookAds}
               variant="primary"
               px={5}
