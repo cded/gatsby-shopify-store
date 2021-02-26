@@ -32,6 +32,8 @@
   "contact.form.mail": "Your Email",
   "contact.form.message": "Your message",
   "contact.form.submit": "Submit",
+  "contact.form.success": "Your message was sent! One of our representatives will answer you shortly.",
+  "contact.form.error": "There was an error processing your form, please try again later.",
   "product.instock": "IN STOCK",
   "product.soldout": "SOLDOUT",
   "product.sale": "SALE",

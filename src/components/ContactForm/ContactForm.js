@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Text, Button } from 'rebass';
 import styled from '@emotion/styled';
+import { useIntl } from 'gatsby-plugin-intl';
 import axios from 'axios';
 import './ContactForm.css';
 import successImg from '../../images/checked.svg';
@@ -34,6 +35,7 @@ const ContactForm = () => {
     email: null,
     message: null,
   });
+  const intl = useIntl();
 
   const [showSuccess, setShowSuccess] = useState(false);
   const [showError, setShowError] = useState(false);
@@ -86,21 +88,21 @@ const ContactForm = () => {
         <Box mt="30px" sx={{ textAlign: 'center' }}>
           <SuccessImage src={successImg} alt="successful form" />
           <Text mt="20px" mb={['100px', '0']}>
-            Your message was sent! One of our representatives will answer you
-            shortly.
+            {intl.formatMessage({ id: 'contact.form.success' })}
           </Text>
         </Box>
       ) : showError ? (
         <Box mt="30px" sx={{ textAlign: 'center' }}>
           <SuccessImage src={errorImg} alt="error form" />
           <Text mt="20px" mb={['100px', '0']}>
-            There was an error processing your form, please try again later.
+            {intl.formatMessage({ id: 'contact.form.error' })}
           </Text>
         </Box>
       ) : (
         <Box>
           <Text m="auto" width={['100%', '75%']}>
-            <em style={{ color: 'red' }}>*</em> Required field
+            <em style={{ color: 'red' }}>*</em>{' '}
+            {intl.formatMessage({ id: 'contact.form.required' })}
           </Text>
           <Form
             as="form"
@@ -116,7 +118,7 @@ const ContactForm = () => {
               display={['block', 'inline-block']}
             >
               <label>
-                Your Name <em>*</em>
+                {intl.formatMessage({ id: 'contact.form.name' })} <em>*</em>
               </label>
               <input
                 name="name"
@@ -132,7 +134,7 @@ const ContactForm = () => {
               display={['block', 'inline-block']}
             >
               <label>
-                Your Email <em>*</em>
+                {intl.formatMessage({ id: 'contact.form.mail' })} <em>*</em>
               </label>
               <input
                 name="email"
@@ -144,7 +146,7 @@ const ContactForm = () => {
             </FormGroup>
             <FormGroup>
               <label>
-                Your Message <em>*</em>
+                {intl.formatMessage({ id: 'contact.form.message' })} <em>*</em>
               </label>
               <textarea
                 name="message"
@@ -158,7 +160,7 @@ const ContactForm = () => {
               className={`submit-button ${!isValid() ? 'disabled' : ''}`}
               mb={['50px', '0']}
             >
-              Submit
+              {intl.formatMessage({ id: 'contact.form.submit' })}
             </Button>
           </Form>
         </Box>

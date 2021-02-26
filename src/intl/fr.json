@@ -32,6 +32,8 @@
   "contact.form.mail": "Votre Courriel",
   "contact.form.message": "Votre Message",
   "contact.form.submit": "Soumettre",
+  "contact.form.success": "Votre message a été envoye! Un de nos représentants vous répondra bientôt.",
+  "contact.form.error": "Il y a eu une erreur, veuillez réessayer plus tard.",
   "product.instock": "EN STOCK",
   "product.soldout": "ÉPUISÉ",
   "product.sale": "SOLDE",

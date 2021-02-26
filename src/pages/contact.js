@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, useStaticQuery, Link as GatsbyLink } from 'gatsby';
+import { Link as GatsbyLink } from 'gatsby';
 import {
   useIntl,
   FormattedMessage,
