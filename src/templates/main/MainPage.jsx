@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Heading } from 'rebass';
-import { Link as GatsbyLink } from 'gatsby';
+import { useIntl, Link as GatsbyLink } from 'gatsby-plugin-intl';
 
 import MainPageCarousel from './MainPageCarousel';
 import MainPageSection from './MainPageSection';
@@ -11,6 +11,7 @@ const MainPage = (props) => {
   const { data } = props;
 
   const { products: featuredProducts, bestsellers, collections } = data;
+  const intl = useIntl();
 
   return (
     <Box>
@@ -29,17 +30,25 @@ const MainPage = (props) => {
           />
         </Box>
         <Heading
-          sx={{ textAlign: 'center', marginTop: '30px' }}
+          sx={{
+            textAlign: 'center',
+            marginTop: '30px',
+            textTransform: 'uppercase',
+          }}
           fontSize={[30, 36, 42]}
         >
-          YOUR CHOICE
+          {intl.formatMessage({ id: 'home.yourChoice' })}
         </Heading>
         <Heading
-          sx={{ textAlign: 'center', fontWeight: 'normal' }}
+          sx={{
+            textAlign: 'center',
+            fontWeight: 'normal',
+            textTransform: 'uppercase',
+          }}
           fontSize={[14, 16, 20]}
           mb={3}
         >
-          TOP PRODUCTS OF THIS WEEK
+          {intl.formatMessage({ id: 'home.topProds' })}
         </Heading>
         <Box
           width={1}
@@ -79,7 +88,7 @@ const MainPage = (props) => {
           fontSize={[14, 16, 20]}
           mb={3}
         >
-          Explore our various offerings
+          {intl.formatMessage({ id: 'home.exploreTitle' })}
         </Heading>
         <Box width={1} mb={1}>
           <MainPageSection

@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 
 import useShopifyFunctions from '../../hooks/useShopifyFunctions';
 import { useCurrentVariantContext } from './CurrentVariantContext';
-import strings from './strings.json';
+import { useIntl } from 'gatsby-plugin-intl';
 
 const StyledButton = styled(Button)`
   background-color: #fff;
@@ -32,7 +32,7 @@ const ProductVariantAddToCart = ({ amount, cartUrl }) => {
   const { currentVariant } = useCurrentVariantContext();
   const [disabled, setDisabled] = useState(false);
 
-  const { productAddToCartButton, productAddToCartSoldoutButton } = strings;
+  const intl = useIntl();
 
   async function addToCartHandler(id, amount) {
     await addItem({ variantId: id, quantity: amount });
@@ -55,7 +55,10 @@ const ProductVariantAddToCart = ({ amount, cartUrl }) => {
       }}
       variant={!disabled ? 'primary' : 'disabled'}
     >
-      {!disabled ? productAddToCartButton : productAddToCartSoldoutButton}
+      {/* {!disabled ? productAddToCartButton : productAddToCartSoldoutButton} */}
+      {!disabled
+        ? intl.formatMessage({ id: 'product.addToCart' })
+        : intl.formatMessage({ id: 'product.soldout' })}
     </StyledButton>
   );
 };

@@ -1,13 +1,12 @@
 /** @jsx jsx */
 /* eslint no-unused-vars: 0 */
 import React from 'react';
-import { Link as GatsbyLink } from 'gatsby';
 import { jsx } from 'theme-ui';
 import styled from '@emotion/styled/macro';
 import { Flex, Box, Text, Heading, Button } from 'rebass';
+import { useIntl, Link as GatsbyLink } from 'gatsby-plugin-intl';
 
 import ShopifyBackgroundImage from '../../components/ShopifyBackgroundImage';
-import substrDescription from '../../utils/substrDescription';
 
 const BottomBar = styled.div`
   height: 15%;
@@ -33,8 +32,13 @@ const MainPageCollectionBlock = (props) => {
     image,
     fields: { shopifyThemePath },
   } = props.collection;
+  const intl = useIntl();
 
-  const { block, textColor = 'primary', buttonText = 'Explore' } = props;
+  const {
+    block,
+    textColor = 'primary',
+    buttonText = intl.formatMessage({ id: 'home.exploreButton' }),
+  } = props;
 
   return (
     <ShopifyBackgroundImage

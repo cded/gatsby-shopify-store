@@ -1,6 +1,7 @@
 import React from 'react';
 import { Flex, Box, Heading, Text } from 'rebass';
 import { useStaticQuery } from 'gatsby';
+import { useIntl } from 'gatsby-plugin-intl';
 
 import CatalogProducts from '../../templates/catalog/CatalogProducts';
 import Pagination from '../../components/Pagination';
@@ -59,6 +60,8 @@ const CatalogAllProducs = () => {
 
   const pageContext = { limit, skip, cartUrl };
 
+  const intl = useIntl();
+
   const products = data.allShopifyProduct.nodes;
 
   return (
@@ -78,9 +81,11 @@ const CatalogAllProducs = () => {
         >
           <Text textAlign="left">
             <Heading as="h1" fontSize={[20, 25, 30]}>
-              CATALOG
+              {intl.formatMessage({ id: 'catalog' })}
             </Heading>
-            <Text fontSize={[2, 3]}>Browse our products</Text>
+            <Text fontSize={[2, 3]}>
+              {intl.formatMessage({ id: 'catalog.title' })}
+            </Text>
           </Text>
           {/* <Text
             textAlign={['center', 'right']}

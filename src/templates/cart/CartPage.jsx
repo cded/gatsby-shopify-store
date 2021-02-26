@@ -1,13 +1,11 @@
 import React from 'react';
 import { Flex, Box, Button, Heading, Text } from 'rebass';
 import styled from '@emotion/styled';
+import { useIntl } from 'gatsby-plugin-intl';
 
-import strings from './strings.json';
 import Divider from '../../components/Divider';
 import useShopifyFunctions from '../../hooks/useShopifyFunctions';
 import LineItem from './LineItem';
-
-const { cartSubtotalLabel, cartHeader } = strings;
 
 const CheckoutButton = styled(Button)`
   background: #2476f2;
@@ -31,6 +29,7 @@ const ShoppingButton = styled(Button)`
 
 function CartPage() {
   const { checkout, updateItem, removeItem } = useShopifyFunctions();
+  const intl = useIntl();
   const { subtotalPrice, webUrl } = checkout;
 
   // const displaySubtotalPrice = formatPrice(
@@ -80,7 +79,8 @@ function CartPage() {
       <Flex mt={[4, 4]} mb={[0, 0]} pl={[2, 0]}>
         <Box p={[1, 3]} sx={{ display: 'flex' }}>
           <Heading fontSize={[3, 4]} sx={{ textTransform: 'uppercase' }} mb={0}>
-            {cartHeader} ({checkout?.lineItems.length})
+            {intl.formatMessage({ id: 'cart.header' })} (
+            {checkout?.lineItems.length})
           </Heading>
           {/* {showSpinner && (
             <Box>
@@ -143,7 +143,7 @@ function CartPage() {
                 }}
                 fontSize={1}
               >
-                <Text>{cartSubtotalLabel}</Text>
+                <Text>{intl.formatMessage({ id: 'cart.subtotalLabel' })}</Text>
                 <Text>{displaySubtotalPrice}</Text>
               </Box>
 
@@ -155,8 +155,8 @@ function CartPage() {
                 }}
                 fontSize={1}
               >
-                <Text>Shipping</Text>
-                <Text>Calculated at next step</Text>
+                <Text>{intl.formatMessage({ id: 'cart.shippingLabel' })}</Text>
+                <Text>{intl.formatMessage({ id: 'cart.calculated' })}</Text>
               </Box>
 
               <Box
@@ -167,8 +167,8 @@ function CartPage() {
                 }}
                 fontSize={1}
               >
-                <Text>Tax</Text>
-                <Text>Calculated at next step</Text>
+                <Text>{intl.formatMessage({ id: 'cart.tax' })}</Text>
+                <Text>{intl.formatMessage({ id: 'cart.calculated' })}</Text>
               </Box>
 
               <Box
@@ -180,7 +180,9 @@ function CartPage() {
                 mt={4}
                 fontSize={[2, 4]}
               >
-                <Heading fontWeight="500">TOTAL COST</Heading>
+                <Heading fontWeight="500" sx={{ textTransform: 'uppercase' }}>
+                  {intl.formatMessage({ id: 'cart.total' })}
+                </Heading>
                 <Text>{displaySubtotalPrice}</Text>
               </Box>
             </Box>
@@ -200,7 +202,7 @@ function CartPage() {
               sx={{ textTransform: 'uppercase', width: '100%' }}
               mt={4}
             >
-              Proceed to checkout
+              {intl.formatMessage({ id: 'cart.proceed' })}
             </CheckoutButton>
 
             <ShoppingButton
@@ -215,7 +217,7 @@ function CartPage() {
               sx={{ textTransform: 'uppercase', width: '100%' }}
               mt={2}
             >
-              Continue Shopping
+              {intl.formatMessage({ id: 'cart.continue' })}
             </ShoppingButton>
           </Box>
         </Box>

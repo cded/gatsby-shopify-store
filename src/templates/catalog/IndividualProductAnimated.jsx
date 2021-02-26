@@ -230,7 +230,7 @@ const IndividualProduct = ({ product }) => {
             >
               {hasOneVariant ? (
                 <AddToCartStyled
-                  title={intl.formatMessage({ id: 'product.addToCart' })}
+                  title={intl.formatMessage({ id: 'product.addToCartP' })}
                   shopifyId={variants[0].shopifyId}
                   amount={1}
                   cartUrl={cartUrl}

@@ -3,9 +3,9 @@ import { Flex, Box, Text, Heading } from 'rebass';
 import loadable from '@loadable/component';
 import { CarouselProvider } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
+import { useIntl } from 'gatsby-plugin-intl';
 
 import strings from './strings.json';
-import substrDescription from '../../utils/substrDescription';
 import Divider from '../../components/Divider';
 import Breadcrumbs from '../../components/Breadcrumbs';
 
@@ -30,6 +30,7 @@ const { productTypeLabel } = strings;
 
 function ProductPage({ data, pageContext, location }) {
   const [currentAmount, setCurrentAmount] = useState(1);
+  const intl = useIntl();
 
   const {
     product: {
@@ -56,7 +57,8 @@ function ProductPage({ data, pageContext, location }) {
   // In this case we need to set a guard in case "collection" and "fields" props undefined.
   const { collection } = data || {};
   const { fields } = collection || {};
-  const { title: collectionTitle } = collection || {
+
+  const { title: collectionTitle, handle: collectionHandle } = collection || {
     title: null,
   };
   const { shopifyThemePath: collectionPath } = fields || {
@@ -76,6 +78,11 @@ function ProductPage({ data, pageContext, location }) {
 
   const randomRating = randomNumberGenerator(42, 49, 10);
   const randomReviewsNumber = randomNumberGenerator(50, 200, 1);
+
+  const [descFr, descEn] = description.split('langdelimiter');
+  const locale = intl.locale;
+  const currentDescription = locale === 'fr' ? descFr : descEn;
+  const desc = currentDescription.split(/\\n/g)[0];
 
   return (
     <Box style={{ maxWidth: '1300px', margin: 'auto' }}>
@@ -98,7 +105,7 @@ function ProductPage({ data, pageContext, location }) {
           '@type': 'Product',
           name: title,
           image: images?.length > 0 && images[0].originalSrc,
-          description: substrDescription(description, 158),
+          description: desc,
           sku: variants[0].sku,
           mpn: variants[0].sku,
           brand: {
@@ -140,6 +147,7 @@ function ProductPage({ data, pageContext, location }) {
           productTitle={title}
           collectionTitle={collectionTitle}
           collectionPath={collectionPath}
+          collectionHandle={collectionHandle}
           separator=">"
         />
       </Box>
@@ -200,6 +208,7 @@ function ProductPage({ data, pageContext, location }) {
                 productTitle={title}
                 collectionTitle={collectionTitle}
                 collectionPath={collectionPath}
+                collectionHandle={collectionHandle}
                 separator=">"
               />
             </Box>
@@ -321,8 +330,7 @@ function ProductPage({ data, pageContext, location }) {
                       color="#7b7b7b"
                       mt="20px"
                     >
-                      All our products come with a remote to change the LED
-                      lights colors.
+                      {intl.formatMessage({ id: 'product.remoteSub' })}
                     </Text>
                     <ProductVariantSku />
                   </Box>

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Box, Button, Text } from 'rebass';
+import { useIntl } from 'gatsby-plugin-intl';
 
 const Label = styled(Text)`
   color: #363636;
@@ -63,6 +64,7 @@ const QuantityButton = ({
   decreaseAmount,
   noLabel,
 }) => {
+  const intl = useIntl();
   const increaseQuantity = () => {
     setQuantity((q) => q + 1);
   };
@@ -71,7 +73,11 @@ const QuantityButton = ({
   };
   return (
     <div className="field">
-      {!noLabel && <Label htmlFor="quantity">Quantity</Label>}
+      {!noLabel && (
+        <Label htmlFor="quantity">
+          {intl.formatMessage({ id: 'product.quantity' })}
+        </Label>
+      )}
       <Control id="quantity">
         <FlexDiv>
           <Control>

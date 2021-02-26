@@ -1,13 +1,15 @@
 import React from 'react';
 import { Box, Text } from 'rebass';
-import { Link as GatsbyLink } from 'gatsby';
+import { useIntl, Link as GatsbyLink } from 'gatsby-plugin-intl';
 
 const Breadcrumbs = ({
   productTitle,
   collectionTitle,
   collectionPath,
+  collectionHandle,
   separator,
 }) => {
+  const intl = useIntl();
   return (
     <Box
       fontSize={[2]}
@@ -29,7 +31,7 @@ const Breadcrumbs = ({
           color="darkPrimaryBlue"
         >
           <Text as="span" itemProp="name">
-            Home
+            {intl.formatMessage({ id: 'product.home' })}
           </Text>
         </Text>
         <meta itemProp="position" content="1" />
@@ -62,7 +64,7 @@ const Breadcrumbs = ({
               color="darkPrimaryBlue"
             >
               <Text as="span" itemProp="name">
-                {collectionTitle}
+                {intl.formatMessage({ id: collectionHandle })}
               </Text>
             </Text>
             <meta itemProp="position" content="2" />

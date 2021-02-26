@@ -1,9 +1,11 @@
 import React from 'react';
 import Img from 'gatsby-image';
+import { useIntl } from 'gatsby-plugin-intl';
 import './product-box.css';
 
 const MainPageProductBox = (props) => {
   const product = props.product;
+  const intl = useIntl();
   return (
     <div className="box productBox" key={product.title}>
       <a href={`/product/${product.handle}`}>
@@ -18,7 +20,9 @@ const MainPageProductBox = (props) => {
           <p className="product-title">{product.title}</p>
           <p className="product-price">
             <p style={{ marginBottom: 0 }}>${product.variants[0].price}</p>
-            <p className="product-available">IN STOCK</p>
+            <p className="product-available">
+              {intl.formatMessage({ id: 'product.instock' })}
+            </p>
           </p>
         </div>
       </a>
