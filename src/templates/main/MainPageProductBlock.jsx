@@ -35,7 +35,7 @@ const MainPageProductBlock = (props) => {
   const {
     block,
     textColor = 'primary',
-    buttonText = intl.formatMessage({ id: 'home.shopNow' }),
+    buttonText = intl.formatMessage({ id: 'home.shopNow2' }),
     buttonTextColor = 'primary',
     buttonBgColor = 'white',
   } = props;

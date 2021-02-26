@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useStaticQuery, graphql, Link as GatsbyLink } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import { Index } from 'elasticlunr';
 import { Flex, Box, Text } from 'rebass';
 import { Input } from '@rebass/forms';
@@ -9,13 +9,11 @@ import {
   enableBodyScroll,
   clearAllBodyScrollLocks,
 } from 'body-scroll-lock';
+import { useIntl, Link as GatsbyLink } from 'gatsby-plugin-intl';
 
 import { useSearchContext } from './context';
 import SearchIcon from '../Icons/SearchIcon';
 import Close from '../Icons/Close';
-import strings from './strings.json';
-
-const { searchLabel, searchInputLabel } = strings;
 
 const Sidebar = styled(Box)`
   position: fixed;
@@ -55,6 +53,8 @@ const Search = () => {
       }
     }
   `);
+
+  const intl = useIntl();
 
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
@@ -115,7 +115,7 @@ const Search = () => {
                   mb={2}
                   width={1}
                 >
-                  <Box>{searchLabel}</Box>
+                  <Box>{intl.formatMessage({ id: 'searchLabel' })}</Box>
                   <Box ml="auto">
                     <Close
                       width="20px"
@@ -131,7 +131,7 @@ const Search = () => {
                     type="text"
                     value={query}
                     onChange={search}
-                    placeholder={searchInputLabel}
+                    placeholder={intl.formatMessage({ id: 'searchInputLabel' })}
                   />
                 </Box>
                 <Box>

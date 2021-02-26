@@ -181,7 +181,7 @@ const Navbar = (props) => {
                 }}
                 fontFamily="heading"
               >
-                {storeName.toUpperCase()}
+                {storeName}
               </Text>
             </Flex>
           </Text>
