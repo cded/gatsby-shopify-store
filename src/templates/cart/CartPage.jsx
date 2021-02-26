@@ -32,7 +32,7 @@ function CartPage() {
   const intl = useIntl();
   const locale = intl.locale;
   const { subtotalPrice, webUrl } = checkout;
-  const localizedCheckoutUrl = `${webUrl}?locale=${locale}`;
+  const localizedCheckoutUrl = `${webUrl}&locale=${locale}`;
 
   // const displaySubtotalPrice = formatPrice(
   //   Number(subtotalPrice),
