@@ -16,6 +16,7 @@ import AmexImg from '../images/amex.svg';
 import PaypalImg from '../images/paypal.png';
 import FaceImg from '../images/facebook1.svg';
 import InstaImg from '../images/instagram.svg';
+import Language from './Language/Language';
 // import { SocialIcon } from 'react-social-icons';
 
 // const SocialIcon = loadable(() => import('./SocialIcon'));
@@ -230,8 +231,18 @@ function Footer() {
                 {phone}
               </Text>
               <Text mr={[3, 0]} my={[2, 0]}>
-                {workingDays}: {workingHours}
+                {intl.formatMessage({ id: 'footer.workingDays' })}:{' '}
+                {intl.formatMessage({ id: 'footer.workingHours' })}
               </Text>
+
+              <Box
+                sx={{
+                  marginTop: '15px',
+                  display: ['block', 'none'],
+                }}
+              >
+                <Language display="long" />
+              </Box>
 
               <Flex
                 width={[1, 1, 1 / 4]}

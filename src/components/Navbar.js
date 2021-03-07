@@ -176,7 +176,7 @@ const Navbar = (props) => {
                 fontSize={[2, 3]}
                 sx={{
                   marginLeft: [0, 60],
-                  width: ['142px', 'auto'],
+                  width: ['100px', 'auto'],
                   display: 'flex',
                 }}
                 fontFamily="heading"
@@ -202,7 +202,11 @@ const Navbar = (props) => {
               {intl.formatMessage({ id: 'catalog' })}
             </Text>
 
-            <Text mr="20px" sx={{ display: ['none', 'flex'] }} color="primary">
+            <Text
+              mr="20px"
+              sx={{ display: ['none', 'flex'], fontFamily: 'heading' }}
+              color="primary"
+            >
               <Language />
             </Text>
 
@@ -210,6 +214,18 @@ const Navbar = (props) => {
               <CanadaFlag width="25px" height="25px" />
               <div>(CAD)</div>
             </FlagBox>
+
+            <Text
+              mr="15px"
+              sx={{
+                display: ['flex', 'none'],
+                fontFamily: 'heading',
+                fontSize: '14px',
+              }}
+              color="primary"
+            >
+              <Language display="short" />
+            </Text>
 
             <Box ml="auto" sx={{ marginRight: ['10px'] }}>
               <Search width="25px" height="25px" color="primary" />

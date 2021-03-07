@@ -7,7 +7,17 @@ const languageName = {
   fr: 'Français',
 };
 
-const Language = () => (
+const languageNameShort = {
+  en: 'En',
+  fr: 'Fr',
+};
+
+const languageNameLong = {
+  en: 'Switch to English',
+  fr: 'Passer au Français',
+};
+
+const Language = ({ display }) => (
   <div>
     <IntlContextConsumer>
       {({ languages, language: currentLocale }) =>
@@ -19,7 +29,11 @@ const Language = () => (
                 onClick={() => changeLocale(language)}
                 className="language-selector"
               >
-                {languageName[language]}
+                {display === 'short'
+                  ? languageNameShort[language]
+                  : display === 'long'
+                  ? languageNameLong[language]
+                  : languageName[language]}
               </a>
             );
           }
