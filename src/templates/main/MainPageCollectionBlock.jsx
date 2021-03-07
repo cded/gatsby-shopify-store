@@ -27,15 +27,13 @@ const StyledButton = styled(Button)`
 
 const MainPageCollectionBlock = (props) => {
   const {
-    title,
-    description,
     image,
+    handle,
     fields: { shopifyThemePath },
   } = props.collection;
   const intl = useIntl();
 
   const {
-    block,
     textColor = 'primary',
     buttonText = intl.formatMessage({ id: 'home.exploreButton' }),
   } = props;
@@ -84,7 +82,7 @@ const MainPageCollectionBlock = (props) => {
                     textTransform: 'uppercase',
                   }}
                 >
-                  {block.name ? block.name : title}
+                  {intl.formatMessage({ id: handle })}
                 </Heading>
                 {/* <Text
                   fontSize={[1, 2, 3]}
