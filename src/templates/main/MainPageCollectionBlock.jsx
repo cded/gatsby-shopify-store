@@ -77,7 +77,7 @@ const MainPageCollectionBlock = (props) => {
               >
                 <Heading
                   as="h2"
-                  fontSize={[20, 25, 30]}
+                  fontSize={[18, 22, 26]}
                   sx={{
                     textTransform: 'uppercase',
                   }}
