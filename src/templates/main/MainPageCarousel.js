@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { jsx, useThemeUI } from 'theme-ui';
 import { Box } from 'rebass';
+import { useIntl } from 'gatsby-plugin-intl';
 import {
   CarouselProvider,
   Slider,
@@ -49,20 +50,22 @@ const MainPageCarousel = () => {
     });
   }
 
+  const intl = useIntl();
+
   const newCarousel = [
     {
-      name: 'Make your Home Bright',
+      name: intl.formatMessage({ id: 'home.carousel1.title' }),
       image: img1,
-      description: 'With HomeLed Furniture',
+      description: intl.formatMessage({ id: 'home.carousel1.description' }),
       positionY: '90%',
       // textPosition: 'auto',
       highlightText: true,
-      buttonText: 'Shop now',
+      buttonText: intl.formatMessage({ id: 'home.shopNow' }),
     },
     {
-      name: 'Discover our selection of products',
+      name: intl.formatMessage({ id: 'home.carousel2.title' }),
       image: img2,
-      buttonText: 'Shop now',
+      buttonText: intl.formatMessage({ id: 'home.shopNow' }),
       positionY: '40%',
       highlightTitle: true,
     },

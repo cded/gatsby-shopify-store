@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Text } from 'rebass';
+import { useIntl } from 'gatsby-plugin-intl';
 import styled from '@emotion/styled';
 
 const Label = styled(Text)`
@@ -56,12 +57,14 @@ const Circle = styled(Box)`
 `;
 
 const ProductColorSelector = ({ option, handleColorChange, selectedColor }) => {
+  const intl = useIntl();
+
   return (
     <fieldset>
       <Label aria-live="polite" aria-atomic="true">
-        Color:{' '}
+        {intl.formatMessage({ id: 'Color' })}:{' '}
         <Text sx={{ textTransform: 'capitalize', display: 'inline' }}>
-          {selectedColor}
+          {intl.formatMessage({ id: selectedColor })}
         </Text>
       </Label>
 

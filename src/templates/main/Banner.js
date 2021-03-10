@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Text } from 'rebass';
+import { useIntl } from 'gatsby-plugin-intl';
 import styled from '@emotion/styled';
 
 const StyledBox = styled(Box)`
@@ -18,9 +19,10 @@ const StyledBox = styled(Box)`
 `;
 
 const Banner = () => {
+  const intl = useIntl();
   return (
-    <StyledBox fontFamily="heading" fontSize={['20px', '26px', '32px']}>
-      <Text>Discover our hot deals up to 40% discount</Text>
+    <StyledBox fontFamily="heading" fontSize={['16px', '22px', '28px']}>
+      <Text>{intl.formatMessage({ id: 'home.banner' })}</Text>
     </StyledBox>
   );
 };

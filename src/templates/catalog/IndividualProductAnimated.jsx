@@ -1,7 +1,8 @@
 import React from 'react';
 import { Box, Card, Heading, Text } from 'rebass';
-import { useStaticQuery, graphql, Link as GatsbyLink } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import styled from '@emotion/styled/macro';
+import { useIntl, Link as GatsbyLink } from 'gatsby-plugin-intl';
 
 import ShopifyImage from '../../components/ShopifyImage';
 import AddToCart from '../../components/AddToCart';
@@ -24,6 +25,8 @@ const IndividualProduct = ({ product }) => {
     }
   `);
   const { locales, currency } = data.site.siteMetadata.gatsbyStorefrontConfig;
+
+  const intl = useIntl();
 
   const {
     priceRange: {
@@ -173,7 +176,7 @@ const IndividualProduct = ({ product }) => {
                 hasSaleBadge = true;
                 return (
                   <Badge
-                    text={strings.sale}
+                    text={intl.formatMessage({ id: 'product.sale' })}
                     my={1}
                     key={`${strings.sale}+${i}`}
                   />
@@ -182,7 +185,7 @@ const IndividualProduct = ({ product }) => {
             })}
             {!availableForSale ? (
               <Badge
-                text={strings.soldout}
+                text={intl.formatMessage({ id: 'product.soldout' })}
                 width={90}
                 height={35}
                 bgColor="badgeSoldout"
@@ -227,7 +230,7 @@ const IndividualProduct = ({ product }) => {
             >
               {hasOneVariant ? (
                 <AddToCartStyled
-                  title={strings.addToCart}
+                  title={intl.formatMessage({ id: 'product.addToCartP' })}
                   shopifyId={variants[0].shopifyId}
                   amount={1}
                   cartUrl={cartUrl}
@@ -244,7 +247,7 @@ const IndividualProduct = ({ product }) => {
               ) : (
                 <AddToCartStyled
                   isSelectOptions="true"
-                  title={strings.selectOptions}
+                  title={intl.formatMessage({ id: 'product.selectOptions' })}
                   to={shopifyThemePath}
                   sx={{
                     color: 'addToCart',
@@ -293,7 +296,9 @@ const IndividualProduct = ({ product }) => {
                 sx={{ fontSize: [1], fontWeight: 'bold', textAlign: 'right' }}
                 color={availableForSale ? 'green' : 'grey'}
               >
-                {availableForSale ? 'IN STOCK' : 'SOLDOUT'}
+                {availableForSale
+                  ? intl.formatMessage({ id: 'product.instock' })
+                  : intl.formatMessage({ id: 'product.soldout' })}
               </Text>
             </Box>
           </Box>

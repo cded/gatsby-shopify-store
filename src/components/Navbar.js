@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { Flex, Text, Box } from 'rebass';
-import { useStaticQuery, graphql, Link as GatsbyLink } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 
 import useShopifyFunctions from '../hooks/useShopifyFunctions';
-// import { useIntl, FormattedMessage } from 'gatsby-plugin-intl';
+import { useIntl, Link as GatsbyLink } from 'gatsby-plugin-intl';
 
 import Menu from './Menu';
 import Search from './Search';
 import ShoppingCart from './Icons/ShoppingCart';
 import strings from './strings.json';
 import CanadaFlag from './Icons/CanadaFlag';
+import Language from './Language/Language';
 
 const NavbarBase = styled.nav`
   position: fixed;
@@ -67,7 +68,7 @@ const TextCategory = styled(Text)`
 
 const Navbar = (props) => {
   const [hideNavbarOnScroll, setHideNavbarOnScroll] = useState(true);
-  // const intl = useIntl();
+  const intl = useIntl();
 
   useScrollPosition(
     ({ prevPos, currPos }) => {
@@ -145,8 +146,7 @@ const Navbar = (props) => {
             fontWeight="500"
             sx={{ display: ['none', 'block'] }}
           >
-            {/* {intl.formatMessage({ id: 'contact_us' })} */}
-            Contact Us
+            {intl.formatMessage({ id: 'contact_us' })}
           </Text>
 
           <Text
@@ -160,8 +160,7 @@ const Navbar = (props) => {
             fontWeight="500"
             sx={{ display: ['none', 'block'] }}
           >
-            {/* {intl.formatMessage({ id: 'about_us' })} */}
-            About Us
+            {intl.formatMessage({ id: 'about_us' })}
           </Text>
 
           <Text
@@ -177,26 +176,22 @@ const Navbar = (props) => {
                 fontSize={[2, 3]}
                 sx={{
                   marginLeft: [0, 60],
-                  width: ['142px', 'auto'],
+                  width: ['100px', 'auto'],
                   display: 'flex',
                 }}
                 fontFamily="heading"
               >
-                {storeName.toUpperCase()}
+                {storeName}
               </Text>
             </Flex>
           </Text>
 
-          <Flex
-            ml="auto"
-            width={['auto', 250]}
-            style={{ alignItems: 'center' }}
-          >
+          <Flex ml="auto" width={['auto']} style={{ alignItems: 'center' }}>
             <Text
               as={GatsbyLink}
               to="/products/all/"
               style={{ textDecoration: 'none', textTransform: 'uppercase' }}
-              mr="10px"
+              mr="20px"
               ml="auto"
               color="primary"
               fontSize="0.875em"
@@ -204,16 +199,35 @@ const Navbar = (props) => {
               fontWeight="500"
               sx={{ display: ['none', 'block'] }}
             >
-              {/* {intl.formatMessage({ id: 'catalog' })} */}
-              Catalog
+              {intl.formatMessage({ id: 'catalog' })}
             </Text>
 
-            <FlagBox ml="auto" sx={{ display: ['none', 'flex'] }}>
+            <Text
+              mr="20px"
+              sx={{ display: ['none', 'flex'], fontFamily: 'heading' }}
+              color="primary"
+            >
+              <Language />
+            </Text>
+
+            <FlagBox ml="auto" sx={{ display: ['none', 'flex'] }} mr="20px">
               <CanadaFlag width="25px" height="25px" />
               <div>(CAD)</div>
             </FlagBox>
 
-            <Box ml="auto" sx={{ marginRight: ['10px', '0'] }}>
+            <Text
+              mr="15px"
+              sx={{
+                display: ['flex', 'none'],
+                fontFamily: 'heading',
+                fontSize: '14px',
+              }}
+              color="primary"
+            >
+              <Language display="short" />
+            </Text>
+
+            <Box ml="auto" sx={{ marginRight: ['10px'] }}>
               <Search width="25px" height="25px" color="primary" />
             </Box>
 
@@ -285,7 +299,7 @@ const Navbar = (props) => {
                   p="8px 12px"
                   isSale={collection.handle === 'sale'}
                 >
-                  {collection.title}
+                  {intl.formatMessage({ id: collection.handle })}
                 </TextCategory>
               ))}
           </Box>

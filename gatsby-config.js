@@ -1,6 +1,15 @@
 require('dotenv').config({ path: `.env` });
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
+const {
+  NODE_ENV,
+  URL: NETLIFY_SITE_URL = 'https://myhomeled.com/',
+  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+  CONTEXT: NETLIFY_ENV = NODE_ENV,
+} = process.env;
+const isNetlifyProduction = NETLIFY_ENV === 'production';
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
+
 module.exports = {
   plugins: [
     {
@@ -78,7 +87,27 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-offline',
     },
-    'gatsby-plugin-robots-txt',
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        resolveEnv: () => NETLIFY_ENV,
+        env: {
+          production: {
+            policy: [{ userAgent: '*' }],
+          },
+          'branch-deploy': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null,
+          },
+          'deploy-preview': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null,
+          },
+        },
+      },
+    },
     'gatsby-plugin-lint-queries',
     {
       resolve: '@gatsby-contrib/gatsby-plugin-elasticlunr-search',
@@ -96,19 +125,19 @@ module.exports = {
         },
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-intl`,
-    //   options: {
-    //     // language JSON resource path
-    //     path: `${__dirname}/src/intl`,
-    //     // supported language
-    //     languages: [`en`, `fr`],
-    //     // language file path
-    //     defaultLanguage: `en`,
-    //     // option to redirect to `/en` when connecting `/`
-    //     redirect: false,
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-intl`,
+      options: {
+        // language JSON resource path
+        path: `${__dirname}/src/intl`,
+        // supported language
+        languages: [`en`, `fr`],
+        // language file path
+        defaultLanguage: `en`,
+        // option to redirect to `/en` when connecting `/`
+        redirect: true,
+      },
+    },
     'gatsby-plugin-loadable-components-ssr',
     {
       resolve: `gatsby-plugin-webfonts`,
@@ -154,7 +183,7 @@ module.exports = {
     'gatsby-plugin-netlify',
   ],
   siteMetadata: {
-    siteUrl: 'https://myhomeled.com/',
+    siteUrl: siteUrl,
     title: 'HomeLed',
     description: `Make Your Home Bright with HomeLed. Browse our LED furniture selection! 
     High quality design. Modern European style. Affordable. Based in Montreal. Delivery across Canada.

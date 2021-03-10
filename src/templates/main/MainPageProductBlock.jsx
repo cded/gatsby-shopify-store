@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import { Link as GatsbyLink } from 'gatsby';
 import { jsx } from 'theme-ui';
 import { Flex, Box, Heading, Button } from 'rebass';
 import styled from '@emotion/styled';
+import { useIntl, Link as GatsbyLink } from 'gatsby-plugin-intl';
 
 import ShopifyBackgroundImage from '../../components/ShopifyBackgroundImage';
 import substrDescription from '../../utils/substrDescription';
@@ -30,11 +30,12 @@ const MainPageProductBlock = (props) => {
     title,
     fields: { shopifyThemePath, firstImage },
   } = props.product;
+  const intl = useIntl();
 
   const {
     block,
     textColor = 'primary',
-    buttonText = 'Shop now',
+    buttonText = intl.formatMessage({ id: 'home.shopNow2' }),
     buttonTextColor = 'primary',
     buttonBgColor = 'white',
   } = props;

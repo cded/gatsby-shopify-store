@@ -99,7 +99,7 @@ const MainPageSliderImage = ({
                 sx={
                   block.highlightText && {
                     backdropFilter: 'blur(5px)',
-                    width: ['144px', '244px'],
+                    width: ['150px', '250px'],
                     margin: 'auto',
                   }
                 }

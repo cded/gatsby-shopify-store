@@ -1,13 +1,12 @@
 /** @jsx jsx */
 /* eslint no-unused-vars: 0 */
 import React from 'react';
-import { Link as GatsbyLink } from 'gatsby';
 import { jsx } from 'theme-ui';
 import styled from '@emotion/styled/macro';
 import { Flex, Box, Text, Heading, Button } from 'rebass';
+import { useIntl, Link as GatsbyLink } from 'gatsby-plugin-intl';
 
 import ShopifyBackgroundImage from '../../components/ShopifyBackgroundImage';
-import substrDescription from '../../utils/substrDescription';
 
 const BottomBar = styled.div`
   height: 15%;
@@ -28,13 +27,16 @@ const StyledButton = styled(Button)`
 
 const MainPageCollectionBlock = (props) => {
   const {
-    title,
-    description,
     image,
+    handle,
     fields: { shopifyThemePath },
   } = props.collection;
+  const intl = useIntl();
 
-  const { block, textColor = 'primary', buttonText = 'Explore' } = props;
+  const {
+    textColor = 'primary',
+    buttonText = intl.formatMessage({ id: 'home.exploreButton' }),
+  } = props;
 
   return (
     <ShopifyBackgroundImage
@@ -75,12 +77,12 @@ const MainPageCollectionBlock = (props) => {
               >
                 <Heading
                   as="h2"
-                  fontSize={[20, 25, 30]}
+                  fontSize={[18, 22, 26]}
                   sx={{
                     textTransform: 'uppercase',
                   }}
                 >
-                  {block.name ? block.name : title}
+                  {intl.formatMessage({ id: handle })}
                 </Heading>
                 {/* <Text
                   fontSize={[1, 2, 3]}

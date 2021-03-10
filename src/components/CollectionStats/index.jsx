@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { useIntl } from 'gatsby-plugin-intl';
 
 const CollectionStats = (props) => {
   const { skip, limit, productsNum } = props;
@@ -9,9 +10,11 @@ const CollectionStats = (props) => {
   let to;
   skip + limit > productsNum ? (to = productsNum) : (to = skip + limit);
 
+  const intl = useIntl();
   return (
     <Fragment>
-      Showing {from} - {to} of {productsNum} results
+      {intl.formatMessage({ id: 'product.stats.showing' })} {from} - {to} of{' '}
+      {productsNum} {intl.formatMessage({ id: 'product.stats.results' })}
     </Fragment>
   );
 };

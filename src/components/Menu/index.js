@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useStaticQuery, graphql, Link as GatsbyLink } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
+import { useIntl, Link as GatsbyLink } from 'gatsby-plugin-intl';
 import { Flex, Box, Text } from 'rebass';
 import styled from '@emotion/styled';
 import {
@@ -12,6 +13,7 @@ import { useMenuContext } from './context';
 import Burger from '../Icons/Burger';
 import Close from '../Icons/Close';
 import CanadaFlag from '../Icons/CanadaFlag';
+import Language from '../Language/Language';
 
 const Sidebar = styled(Box)`
   position: fixed;
@@ -62,6 +64,7 @@ const Separation = styled(Box)`
 const Menu = ({ storeName }) => {
   const [showSidebar, setShowsidebar] = useState(false);
   const { menuShowed, setMenuShowed } = useMenuContext();
+  const intl = useIntl();
 
   const toggleSidebar = () => {
     setShowsidebar(!showSidebar);
@@ -141,7 +144,7 @@ const Menu = ({ storeName }) => {
                         mt="10px"
                         fontFamily="heading"
                       >
-                        {element.title}
+                        {intl.formatMessage({ id: element.handle })}
                       </MenuItem>
                     </GatsbyLink>
                   ))}
@@ -158,7 +161,7 @@ const Menu = ({ storeName }) => {
                     mt="10px"
                     fontFamily="heading"
                   >
-                    Catalog
+                    {intl.formatMessage({ id: 'catalog' })}
                   </MenuItem>
                 </GatsbyLink>
                 <GatsbyLink to={`/contact/`} style={{ textDecoration: 'none' }}>
@@ -170,7 +173,7 @@ const Menu = ({ storeName }) => {
                     mt="10px"
                     fontFamily="heading"
                   >
-                    Contact Us
+                    {intl.formatMessage({ id: 'contact_us' })}
                   </MenuItem>
                 </GatsbyLink>
                 <GatsbyLink to={`/about/`} style={{ textDecoration: 'none' }}>
@@ -182,7 +185,7 @@ const Menu = ({ storeName }) => {
                     mt="10px"
                     fontFamily="heading"
                   >
-                    About Us
+                    {intl.formatMessage({ id: 'about_us' })}
                   </MenuItem>
                 </GatsbyLink>
                 <MenuItem
@@ -197,6 +200,17 @@ const Menu = ({ storeName }) => {
                   <Text style={{ marginLeft: '5px' }} fontSize={[2]} mt="1px">
                     (CAD)
                   </Text>
+                </MenuItem>
+
+                <MenuItem
+                  bg="backgroundMain"
+                  color="#6d6e70"
+                  fontSize={[2]}
+                  sx={{ textTransform: 'uppercase', display: 'flex' }}
+                  mt="10px"
+                  fontFamily="heading"
+                >
+                  <Language />
                 </MenuItem>
               </Flex>
 

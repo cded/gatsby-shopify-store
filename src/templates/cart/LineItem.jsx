@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Flex, Box, Image, Text } from 'rebass';
 import { Link as GatsbyLink } from 'gatsby';
+import { useIntl } from 'gatsby-plugin-intl';
 
 import NoImage from '../../components/Icons/NoImage';
-import strings from './strings.json';
 import QuantityButton from '../product/QuantityButton';
-
-const { cartItemPriceLabel } = strings;
 
 const LineItem = (props) => {
   const {
@@ -16,6 +14,7 @@ const LineItem = (props) => {
     removeItem,
   } = props;
   const { quantity, title, variant, id } = lineItem;
+  const intl = useIntl();
 
   const { selectedOptions } = variant;
 
@@ -136,7 +135,10 @@ const LineItem = (props) => {
         </Flex>
 
         <Box width={[1, 2 / 10]} p={[1, 3]} sx={{ textAlign: 'right' }}>
-          <Text fontSize={[2, 2]} aria-label={cartItemPriceLabel}>
+          <Text
+            fontSize={[2, 2]}
+            aria-label={intl.formatMessage({ id: 'cart.priceLabel' })}
+          >
             {displayPrice}
           </Text>
           <Text
@@ -149,7 +151,7 @@ const LineItem = (props) => {
               },
             }}
           >
-            Remove
+            {intl.formatMessage({ id: 'cart.remove' })}
           </Text>
         </Box>
       </Flex>
