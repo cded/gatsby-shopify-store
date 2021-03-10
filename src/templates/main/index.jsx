@@ -1,6 +1,7 @@
 /* eslint react/jsx-props-no-spreading: "off" */
 import React from 'react';
 import { graphql } from 'gatsby';
+import { useIntl } from 'gatsby-plugin-intl';
 
 import MainPage from './MainPage';
 import Layout from '../../components/Layout';
@@ -8,9 +9,11 @@ import SEO from '../../components/SEO';
 import { JsonLd } from '../../components/JsonLd/JsonLd';
 
 export default (props) => {
+  const intl = useIntl();
+
   return (
     <Layout>
-      <SEO title="Modern LED Furniture" />
+      <SEO title={intl.formatMessage({ id: 'seoTitle' })} />
       <JsonLd>
         {{
           '@context': 'https://schema.org',

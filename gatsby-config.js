@@ -188,6 +188,7 @@ module.exports = {
     description: `Make Your Home Bright with HomeLed. Browse our LED furniture selection! 
     High quality design. Modern European style. Affordable. Based in Montreal. Delivery across Canada.
     Categories: TV stands, Coffee tables, Bedside tables, Sideboards`,
+    author: 'YA',
     gatsbyStorefrontConfig: {
       storeName: 'HomeLed',
       storeDescription: `Make Your Home Bright with HomeLed. Browse our led furniture selection! 

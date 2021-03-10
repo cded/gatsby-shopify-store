@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
+import { useIntl } from 'gatsby-plugin-intl';
 
 const SEO = ({ description, lang, meta, title }) => {
   const { site } = useStaticQuery(
@@ -17,14 +18,19 @@ const SEO = ({ description, lang, meta, title }) => {
     `
   );
 
-  const metaDescription = description || site.siteMetadata.description;
+  const intl = useIntl();
+
+  const baseTitle = intl.formatMessage({ id: 'seoDescription' });
+  const baseDescription = intl.formatMessage({ id: 'seoDescription' });
+
+  const metaDescription = description || baseDescription;
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`%s | ${baseTitle}`}
       meta={[
         {
           name: `description`,
