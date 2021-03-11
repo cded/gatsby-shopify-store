@@ -198,7 +198,7 @@ const IndividualProduct = ({ product }) => {
             ) : (
               ''
             )} */}
-            {isPreorder ? (
+            {isPreorder && !hasSaleBadge ? (
               <Badge
                 text={intl.formatMessage({ id: 'product.preorder' })}
                 width={130}
