@@ -6,7 +6,7 @@ const persistedStateId = 'shopifyCheckout';
 
 function createShopifyClient() {
   return shopify.buildClient({
-    domain: `${process.env.GATSBY_SHOPIFY_SHOP_NAME}.myshopify.com`,
+    domain: `checkout.myhomeled.com`,
     storefrontAccessToken: process.env.GATSBY_SHOPIFY_ACCESS_TOKEN,
   });
 }
