@@ -283,7 +283,7 @@ function ProductPage({ data, pageContext, location }) {
                 </Box>
               </Box>
 
-              <Flex mb={4}>
+              <Flex mb="22px">
                 <Box sx={{ width: '100%' }}>
                   <ProductVariantAddToCart
                     amount={currentAmount}

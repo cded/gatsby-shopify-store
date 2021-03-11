@@ -183,12 +183,25 @@ const IndividualProduct = ({ product }) => {
                 );
               } else return '';
             })}
-            {!availableForSale ? (
+            {/* {!availableForSale ? (
               <Badge
                 text={intl.formatMessage({ id: 'product.soldout' })}
                 width={90}
                 height={35}
                 bgColor="badgeSoldout"
+                format="box"
+                my={1}
+                key={strings.soldout}
+              />
+            ) : (
+              ''
+            )} */}
+            {!availableForSale ? (
+              <Badge
+                text={intl.formatMessage({ id: 'product.preorder' })}
+                width={130}
+                height={35}
+                bgColor="orange"
                 format="box"
                 my={1}
                 key={strings.soldout}
@@ -284,6 +297,7 @@ const IndividualProduct = ({ product }) => {
                   color: 'black',
                   fontSize: [1, '18px'],
                   fontWeight: 'bold',
+                  textAlign: 'right',
                 }}
                 color="red"
               >
@@ -294,11 +308,12 @@ const IndividualProduct = ({ product }) => {
               </Text>
               <Text
                 sx={{ fontSize: [1], fontWeight: 'bold', textAlign: 'right' }}
-                color={availableForSale ? 'green' : 'grey'}
+                color={availableForSale ? 'green' : 'orange'}
               >
                 {availableForSale
                   ? intl.formatMessage({ id: 'product.instock' })
-                  : intl.formatMessage({ id: 'product.soldout' })}
+                  : // : intl.formatMessage({ id: 'product.soldout' })}
+                    intl.formatMessage({ id: 'product.preorder' })}
               </Text>
             </Box>
           </Box>

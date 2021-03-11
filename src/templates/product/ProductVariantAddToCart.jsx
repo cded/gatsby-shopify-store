@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from 'rebass';
+import { Button, Text } from 'rebass';
 import { navigate } from 'gatsby';
 import styled from '@emotion/styled';
 
 import useShopifyFunctions from '../../hooks/useShopifyFunctions';
 import { useCurrentVariantContext } from './CurrentVariantContext';
-import { useIntl } from 'gatsby-plugin-intl';
+import { FormattedHTMLMessage, useIntl } from 'gatsby-plugin-intl';
 
 const StyledButton = styled(Button)`
   background-color: #fff;
@@ -39,27 +39,33 @@ const ProductVariantAddToCart = ({ amount, cartUrl }) => {
     navigate(`${cartUrl}/`);
   }
 
-  useEffect(() => {
-    if (currentVariant && currentVariant.hasOwnProperty('availableForSale')) {
-      currentVariant.availableForSale ? setDisabled(false) : setDisabled(true);
-    }
-  }, [currentVariant]);
+  // useEffect(() => {
+  //   if (currentVariant && currentVariant.hasOwnProperty('availableForSale')) {
+  //     currentVariant.availableForSale ? setDisabled(false) : setDisabled(true);
+  //   }
+  // }, [currentVariant]);
 
   return (
-    <StyledButton
-      disabled={disabled}
-      ml="auto"
-      // width={['300px', '400px']}
-      onClick={() => {
-        addToCartHandler(currentVariant.shopifyId, amount);
-      }}
-      variant={!disabled ? 'primary' : 'disabled'}
-    >
-      {/* {!disabled ? productAddToCartButton : productAddToCartSoldoutButton} */}
-      {!disabled
+    <>
+      <StyledButton
+        disabled={disabled}
+        ml="auto"
+        // width={['300px', '400px']}
+        onClick={() => {
+          addToCartHandler(currentVariant.shopifyId, amount);
+        }}
+        variant={!disabled ? 'primary' : 'disabled'}
+      >
+        {/* {!disabled
         ? intl.formatMessage({ id: 'product.addToCart' })
-        : intl.formatMessage({ id: 'product.soldout' })}
-    </StyledButton>
+        : intl.formatMessage({ id: 'product.soldout' })} */}
+        {intl.formatMessage({ id: 'product.addToCart' })}
+      </StyledButton>
+      <Text fontFamily="description" fontSize="13px" color="#7b7b7b" mt="20px">
+        {/* {intl.formatMessage({ id: 'product.preorderMessage' })} */}
+        <FormattedHTMLMessage id="product.preorderMessage" />
+      </Text>
+    </>
   );
 };
 
