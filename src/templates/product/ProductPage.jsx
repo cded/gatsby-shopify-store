@@ -42,6 +42,7 @@ function ProductPage({ data, pageContext, location }) {
       productType,
       cmsConnection,
       reviewsConnection: reviews,
+      tags,
     },
   } = data;
 
@@ -64,6 +65,8 @@ function ProductPage({ data, pageContext, location }) {
   const { shopifyThemePath: collectionPath } = fields || {
     shopifyThemePath: null,
   };
+
+  const isPreorder = tags.includes('preorder');
 
   const { cartUrl } = pageContext;
   const {
@@ -288,6 +291,7 @@ function ProductPage({ data, pageContext, location }) {
                   <ProductVariantAddToCart
                     amount={currentAmount}
                     cartUrl={cartUrl}
+                    isPreorder={isPreorder}
                   />
                 </Box>
               </Flex>

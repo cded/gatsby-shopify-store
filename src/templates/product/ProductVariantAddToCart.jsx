@@ -27,7 +27,7 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const ProductVariantAddToCart = ({ amount, cartUrl }) => {
+const ProductVariantAddToCart = ({ amount, cartUrl, isPreorder }) => {
   const { addItem } = useShopifyFunctions();
   const { currentVariant } = useCurrentVariantContext();
   const [disabled, setDisabled] = useState(false);
@@ -61,10 +61,17 @@ const ProductVariantAddToCart = ({ amount, cartUrl }) => {
         : intl.formatMessage({ id: 'product.soldout' })} */}
         {intl.formatMessage({ id: 'product.addToCart' })}
       </StyledButton>
-      <Text fontFamily="description" fontSize="13px" color="#7b7b7b" mt="20px">
-        {/* {intl.formatMessage({ id: 'product.preorderMessage' })} */}
-        <FormattedHTMLMessage id="product.preorderMessage" />
-      </Text>
+      {isPreorder && (
+        <Text
+          fontFamily="description"
+          fontSize="13px"
+          color="#7b7b7b"
+          mt="20px"
+          textAlign="center"
+        >
+          <FormattedHTMLMessage id="product.preorderMessage" />
+        </Text>
+      )}
     </>
   );
 };

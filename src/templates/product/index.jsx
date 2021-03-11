@@ -31,6 +31,7 @@ export const productQuery = graphql`
       descriptionHtml
       vendor
       productType
+      tags
       images {
         id
         altText

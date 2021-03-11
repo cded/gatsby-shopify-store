@@ -56,6 +56,8 @@ const IndividualProduct = ({ product }) => {
 
   let hasSaleBadge = false;
 
+  const isPreorder = tags.includes('preorder');
+
   // Empty styled components used for targeting as selectors
   // https://emotion.sh/docs/styled#targeting-another-emotion-component
   const Image = styled(ShopifyImage)``;
@@ -196,7 +198,7 @@ const IndividualProduct = ({ product }) => {
             ) : (
               ''
             )} */}
-            {!availableForSale ? (
+            {isPreorder ? (
               <Badge
                 text={intl.formatMessage({ id: 'product.preorder' })}
                 width={130}
@@ -308,9 +310,9 @@ const IndividualProduct = ({ product }) => {
               </Text>
               <Text
                 sx={{ fontSize: [1], fontWeight: 'bold', textAlign: 'right' }}
-                color={availableForSale ? 'green' : 'orange'}
+                color={!isPreorder ? 'green' : 'orange'}
               >
-                {availableForSale
+                {!isPreorder
                   ? intl.formatMessage({ id: 'product.instock' })
                   : // : intl.formatMessage({ id: 'product.soldout' })}
                     intl.formatMessage({ id: 'product.preorder' })}
