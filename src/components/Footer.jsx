@@ -231,8 +231,16 @@ function Footer() {
                 {phone}
               </Text>
               <Text mr={[3, 0]} my={[2, 0]}>
+                {intl.formatMessage({ id: 'footer.phone1' })}
+                +1 (844) 753-0051
+              </Text>
+              <Text mr={[3, 0]} my={[2, 0]}>
                 {intl.formatMessage({ id: 'footer.workingDays' })}:{' '}
                 {intl.formatMessage({ id: 'footer.workingHours' })}
+              </Text>
+              <Text mr={[3, 0]} my={[2, 0]}>
+                {intl.formatMessage({ id: 'footer.workingDays1' })}:{' '}
+                {intl.formatMessage({ id: 'footer.workingHours1' })}
               </Text>
 
               <Box
@@ -302,7 +310,7 @@ function Footer() {
               </Flex>
             </Box>
 
-            <Box my={[2, 0]} fontSize={['12px', 'inherit']} ml={['20px', 0]}>
+            <Box my={[2, 0]} fontSize={['12px', 'inherit']} ml={['10px', 0]}>
               <Heading
                 mb={1}
                 fontSize={['18px', '24px']}
