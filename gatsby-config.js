@@ -198,7 +198,7 @@ module.exports = {
       company: 'HomeLed Inc.',
       location: 'Montreal, QC',
       address: '400 Ville Marie',
-      phone: '+1 (450) 999-5280',
+      phone: '+1 (438) 801-2330',
       workingDays: 'Mon - Sun',
       workingHours: '9AM - 9PM',
       socialNetworks: [
