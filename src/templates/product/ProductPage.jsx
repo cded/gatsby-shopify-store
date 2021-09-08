@@ -21,8 +21,6 @@ import ProductReviews from './ProductReviews';
 import QuantityButton from './QuantityButton';
 import { JsonLd } from '../../components/JsonLd/JsonLd';
 
-// react-payment-icons-inline heavily increases webpack bundle size. Need to find alternative solution. Will disable it for now.
-// const Payments = loadable(() => import('../../components/Payments'));
 const ShareButtons = loadable(() => import('../../components/ShareButtons'));
 const DescriptionBox = loadable(() => import('./DescriptionBox'));
 
@@ -82,10 +80,18 @@ function ProductPage({ data, pageContext, location }) {
   const randomRating = randomNumberGenerator(42, 49, 10);
   const randomReviewsNumber = randomNumberGenerator(50, 200, 1);
 
-  const [descFr, descEn] = description.split('langdelimiter');
-  const locale = intl.locale;
-  const currentDescription = locale === 'fr' ? descFr : descEn;
-  const desc = currentDescription.split(/\\n/g)[0];
+  let productDescription;
+  // This is a trick to get the product description in multiple languages
+  // We add a langdelimiter string in the shopify product description
+  // and then split the string into each language
+  if (description.includes('langdelimiter')) {
+    const [descFr, descEn] = description.split('langdelimiter');
+    const locale = intl.locale;
+    const currentDescription = locale === 'fr' ? descFr : descEn;
+    productDescription = currentDescription.split(/\\n/g)[0];
+  } else {
+    productDescription = description.split(/\\n/g)[0];
+  }
 
   return (
     <Box style={{ maxWidth: '1300px', margin: 'auto' }}>
@@ -108,12 +114,12 @@ function ProductPage({ data, pageContext, location }) {
           '@type': 'Product',
           name: title,
           image: images?.length > 0 && images[0].originalSrc,
-          description: desc,
+          description: productDescription,
           sku: variants[0].sku,
           mpn: variants[0].sku,
           brand: {
             '@type': 'Brand',
-            name: 'HomeLed',
+            name: 'Store Brand',
           },
           aggregateRating: {
             '@type': 'AggregateRating',
@@ -139,7 +145,7 @@ function ProductPage({ data, pageContext, location }) {
               '@type': 'Person',
               name: 'Jean Bergeron',
             },
-            reviewBody: 'The furniture is excellent',
+            reviewBody: 'The product is excellent',
           },
         }}
       </JsonLd>
@@ -204,6 +210,7 @@ function ProductPage({ data, pageContext, location }) {
             pl={images && images.length > 1 ? [2, null, 3] : [2, null, 0]}
             data-product-image-container
             order={[1, null, 2]}
+            sx={{ position: 'relative' }}
           >
             {/* Breadcrumbs block 1 for mobile */}
             <Box mb={1} sx={{ display: ['block', 'block', 'none'] }}>
@@ -265,19 +272,6 @@ function ProductPage({ data, pageContext, location }) {
                   </Box>
                 )}
 
-                {/* <Flex alignItems="center" mb={4}>
-                <Box mr={2}>
-                  <Text>{productQuantityLabel}</Text>
-                </Box>
-                <Box width={0.2}>
-                  <ProductCounter
-                    decreaseAmount={decreaseAmount}
-                    increaseAmount={increaseAmount}
-                    currentAmount={currentAmount}
-                  />
-                </Box>
-              </Flex> */}
-
                 <Box sx={{ flex: 'none' }} mb="10px">
                   <QuantityButton
                     quantity={currentAmount}
@@ -295,12 +289,6 @@ function ProductPage({ data, pageContext, location }) {
                   />
                 </Box>
               </Flex>
-
-              {/* <Flex mb={4}>
-                <Box>
-                  <Text>{paymentsLabel}</Text>
-                </Box>
-              </Flex> */}
 
               <Divider bg="grey" mb={4} />
 
@@ -325,7 +313,7 @@ function ProductPage({ data, pageContext, location }) {
                       Description:
                     </Heading>
                     <ProductDescription
-                      description={withoutShortDescription || description}
+                      productDescription={productDescription}
                       sections={sections}
                     />
                     <Text
@@ -342,17 +330,6 @@ function ProductPage({ data, pageContext, location }) {
               )}
             </CurrentVariantContextProvider>
 
-            {/* {vendor ? (
-              <Flex mb={4}>
-                <Box mr={2}>
-                  <Text>{vendorLabel}</Text>
-                </Box>
-                <Box>{vendor}</Box>
-              </Flex>
-            ) : (
-              ''
-            )} */}
-
             {productType ? (
               <Flex mb={4}>
                 <Box mr={2}>
@@ -365,9 +342,6 @@ function ProductPage({ data, pageContext, location }) {
             )}
 
             <Flex mb={4} mt="24px" alignItems="center">
-              {/* <Box mr={2}>
-                <Text>{shareButtonsLabel}</Text>
-              </Box> */}
               <Box>
                 <ShareButtons buttons={shareButtons} location={location.href} />
               </Box>
@@ -383,10 +357,6 @@ function ProductPage({ data, pageContext, location }) {
         >
           <Box width={1}>
             <Divider bg="grey" mb={6} />
-            {/* <ProductDescription
-              description={withoutShortDescription || description}
-              sections={sections}
-            /> */}
           </Box>
         </Flex>
 

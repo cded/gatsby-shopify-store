@@ -27,8 +27,8 @@ label {
 }
 
 .feedback-input:focus {
-  border: 1px solid #db9200;
-  box-shadow: 0 0 5px #db9200;
+  border: 1px solid #f26542;
+  box-shadow: 0 0 5px #f26542;
 }
 
 .feedback-input.email {
@@ -49,7 +49,7 @@ textarea {
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   text-transform: uppercase;
   width: 100%;
-  background: #db9200;
+  background: #f26542;
   border-radius: 5px;
   border: 0;
   cursor: pointer;

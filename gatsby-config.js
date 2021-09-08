@@ -3,7 +3,7 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 
 const {
   NODE_ENV,
-  URL: NETLIFY_SITE_URL = 'https://myhomeled.com/',
+  URL: NETLIFY_SITE_URL = 'https://yalampstore.com/',
   DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
   CONTEXT: NETLIFY_ENV = NODE_ENV,
 } = process.env;
@@ -71,13 +71,13 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'HomeLed led furniture store',
-        short_name: 'HomeLed',
+        name: 'Store name',
+        short_name: 'Store',
         start_url: '/',
         background_color: '#fff',
         theme_color: '#333',
         display: 'standalone',
-        icon: 'src/images/favicon.webp',
+        icon: 'src/images/favicon-32x32.png',
         icon_options: {
           purpose: 'any maskable',
         },
@@ -184,26 +184,22 @@ module.exports = {
   ],
   siteMetadata: {
     siteUrl: siteUrl,
-    title: 'HomeLed',
-    description: `Make Your Home Bright with HomeLed. Browse our LED furniture selection! 
-    High quality design. Modern European style. Affordable. Based in Montreal. Delivery across Canada.
-    Categories: TV stands, Coffee tables, Bedside tables, Sideboards`,
+    title: 'Store Name',
+    description: `Store description for seo`,
     author: 'YA',
     gatsbyStorefrontConfig: {
-      storeName: 'HomeLed',
-      storeDescription: `Make Your Home Bright with HomeLed. Browse our led furniture selection! 
-      High quality design. Modern European style. Affordable. Based in Montreal. Delivery across Canada.
-      Categories: TV stands, Coffee tables, Bedside tables, Sideboards`,
-      email: 'info@myhomeled.com',
-      company: 'HomeLed Inc.',
+      storeName: 'Store Name',
+      storeDescription: `Store description for seo`,
+      email: 'info@store.com',
+      company: 'Store Inc.',
       location: 'Montreal, QC',
       address: '400 Ville Marie',
-      phone: '+1 (438) 801-2330',
+      phone: '+1 (800) 222-3333',
       workingDays: 'Mon - Sun',
       workingHours: '9AM - 9PM',
       socialNetworks: [
-        'https://facebook.com/homeled/',
-        'https://instagram.com/homeled/',
+        'https://facebook.com/store/',
+        'https://instagram.com/store/',
       ],
       // Payments icons are temporarily disabled, due to large package size and negative impact on Lighthouse 6 performance.
       // Need to find an alternative package to react-payment-icons-inline.
@@ -238,10 +234,6 @@ module.exports = {
         },
       ],
       footerLinks: [
-        // {
-        //   name: 'About us',
-        //   link: '/pages/about',
-        // },
         {
           name: 'Terms of Service',
           link: '/policy/termsOfService',

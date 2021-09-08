@@ -82,7 +82,7 @@ const QuantityButton = ({
         <FlexDiv>
           <Control>
             <StyledButton
-              onClick={decreaseAmount ? decreaseAmount : decreaseQuantity}
+              onClick={decreaseAmount || decreaseQuantity}
               sx={{ borderBottomRightRadius: 0, borderTopRightRadius: 0 }}
             >
               -
@@ -95,7 +95,7 @@ const QuantityButton = ({
           </Control>
           <Control>
             <StyledButton
-              onClick={increaseAmount ? increaseAmount : increaseQuantity}
+              onClick={increaseAmount || increaseQuantity}
               sx={{ borderBottomLeftRadius: 0, borderTopLeftRadius: 0 }}
             >
               +

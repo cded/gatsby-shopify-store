@@ -1,3 +1,12 @@
+/* eslint-disable func-names */
+/* eslint-disable guard-for-in */
+/* eslint-disable no-cond-assign */
+/* eslint-disable block-scoped-var */
+/* eslint-disable no-plusplus */
+/* eslint-disable no-var */
+/* eslint-disable no-param-reassign */
+/* eslint-disable vars-on-top */
+/* eslint-disable no-restricted-syntax */
 /* 
 https://github.com/flamenx01/shortcode-parser
 lib/shortcode-parser.js 
@@ -7,9 +16,10 @@ const util = require('util');
 
 const shortcodes = {};
 
-const SHORTCODE_ATTRS = /(\s+([a-z0-9\-_]+|([a-z0-9\-_]+)\s*=\s*([a-z0-9\-_]+|\d+\.\d+|'[^']*'|"[^"]*")))*/
-  .toString()
-  .slice(1, -1);
+const SHORTCODE_ATTRS =
+  /(\s+([a-z0-9\-_]+|([a-z0-9\-_]+)\s*=\s*([a-z0-9\-_]+|\d+\.\d+|'[^']*'|"[^"]*")))*/
+    .toString()
+    .slice(1, -1);
 const SHORTCODE_SLASH = /\s*\/?\s*/.toString().slice(1, -1);
 const SHORTCODE_OPEN = /\[\s*%s/.toString().slice(1, -1);
 const SHORTCODE_RIGHT_BRACKET = '\\]';
@@ -18,20 +28,24 @@ const SHORTCODE_CONTENT = /(.|\n|)*?/.toString().slice(1, -1);
 const SHORTCODE_SPACE = /\s*/.toString().slice(1, -1);
 
 function typecast(val) {
+  // eslint-disable-next-line no-param-reassign
   val = val.trim().replace(/(^['"]|['"]$)/g, '');
   if (/^\d+$/.test(val)) {
     return parseInt(val, 10);
-  } else if (/^\d+\.\d+$/.test(val)) {
-    return parseFloat(val);
-  } else if (/^(true|false)$/.test(val)) {
-    return val === 'true';
-  } else if (/^undefined$/.test(val)) {
-    return undefined;
-  } else if (/^null$/i.test(val)) {
-    return null;
-  } else {
-    return val;
   }
+  if (/^\d+\.\d+$/.test(val)) {
+    return parseFloat(val);
+  }
+  if (/^(true|false)$/.test(val)) {
+    return val === 'true';
+  }
+  if (/^undefined$/.test(val)) {
+    return undefined;
+  }
+  if (/^null$/i.test(val)) {
+    return null;
+  }
+  return val;
 }
 
 function closeTagString(name) {

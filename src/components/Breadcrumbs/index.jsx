@@ -64,7 +64,10 @@ const Breadcrumbs = ({
               color="darkPrimaryBlue"
             >
               <Text as="span" itemProp="name">
-                {intl.formatMessage({ id: collectionHandle })}
+                {intl.formatMessage({
+                  id: collectionHandle,
+                  defaultMessage: collectionTitle,
+                })}
               </Text>
             </Text>
             <meta itemProp="position" content="2" />

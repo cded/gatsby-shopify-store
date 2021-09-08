@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /** @jsx jsx */
 /* eslint no-unused-vars: 0 */
 import { useState } from 'react';
@@ -20,8 +21,8 @@ import ChevronRight from '../../components/Icons/ChevronRight';
 import strings from './strings.json';
 import MainPageSliderImage from './MainPageSliderImage';
 
-import img1 from '../../images/image1.webp';
-import img2 from '../../images/image2.webp';
+import img1 from '../../images/carousel1.jpg';
+import img2 from '../../images/carousel2.jpg';
 
 const { ariaNextButtonLabel, ariaBackButtonLabel } = strings;
 
@@ -57,8 +58,6 @@ const MainPageCarousel = () => {
       name: intl.formatMessage({ id: 'home.carousel1.title' }),
       image: img1,
       description: intl.formatMessage({ id: 'home.carousel1.description' }),
-      positionY: '90%',
-      // textPosition: 'auto',
       highlightText: true,
       buttonText: intl.formatMessage({ id: 'home.shopNow' }),
     },
@@ -66,21 +65,15 @@ const MainPageCarousel = () => {
       name: intl.formatMessage({ id: 'home.carousel2.title' }),
       image: img2,
       buttonText: intl.formatMessage({ id: 'home.shopNow' }),
-      positionY: '40%',
       highlightTitle: true,
     },
   ];
 
   return (
     <Box
-      // mx={2}
-      // px={1}
       sx={{
         position: 'relative',
         textAlign: 'center',
-
-        // display: ['none', 'block'],
-        // maxWidth: 1300,
       }}
     >
       <CarouselProvider

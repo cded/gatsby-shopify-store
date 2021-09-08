@@ -1,4 +1,6 @@
+/* eslint-disable import/prefer-default-export */
 require('dotenv').config({ path: `.env` });
+
 const headers = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'Content-Type',
@@ -6,25 +8,27 @@ const headers = {
 const successCode = 200;
 const errorCode = 400;
 
-// Connect to our Mailgun API
+// Connect to the Mailgun API
 const mailgun = require('mailgun-js');
+
 const mg = mailgun({
   apiKey: process.env.MAILGUN_API_KEY,
   domain: process.env.MAILGUN_DOMAIN,
 });
 
-// Our Netlify function
+// Netlify function
 export function handler(event, context, callback) {
-  let data = JSON.parse(event.body);
-  let { name, email, message } = data;
-  let mailOptions = {
+  const data = JSON.parse(event.body);
+  const { name, email, message } = data;
+  const mailOptions = {
     from: `${name} <${email}>`,
     to: process.env.MY_EMAIL_ADDRESS,
     replyTo: email,
     text: `${message}`,
   };
 
-  // Our MailGun code
+  // MailGun code
+  // eslint-disable-next-line func-names
   mg.messages().send(mailOptions, function (error, body) {
     if (error) {
       callback(null, {

@@ -57,7 +57,12 @@ const ProductGalleryCarousel = ({
       {percentageSale && (
         <Box
           m={2}
-          sx={{ display: 'inline-block', position: 'absolute', 'z-index': 9 }}
+          sx={{
+            display: 'inline-block',
+            position: 'absolute',
+            'z-index': 9,
+            top: '15px',
+          }}
         >
           <StyledBadge
             text={`${percentageSale}%`}

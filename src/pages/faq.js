@@ -41,54 +41,6 @@ export default () => {
             <Collapsible title={intl.formatMessage({ id: 'faq.q0' })}>
               {intl.formatMessage({ id: 'faq.r0' })}
             </Collapsible>
-            <Collapsible title={intl.formatMessage({ id: 'faq.q1' })}>
-              {intl.formatMessage({ id: 'faq.r1' })}
-            </Collapsible>
-            <Collapsible title={intl.formatMessage({ id: 'faq.q2' })}>
-              {intl.formatMessage({ id: 'faq.r2' })}
-            </Collapsible>
-            <Collapsible title={intl.formatMessage({ id: 'faq.q3' })}>
-              {intl.formatMessage({ id: 'faq.r3' })}
-            </Collapsible>
-            <Collapsible title={intl.formatMessage({ id: 'faq.q4' })}>
-              {intl.formatMessage({ id: 'faq.r4' })}
-            </Collapsible>
-            <Collapsible title={intl.formatMessage({ id: 'faq.q5' })}>
-              {intl.formatMessage({ id: 'faq.r5' })}
-            </Collapsible>
-            <Collapsible title={intl.formatMessage({ id: 'faq.q6' })}>
-              {intl.formatMessage({ id: 'faq.r6' })}
-            </Collapsible>
-            <Collapsible title={intl.formatMessage({ id: 'faq.q7' })}>
-              {intl.formatMessage({ id: 'faq.r7' })}
-            </Collapsible>
-            <Collapsible title={intl.formatMessage({ id: 'faq.q8' })}>
-              {intl.formatMessage({ id: 'faq.r8' })}
-            </Collapsible>
-            <Collapsible title={intl.formatMessage({ id: 'faq.q9' })}>
-              {intl.formatMessage({ id: 'faq.r9' })}
-            </Collapsible>
-            <Collapsible title={intl.formatMessage({ id: 'faq.q10' })}>
-              {intl.formatMessage({ id: 'faq.r10' })}
-            </Collapsible>
-            <Collapsible title={intl.formatMessage({ id: 'faq.q11' })}>
-              {intl.formatMessage({ id: 'faq.r11' })}
-            </Collapsible>
-            <Collapsible title={intl.formatMessage({ id: 'faq.q12' })}>
-              {intl.formatMessage({ id: 'faq.r12' })}
-            </Collapsible>
-            <Collapsible title={intl.formatMessage({ id: 'faq.q13' })}>
-              {intl.formatMessage({ id: 'faq.r13' })}
-            </Collapsible>
-            <Collapsible title={intl.formatMessage({ id: 'faq.q14' })}>
-              {intl.formatMessage({ id: 'faq.r14' })}
-            </Collapsible>
-            <Collapsible title={intl.formatMessage({ id: 'faq.q15' })}>
-              {intl.formatMessage({ id: 'faq.r15' })}
-            </Collapsible>
-            <Collapsible title={intl.formatMessage({ id: 'faq.q16' })}>
-              {intl.formatMessage({ id: 'faq.r16' })}
-            </Collapsible>
           </Box>
         </Box>
       </Box>

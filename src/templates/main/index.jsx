@@ -18,12 +18,9 @@ export default (props) => {
         {{
           '@context': 'https://schema.org',
           '@type': 'Organization',
-          url: 'https://www.myhomeled.com/',
-          name: 'HomeLed',
-          description:
-            'We are an online platform, based in Canada, specialized in the sale of stylish and affordable LED furniture.',
-          sameAs: 'https://facebook.com/homeledfurniture/',
-          sameAs: 'https://instagram.com/homeledfurniture/',
+          url: 'https://www.yalampstore.com/',
+          name: 'Store',
+          description: intl.formatMessage({ id: 'seoDescription' }),
           contactPoint: {
             '@type': 'ContactPoint',
             telephone: '+1-450-999-5280',

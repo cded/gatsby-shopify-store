@@ -4,8 +4,8 @@ import { useStaticQuery, graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 
-import useShopifyFunctions from '../hooks/useShopifyFunctions';
 import { useIntl, Link as GatsbyLink } from 'gatsby-plugin-intl';
+import useShopifyFunctions from '../hooks/useShopifyFunctions';
 
 import Menu from './Menu';
 import Search from './Search';
@@ -57,16 +57,16 @@ const CartItemCount = styled.span`
 `;
 
 const TextCategory = styled(Text)`
-  background-color: ${(props) => props.isSale && '#db9200'};
+  background-color: ${(props) => props.isSale && '#F26542'};
   color: ${(props) => props.isSale && '#fff'};
   &:hover {
-    background-color: ${(props) => props.isSale && '#db9200'};
+    background-color: ${(props) => props.isSale && '#F26542'};
     color: ${(props) => props.isSale && '#fff'};
     opacity: ${(props) => props.isSale && '0.8'};
   }
 `;
 
-const Navbar = (props) => {
+const Navbar = () => {
   const [hideNavbarOnScroll, setHideNavbarOnScroll] = useState(true);
   const intl = useIntl();
 
@@ -280,7 +280,7 @@ const Navbar = (props) => {
             p={hideNavbarOnScroll ? '0' : '12px'}
             mb={hideNavbarOnScroll && '10px'}
           >
-            {collections?.length &&
+            {collections?.length > 0 &&
               collections.map((collection) => (
                 <TextCategory
                   as={GatsbyLink}
@@ -299,7 +299,10 @@ const Navbar = (props) => {
                   p="8px 12px"
                   isSale={collection.handle === 'sale'}
                 >
-                  {intl.formatMessage({ id: collection.handle })}
+                  {intl.formatMessage({
+                    id: collection.handle,
+                    defaultMessage: collection.title,
+                  })}
                 </TextCategory>
               ))}
           </Box>

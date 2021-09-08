@@ -49,57 +49,6 @@ export default () => {
                 {intl.formatMessage({ id: 'about.section1.title' })}
               </Heading>
               <Text>{intl.formatMessage({ id: 'about.section1.par1' })}</Text>
-              <Text mt="20px">
-                {intl.formatMessage({ id: 'about.section1.par2' })}
-              </Text>
-              <Text mt="20px">
-                {intl.formatMessage({ id: 'about.section1.par3' })}
-              </Text>
-              <Text mt="20px">
-                {intl.formatMessage({ id: 'about.section1.par4' })}
-              </Text>
-              <Text mt="20px">
-                {intl.formatMessage({ id: 'about.section1.par5' })}
-              </Text>
-            </Box>
-
-            <Box mt={4} mb={4}>
-              <Heading
-                sx={{ textAlign: 'left', textTransform: 'uppercase' }}
-                mt={[2, 3]}
-                mb={3}
-                fontSize={['20px', '24px']}
-              >
-                {intl.formatMessage({ id: 'about.section2.title' })}
-              </Heading>
-              <Text>{intl.formatMessage({ id: 'about.section2.par1' })}</Text>
-              <Text mt="20px">
-                {intl.formatMessage({ id: 'about.section2.par2' })}
-              </Text>
-            </Box>
-
-            <Box mt={4} mb={4}>
-              <Heading
-                sx={{ textAlign: 'left', textTransform: 'uppercase' }}
-                mt={[2, 3]}
-                mb={3}
-                fontSize={['20px', '24px']}
-              >
-                {intl.formatMessage({ id: 'about.section3.title' })}
-              </Heading>
-              <Text>{intl.formatMessage({ id: 'about.section3.par1' })}</Text>
-            </Box>
-
-            <Box mt={4} mb={4}>
-              <Heading
-                sx={{ textAlign: 'left', textTransform: 'uppercase' }}
-                mt={[2, 3]}
-                mb={3}
-                fontSize={['20px', '24px']}
-              >
-                {intl.formatMessage({ id: 'about.section4.title' })}
-              </Heading>
-              <Text>{intl.formatMessage({ id: 'about.section4.par1' })}</Text>
             </Box>
           </Box>
         </Box>

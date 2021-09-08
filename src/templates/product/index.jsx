@@ -9,15 +9,23 @@ import SEO from '../../components/SEO';
 export default (props) => {
   const { title, description } = props.data.product;
 
-  const [descFr, descEn] = description.split('langdelimiter');
-  const intl = useIntl();
-  const locale = intl.locale;
-  const currentDescription = locale === 'fr' ? descFr : descEn;
-  const desc = currentDescription.split(/\\n/g)[0];
+  let productDescription;
+  // This is a trick to get the product description in multiple languages
+  // We add a langdelimiter string in the shopify product description
+  // and then split the string into each language
+  if (description.includes('langdelimiter')) {
+    const [descFr, descEn] = description.split('langdelimiter');
+    const intl = useIntl();
+    const locale = intl.locale;
+    const currentDescription = locale === 'fr' ? descFr : descEn;
+    productDescription = currentDescription.split(/\\n/g)[0];
+  } else {
+    productDescription = description.split(/\\n/g)[0];
+  }
 
   return (
     <Layout>
-      <SEO title={title} description={desc} />
+      <SEO title={title} description={productDescription} />
       <ProductPage {...props} />
     </Layout>
   );

@@ -54,6 +54,15 @@ const ContactForm = () => {
     return false;
   };
 
+  const handleSuccess = () => {
+    setData({ name: null, email: null, message: null });
+    setShowSuccess(true);
+  };
+
+  const handleError = () => {
+    setShowError(true);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -71,15 +80,6 @@ const ContactForm = () => {
       .catch(() => {
         handleError();
       });
-  };
-
-  const handleSuccess = () => {
-    setData({ name: null, email: null, message: null });
-    setShowSuccess(true);
-  };
-
-  const handleError = () => {
-    setShowError(true);
   };
 
   return (
@@ -123,7 +123,7 @@ const ContactForm = () => {
               <input
                 name="name"
                 type="text"
-                class="feedback-input name"
+                className="feedback-input name"
                 onChange={handleInputChange}
                 value={data.name}
               />
@@ -139,7 +139,7 @@ const ContactForm = () => {
               <input
                 name="email"
                 type="text"
-                class="feedback-input email"
+                className="feedback-input email"
                 onChange={handleInputChange}
                 value={data.email}
               />
@@ -150,10 +150,10 @@ const ContactForm = () => {
               </label>
               <textarea
                 name="message"
-                class="feedback-input msg"
+                className="feedback-input msg"
                 onChange={handleInputChange}
                 value={data.message}
-              ></textarea>
+              />
             </FormGroup>
             <Button
               type="submit"

@@ -6,20 +6,15 @@ import { Flex, Box, Text, Heading } from 'rebass';
 import { useStaticQuery, graphql } from 'gatsby';
 import { useIntl, Link as GatsbyLink, Link } from 'gatsby-plugin-intl';
 
-// import loadable from '@loadable/component';
 import styled from '@emotion/styled';
-import Img from 'gatsby-image';
 
 import VisaImg from '../images/visa.svg';
 import MasterCardImg from '../images/mastercard.svg';
 import AmexImg from '../images/amex.svg';
 import PaypalImg from '../images/paypal.png';
-import FaceImg from '../images/facebook1.svg';
+import FaceImg from '../images/facebook.svg';
 import InstaImg from '../images/instagram.svg';
 import Language from './Language/Language';
-// import { SocialIcon } from 'react-social-icons';
-
-// const SocialIcon = loadable(() => import('./SocialIcon'));
 
 const validURL = (str) => {
   const pattern = new RegExp(
@@ -46,26 +41,6 @@ const SocialImage = styled.img`
   margin-right: 15px;
   &:hover {
     opacity: 0.8;
-  }
-`;
-
-const ImageCropper = styled.div`
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  position: relative;
-  overflow: hidden;
-  margin: auto;
-`;
-
-const MapImage = styled(Img)`
-  margin: 0 auto;
-  margin-left: -25%; //centers the image
-  height: 100%;
-  width: auto;
-  &.gatsby-image-wrapper {
-    position: initial !important;
-    display: block !important;
   }
 `;
 
@@ -102,14 +77,8 @@ function Footer() {
     }
   `);
 
-  const {
-    email,
-    company,
-    footerLinks,
-    phone,
-    workingDays,
-    workingHours,
-  } = data.site.siteMetadata.gatsbyStorefrontConfig;
+  const { email, company, footerLinks, phone } =
+    data.site.siteMetadata.gatsbyStorefrontConfig;
 
   const { theme } = useThemeUI();
 
@@ -136,22 +105,6 @@ function Footer() {
             mx="auto"
             mb={3}
           >
-            {/* <Box
-              mr={[1, 0]}
-              width={['100%', 'auto']}
-              sx={{ display: ['none', 'block'] }}
-            >
-              <ImageCropper>
-                <MapImage
-                  fixed={data.file.childImageSharp.fluid}
-                  alt="map of montreal"
-                />
-              </ImageCropper>
-              <Text mt={[2]} sx={{ textAlign: 'center' }} fontSize={[1, 2]}>
-                Made in Montreal, Quebec
-              </Text>
-            </Box> */}
-
             <Box
               mr={[1, 3]}
               width={['100%', 'auto']}
@@ -181,21 +134,20 @@ function Footer() {
                 }}
               >
                 <a
-                  href="https://facebook.com/homeledfurniture/"
+                  href="https://facebook.com/store/"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <SocialImage src={FaceImg} alt="facebook page link" />
                 </a>
                 <a
-                  href="https://instagram.com/homeledfurniture/"
+                  href="https://instagram.com/store/"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <SocialImage src={InstaImg} alt="instagram link" />
                 </a>
               </Box>
-              {/* <Text mt={[2]} sx={{ textAlign: 'center' }} fontSize={[1, 2]}>
-                Based in Montreal, Canada
-              </Text> */}
             </Box>
 
             <Box my={[2, 0]} fontSize={['12px', 'inherit']}>
@@ -231,16 +183,8 @@ function Footer() {
                 {phone}
               </Text>
               <Text mr={[3, 0]} my={[2, 0]}>
-                {intl.formatMessage({ id: 'footer.phone1' })}
-                +1 (844) 753-0051
-              </Text>
-              <Text mr={[3, 0]} my={[2, 0]}>
                 {intl.formatMessage({ id: 'footer.workingDays' })}:{' '}
                 {intl.formatMessage({ id: 'footer.workingHours' })}
-              </Text>
-              <Text mr={[3, 0]} my={[2, 0]}>
-                {intl.formatMessage({ id: 'footer.workingDays1' })}:{' '}
-                {intl.formatMessage({ id: 'footer.workingHours1' })}
               </Text>
 
               <Box
@@ -263,50 +207,19 @@ function Footer() {
                 sx={{ alignItems: 'baseline' }}
               >
                 <a
-                  href="https://facebook.com/homeledfurniture/"
+                  href="https://facebook.com/store/"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <SocialImage src={FaceImg} alt="facebook page link" />
                 </a>
                 <a
-                  href="https://instagram.com/homeledfurniture/"
+                  href="https://instagram.com/store/"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <SocialImage src={InstaImg} alt="instagram link" />
                 </a>
-                {/* {socialNetworks
-                  ? socialNetworks.map((socialNetwork, index) => {
-                      return (
-                        <Box
-                          key={index}
-                          sx={{
-                            marginLeft: [2, 3],
-                            opacity: 0.8,
-                            ':hover,:focus,.active': {
-                              opacity: 1,
-                            },
-                          }}
-                        >
-                          <SocialIcon
-                            url={socialNetwork}
-                            // bg={
-                            //   socialNetwork.includes('instagram') && ' #d6249f'
-                            // }
-                            bgColor={
-                              socialNetwork.includes('instagram') &&
-                              'transparent'
-                            }
-                            fgColor={
-                              socialNetwork.includes('instagram') && '#d6249f'
-                            }
-                            width={
-                              socialNetwork.includes('instagram') && '50px'
-                            }
-                          />
-                        </Box>
-                      );
-                    })
-                  : ''} */}
               </Flex>
             </Box>
 

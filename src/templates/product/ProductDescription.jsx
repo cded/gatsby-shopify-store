@@ -1,14 +1,9 @@
 import React from 'react';
-import { useIntl } from 'gatsby-plugin-intl';
 
 import DescriptionBox from './DescriptionBox';
 import ProductDescriptionSections from './ProductDescriptionSections';
 
-const ProductDescription = ({ description, sections = [] }) => {
-  const [descFr, descEn] = description.split('langdelimiter');
-  const intl = useIntl();
-  const locale = intl.locale;
-  const currentDescription = locale === 'fr' ? descFr : descEn;
+const ProductDescription = ({ productDescription, sections = [] }) => {
   return (
     <>
       {sections.length > 0 ? (
@@ -16,7 +11,7 @@ const ProductDescription = ({ description, sections = [] }) => {
       ) : (
         <>
           <DescriptionBox
-            source={currentDescription
+            source={productDescription
               .replace(/\\n/g, '<br />')
               .replace(/Dimensions:/g, '<h2>Dimensions:</h2>')}
           />

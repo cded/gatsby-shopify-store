@@ -5,8 +5,9 @@ import useLocalStorage from 'react-use/lib/useLocalStorage';
 const persistedStateId = 'shopifyCheckout';
 
 function createShopifyClient() {
+  // Put shopify checkout url here if custom domain (e.g checkout.store.com)
   return shopify.buildClient({
-    domain: `checkout.myhomeled.com`,
+    domain: `${process.env.GATSBY_SHOPIFY_SHOP_NAME}.myshopify.com`,
     storefrontAccessToken: process.env.GATSBY_SHOPIFY_ACCESS_TOKEN,
   });
 }
@@ -21,6 +22,7 @@ function shopifyCheckoutReducer(_, action) {
     case shopifyActions.setLoading:
       return { loaded: false };
     case shopifyActions.setCheckout:
+      // eslint-disable-next-line no-case-declarations
       const { lineItems = [], subtotalPrice = 0, webUrl = '' } = action.payload;
       return { lineItems, subtotalPrice, webUrl, loaded: true };
     default:

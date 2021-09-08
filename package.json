@@ -1,18 +1,16 @@
 {
-  "name": "homeled",
+  "name": "gatsby-shopify-store",
   "private": false,
-  "description": "Ecommerce platform for led furniture",
+  "description": "Ecommerce platform with gatsby and shopify",
   "version": "2.1.0",
   "author": {
     "name": "Youssef Akallal",
-    "email": "youssef.akallal@gmail.com",
-    "url": "https://myhomeled.com/"
+    "email": "youssef.akallal@gmail.com"
   },
   "dependencies": {
     "@emotion/core": "^10.0.21",
     "@emotion/styled": "^10.0.17",
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.3.0",
-    "@gatsbystorefront/gatsby-source-shopify": "^3.6.0-2",
     "@loadable/component": "^5.13.1",
     "@mdx-js/react": "^1.6.22",
     "@n8tb1t/use-scroll-position": "^1.0.43",
@@ -73,14 +71,15 @@
     "cz-conventional-changelog": "^3.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
-    "eslint-config-prettier": "^6.10.1",
+    "eslint-config-prettier": "^6.15.0",
     "eslint-config-react-app": "^5.0.2",
     "eslint-plugin-flowtype": "^4.7.0",
     "eslint-plugin-graphql": "^3.1.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.3.0",
     "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^3.0.0",
+    "eslint-plugin-react-hooks": "^2.0.0",
     "gatsby": "^2.13.38",
     "gatsby-plugin-eslint": "^2.0.8",
     "http-proxy-middleware": "^1.0.6",
@@ -91,8 +90,6 @@
   },
   "keywords": [
     "gatsby",
-    "gatsbystorefront",
-    "gatsby-theme-storefront-shopify",
     "gatsby-starter"
   ],
   "license": "MPL-2.0",
@@ -109,6 +106,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/@cded/homeled"
+    "url": "https://github.com/@cded/gatsby-shopify-store"
   }
 }

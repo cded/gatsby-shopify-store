@@ -4,7 +4,7 @@ import { useIntl } from 'gatsby-plugin-intl';
 import './product-box.css';
 
 const MainPageProductBox = (props) => {
-  const product = props.product;
+  const { product } = props;
   const intl = useIntl();
   return (
     <div className="box productBox" key={product.title}>

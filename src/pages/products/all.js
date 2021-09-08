@@ -1,6 +1,7 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { Flex, Box, Heading, Text } from 'rebass';
-import { useStaticQuery } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import { useIntl } from 'gatsby-plugin-intl';
 
 import CatalogProducts from '../../templates/catalog/CatalogProducts';
@@ -41,7 +42,7 @@ const CatalogAllProducs = () => {
           productType
           tags
           title
-          updatedAt
+          createdAt
           variants {
             availableForSale
             compareAtPrice
@@ -68,7 +69,7 @@ const CatalogAllProducs = () => {
     <Layout>
       <SEO
         title="Catalog"
-        description="Browse all our available products here. Discover our selection of modern, chic, LED furniture"
+        description="Browse all our available products here. Discover our selection of modern products"
       />
       <Flex flexWrap="wrap" px={2} pt={3} mx="auto" style={{ maxWidth: 1300 }}>
         <Flex
@@ -87,18 +88,6 @@ const CatalogAllProducs = () => {
               {intl.formatMessage({ id: 'catalog.title' })}
             </Text>
           </Text>
-          {/* <Text
-            textAlign={['center', 'right']}
-            width={['100%', 'auto']}
-            pt={1}
-            fontSize={[1, 2, 3]}
-          >
-            <CollectionStats
-              limit={limit}
-              skip={skip}
-              productsNum={products.length}
-            />
-          </Text> */}
         </Flex>
         <CatalogProducts
           products={products}

@@ -1,3 +1,6 @@
+/* eslint-disable consistent-return */
+/* eslint-disable array-callback-return */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import { IntlContextConsumer, changeLocale } from 'gatsby-plugin-intl';
 import './Language.css';
@@ -28,6 +31,7 @@ const Language = ({ display }) => (
                 key={language}
                 onClick={() => changeLocale(language)}
                 className="language-selector"
+                role="presentation"
               >
                 {display === 'short'
                   ? languageNameShort[language]

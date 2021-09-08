@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import { Box, Text } from 'rebass';
 import { useIntl } from 'gatsby-plugin-intl';
@@ -39,7 +40,7 @@ const ItemBg = styled(Box)`
   background-color: ${(props) => props.color || 'white'};
   float: left;
   border: 3px solid #dbdbdb;
-  border-color: ${(props) => (props.selected ? '#db9200' : '#dbdbdb')};
+  border-color: ${(props) => (props.selected ? '#F26542' : '#dbdbdb')};
   border-radius: 50%;
   background-position: 50%;
   background-size: auto;
